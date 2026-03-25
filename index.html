@@ -203,7 +203,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <button class="ttab" onclick="showPage('estrategia',this)">Estrategia</button>
     <button class="ttab" onclick="showPage('clientes',this)">Clientes</button>
   </div>
-  <div class="topbar-date">24·03·2026</div>
+  <div class="topbar-date">25·03·2026</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -216,7 +216,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div class="stat-card">
       <div class="stat-label">Proyectos activos</div>
       <div class="stat-num" style="color:var(--text)">15</div>
-      <div class="stat-sub">5 completados al 100%</div>
+      <div class="stat-sub">Gestión + obra en curso</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Urgentes</div>
@@ -237,19 +237,31 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <!-- Novedades -->
   <div style="margin-bottom:20px">
-    <div class="section-hdr"><h2>Novedades</h2><span>Panel 24·03·2026</span></div>
+    <div class="section-hdr"><h2>Novedades</h2><span>Panel 25·03·2026</span></div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
         <span class="badge b-done">✓ Nuevo</span>
-        <div><strong>Campo Madero</strong> — Convenio Urbanístico completado. Pendiente: conexión eléctrica final EPE (Expte. 2/2025/16430).</div>
+        <div><strong>CEPE</strong> — Trafo 5MVA entregado a CLESAPE. Obra complementaria en curso. Convenio eléctrico y inicio de obra aprobados.</div>
       </div>
       <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
         <span class="badge b-done">✓ Nuevo</span>
-        <div><strong>Vitta</strong> — CH2 aprobado (Expte. 01909-0000288-9 · 02/04/2025). Comunicar a propietarios como hito positivo.</div>
+        <div><strong>Vitta Río</strong> — Factibilidad de Gas aprobada por Litoral Gas (10/03/2026). Convenio eléctrico EPE aprobado.</div>
       </div>
       <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
         <span class="badge b-done">✓ Nuevo</span>
-        <div><strong>Campo Madero 2</strong> — Admisibilidad completada. Momento de impulso para avanzar en Convenio Urbanístico (URGENTE).</div>
+        <div><strong>Clos del Este</strong> — Factibilidad de Gas aprobada por Litoral Gas (20/03/2026).</div>
+      </div>
+      <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
+        <span class="badge b-done">✓ Nuevo</span>
+        <div><strong>CEZA</strong> — Admisibilidad aprobada municipalmente. Factibilidad corrimiento caño gas (Pacífico Otero) aprobada por Litoral Gas.</div>
+      </div>
+      <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
+        <span class="badge b-done">✓ Nuevo</span>
+        <div><strong>Campo Madero</strong> — Convenio Eléctrico EPE Aprobado. Falta aprobación obra complementaria e inspección para conexionado (documentación presentada).</div>
+      </div>
+      <div class="card" style="border-color:rgba(74,154,106,.3);display:flex;align-items:center;gap:12px">
+        <span class="badge b-done">✓ Nuevo</span>
+        <div><strong>Campo Madero 2</strong> — Admisibilidad completada 24/03. URGENTE: Convenio Urbanístico y CH1.</div>
       </div>
     </div>
   </div>
@@ -274,7 +286,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
      PAGE: GESTIÓN
 ════════════════════════════════════════════════════════════ -->
 <div class="page" id="page-gestion">
-  <div class="section-hdr"><h2>Gestión</h2><span>Hitos por proyecto · Panel 24·03·2026</span></div>
+  <div class="section-hdr"><h2>Gestión</h2><span>Hitos por proyecto · Panel 25·03·2026</span></div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
     <input class="search-input" type="text" placeholder="Buscar proyecto, expediente, hito..." oninput="filterGestion(this.value)">
@@ -392,7 +404,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 // DATOS
 // ══════════════════════════════════════════════════════════════
 const PROJS = [
-  {id:"LM",nombre:"Los Muchachos",loc:"Piñero",ha:12,lotes:206,avance:100,urgente:false,entrega:"Entregado",
+  {id:"LM",nombre:"Los Muchachos",loc:"Piñero",ha:12,lotes:206,avanceGestion:95,avanceObra:100,urgente:false,entrega:"Entregado",
    tags:["completo"],
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"31/07/18",fin:"26/07/19",obs:""},
@@ -406,7 +418,7 @@ const PROJS = [
    ],
    obra:[]},
 
-  {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avance:100,urgente:false,entrega:"Escriturado",
+  {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Escriturado",
    tags:["completo"],
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"21/12/18",fin:"10/09/19",obs:""},
@@ -420,7 +432,7 @@ const PROJS = [
    ],
    obra:[]},
 
-  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avance:100,urgente:true,entrega:"Jun 2026",
+  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avanceGestion:95,avanceObra:97,urgente:true,entrega:"Jun 2026",
    tags:["urgente","proceso"],
    nota:"✅ Convenio Urbanístico completado 24/03. URGENTE: conexión eléctrica final EPE.",
    hitos:[
@@ -430,7 +442,8 @@ const PROJS = [
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"20/12/19",fin:"23/10/24",obs:"✅ Completado 24/03/2026"},
      {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"02102-0014860-4",ini:"08/04/25",fin:"",obs:""},
      {etapa:"Ambiental",nombre:"EIA",est:"done",exp:"EX-2023-00243212-GSF-DDDZS#MMA",ini:"27/10/23",fin:"07/05/25",obs:""},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"urgent",exp:"2/2025/16430",ini:"",fin:"",obs:"⚡ Pendiente inspección y conexión final"},
+     {etapa:"Eléctrico",nombre:"Convenio Eléctrico EPE",est:"done",exp:"2/2025/16430",ini:"",fin:"",obs:"✅ Aprobado"},
+     {etapa:"Eléctrico",nombre:"Obra Complementaria e Inspección para Conexionado",est:"proc",exp:"2/2025/16430",ini:"",fin:"",obs:"⚡ Falta aprobación — documentación presentada"},
    ],
    obra:[
      {r:"Calzadas y cordón cuneta",p:95,nota:""},
@@ -444,7 +457,7 @@ const PROJS = [
      {r:"Red eléctrica interna",p:90,nota:"Falta obra de conexión externa con EPE · Convenio SE024/2025 iniciado 22/07/2025"},
    ]},
 
-  {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avance:91,urgente:true,entrega:"Jun 2026",
+  {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avanceGestion:75,avanceObra:98,urgente:true,entrega:"Jun 2026",
    tags:["urgente","proceso"],
    nota:"CH2 bloqueante. 100% obra interna lista.",
    hitos:[
@@ -466,17 +479,17 @@ const PROJS = [
      {r:"Obra hídrica externa",p:85,nota:"🔴 CLAVE para CH2 · compartida con EN2"},
    ]},
 
-  {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avance:99,urgente:false,entrega:"Dic 2028",
+  {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avanceGestion:70,avanceObra:100,urgente:false,entrega:"Dic 2028",
    tags:["proceso"],
-   nota:"✅ CH2 aprobado (02/04/2025). CAT en trámite.",
+   nota:"Convenio Eléctrico EPE Aprobado. Falta inicio de obra eléctrica. CH2 ✅. CAT en trámite.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"01/06/19",fin:"27/11/19",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000288-9",ini:"14/12/20",fin:"06/01/22",obs:""},
      {etapa:"Hídrico",nombre:"CH2",est:"done",exp:"01909-0000288-9",ini:"23/05/22",fin:"02/04/25",obs:"✅ Aprobado — comunicar a propietarios"},
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"proc",exp:"",ini:"01/06/19",fin:"",obs:""},
      {etapa:"Ambiental",nombre:"CAT",est:"proc",exp:"02102-0014904-9",ini:"11/04/25",fin:"",obs:"En trámite — bloqueante para continuar obras"},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:""},
-     {etapa:"Eléctrico",nombre:"CUR",est:"done",exp:"0035/25",ini:"02/10/25",fin:"28/10/25",obs:""},
+     {etapa:"Eléctrico",nombre:"Convenio Eléctrico EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado"},
+     {etapa:"Eléctrico",nombre:"Inicio de Obra Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Pendiente inicio"},
    ],
    obra:[
      {r:"Red de agua potable",p:100,nota:""},
@@ -484,9 +497,9 @@ const PROJS = [
      {r:"Calzadas con cordón cuneta",p:100,nota:""},
    ]},
 
-  {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avance:100,urgente:true,entrega:"Dic 2026",
+  {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avanceGestion:95,avanceObra:80,urgente:true,entrega:"Dic 2026",
    tags:["urgente","proceso"],
-   nota:"CUR obtenido. Suspensión levantada 10/11/2025. Eléctrica 70%. Transformador 5MVA en CLESAPE.",
+   nota:"CUR obtenido. Suspensión levantada 10/11/2025. Eléctrica 70%. Trafo 5MVA entregado a CLESAPE.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"29/10/20",fin:"19/03/21",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000288-9",ini:"14/12/20",fin:"06/01/22",obs:""},
@@ -494,7 +507,9 @@ const PROJS = [
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"29/10/20",fin:"22/06/21",obs:""},
      {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"EX-2022-00154694-GSF-DDDZS#MMA",ini:"26/07/22",fin:"13/05/25",obs:""},
      {etapa:"Ambiental",nombre:"EIA",est:"done",exp:"EXP 02102-0015190-7",ini:"07/07/25",fin:"02/10/25",obs:""},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"urgent",exp:"",ini:"",fin:"",obs:"⚡ Obra eléctrica 70% · Transformador 5MVA en CLESAPE"},
+     {etapa:"Eléctrico",nombre:"Convenio Eléctrico CLESAPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado"},
+     {etapa:"Eléctrico",nombre:"Inicio de Obra Eléctrica",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado"},
+     {etapa:"Eléctrico",nombre:"Trafo 5MVA",est:"done",exp:"",ini:"",fin:"",obs:"✅ Entregado a CLESAPE — obra complementaria en curso"},
      {etapa:"Cierre",nombre:"CUR",est:"done",exp:"EXP 0035/25",ini:"02/10/25",fin:"28/10/25",obs:"Levantamiento suspensión 10/11/2025"},
    ],
    obra:[
@@ -509,7 +524,7 @@ const PROJS = [
      {r:"Forestación y mobiliario",p:90,nota:""},
    ]},
 
-  {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avance:65,urgente:false,entrega:"Por definir",
+  {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avanceGestion:60,avanceObra:34,urgente:false,entrega:"Por definir",
    tags:["proceso"],
    nota:"1.46 Ha · 19 lotes. Calzadas y agua 100%. Eléctrica depende de CM1+EPE. Co-housing (revisar con legales — no promocionar).",
    hitos:[
@@ -528,7 +543,7 @@ const PROJS = [
      {r:"Desagües pluviales",p:5,nota:""},
    ]},
 
-  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:7.3,lotes:129,avance:100,urgente:false,entrega:"Jun 2026",
+  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:7.3,lotes:129,avanceGestion:95,avanceObra:73,urgente:false,entrega:"Jun 2026",
    tags:["proceso","completo"],
    nota:"Gestiones completas. Pendiente firma convenio eléctrico cooperativa.",
    hitos:[
@@ -549,7 +564,7 @@ const PROJS = [
      {r:"Red eléctrica",p:0,nota:"🔴 Bloqueado hasta firma convenio cooperativa"},
    ]},
 
-  {id:"EN2",nombre:"El Naranjo 2",loc:"Ybarlucea",ha:18.2,lotes:336,avance:64,urgente:false,entrega:"Dic 2028",
+  {id:"EN2",nombre:"El Naranjo 2",loc:"Ybarlucea",ha:18.2,lotes:336,avanceGestion:60,avanceObra:76,urgente:false,entrega:"Dic 2028",
    tags:["proceso"],
    nota:"CH2 (Expte 01907-0016058-1) iniciado 01/02/25. Obras internas avanzadas. Pendiente: CH2, CAT, pórtico Schilla, forestación.",
    hitos:[
@@ -567,16 +582,18 @@ const PROJS = [
      {r:"Aporte obras complementarias descarga hídrica externa",p:50,nota:"🔴 CLAVE para CH2 — dentro de convenio urbanístico firmado"},
    ]},
 
-  {id:"VR",nombre:"Vitta Río",loc:"General Lagos",ha:17.4,lotes:196,avance:52,urgente:false,entrega:"Jun 2031",
+  {id:"VR",nombre:"Vitta Río",loc:"General Lagos",ha:17.4,lotes:196,avanceGestion:45,avanceObra:37,urgente:false,entrega:"Jun 2031",
    tags:["proceso"],
-   nota:"CH1 aprobado. Convenio Urbanístico URGENTE. CH2 en proceso.",
+   nota:"Convenio Eléctrico EPE Aprobado. Factibilidad Gas Litoral Gas aprobada 10/03/2026. Falta inicio obra eléctrica. CH2 en proceso.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Admisibilidad de Proyecto",est:"proc",exp:"00115-0015043-0",ini:"03/02/25",fin:"17/06/25",obs:""},
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"Resolución N°2351/24",ini:"27/10/21",fin:"30/10/24",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000680-7",ini:"07/06/22",fin:"30/07/24",obs:""},
      {etapa:"Hídrico",nombre:"CH2",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"urgent",exp:"",ini:"07/12/22",fin:"",obs:"⚡ URGENTE — pendiente firma"},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:""},
+     {etapa:"Eléctrico",nombre:"Convenio Eléctrico EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado"},
+     {etapa:"Eléctrico",nombre:"Inicio de Obra Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Pendiente inicio"},
+     {etapa:"Gas",nombre:"Factibilidad de Gas — Litoral Gas",est:"done",exp:"",ini:"",fin:"10/03/26",obs:"✅ Aprobada por Litoral Gas 10/03/2026"},
    ],
    obra:[
      {r:"Red cloacal",p:90,nota:""},
@@ -584,7 +601,7 @@ const PROJS = [
      {r:"Calzadas",p:10,nota:""},
    ]},
 
-  {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avance:18,urgente:true,entrega:"Jun 2033",
+  {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avanceGestion:35,avanceObra:67,urgente:true,entrega:"Jun 2033",
    tags:["urgente","proceso"],
    nota:"✅ Admisibilidad completada 24/03. URGENTE: Convenio Urbanístico y CH1.",
    hitos:[
@@ -601,20 +618,24 @@ const PROJS = [
      {r:"Obras internas",p:0,nota:"🔴 Bloqueado hasta aprobaciones provinciales"},
    ]},
 
-  {id:"CZ",nombre:"CEZA",loc:"Zavalla",ha:23,lotes:380,avance:61,urgente:false,entrega:"Dic 2030",
+  {id:"CZ",nombre:"CEZA",loc:"Zavalla",ha:23,lotes:380,avanceGestion:55,avanceObra:30,urgente:false,entrega:"Dic 2030",
    tags:["proceso"],
-   nota:"CAT en trámite. Análisis por cuenca genera demoras adicionales.",
+   nota:"Admisibilidad aprobada municipalmente. Calzada Sarmiento 60%. Factibilidad corrimiento caño gas aprobada.",
    hitos:[
-     {etapa:"Admisibilidad",nombre:"Admisibilidad de Proyecto",est:"proc",exp:"",ini:"",fin:"",obs:""},
+     {etapa:"Admisibilidad",nombre:"Admisibilidad de Proyecto",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado municipalmente"},
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"07/12/23",fin:"",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"proc",exp:"",ini:"",fin:"",obs:"Análisis por cuenca desde dic. 2025"},
      {etapa:"Hídrico",nombre:"CH2",est:"proc",exp:"",ini:"",fin:"",obs:""},
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"",fin:"",obs:""},
      {etapa:"Ambiental",nombre:"CAT",est:"proc",exp:"02102-0014860-4",ini:"08/04/25",fin:"",obs:""},
+     {etapa:"Gas",nombre:"Factibilidad Corrimiento Caño Gas — Pacífico Otero",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado por Litoral Gas"},
    ],
-   obra:[{r:"Obras internas",p:0,nota:"🔴 No iniciadas — gestión administrativa en curso"}]},
+   obra:[
+     {r:"Obra de calzada calle Sarmiento",p:60,nota:"Único rubro con avance activo"},
+     {r:"Obras internas restantes",p:0,nota:"🔴 No iniciadas — gestión administrativa en curso"},
+   ]},
 
-  {id:"CDE",nombre:"Clos del Este",loc:"Roldán",ha:66,lotes:880,avance:4,urgente:false,entrega:"Dic 2034",
+  {id:"CDE",nombre:"Clos del Este",loc:"Roldán",ha:66,lotes:880,avanceGestion:10,avanceObra:0,urgente:false,entrega:"Dic 2034",
    tags:["proceso"],
    nota:"Mayor riesgo reputacional del portfolio. Expte Municipalidad 3954 / Concejo 1617.",
    hitos:[
@@ -622,14 +643,15 @@ const PROJS = [
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"proc",exp:"",ini:"15/03/24",fin:"",obs:"Expte Municipalidad 3954 / Concejo 1617"},
      {etapa:"Hídrico",nombre:"CH1",est:"proc",exp:"",ini:"",fin:"",obs:"VUI ingresado 29/01/2025"},
      {etapa:"Hídrico",nombre:"CH2",est:"proc",exp:"",ini:"",fin:"",obs:""},
+     {etapa:"Gas",nombre:"Factibilidad de Gas — Litoral Gas",est:"done",exp:"",ini:"",fin:"20/03/26",obs:"✅ Aprobada por Litoral Gas 20/03/2026"},
    ],
    obra:[{r:"Obras internas",p:0,nota:"🔴 No iniciadas — normativa exige CH1+CH2+CAT previos"}]},
 
-  {id:"VN",nombre:"Vitta Norte",loc:"Soldini",ha:"",lotes:"",avance:4,urgente:false,entrega:"Jun 2036",
+  {id:"VN",nombre:"Vitta Norte",loc:"Soldini",ha:"",lotes:"",avanceGestion:5,avanceObra:0,urgente:false,entrega:"Jun 2036",
    tags:["proceso"],nota:"Inicio de trámites.",
    hitos:[{etapa:"Admisibilidad",nombre:"Uso Conforme",est:"proc",exp:"",ini:"18/06/24",fin:"",obs:""}],
    obra:[]},
-  {id:"OR2",nombre:"Orígenes 2",loc:"Ybarlucea",ha:"",lotes:"",avance:4,urgente:false,entrega:"Por definir",
+  {id:"OR2",nombre:"Orígenes 2",loc:"Ybarlucea",ha:"",lotes:"",avanceGestion:5,avanceObra:0,urgente:false,entrega:"Por definir",
    tags:["proceso"],nota:"Inicio de trámites.",
    hitos:[{etapa:"Admisibilidad",nombre:"Uso Conforme",est:"proc",exp:"",ini:"",fin:"",obs:""}],
    obra:[]},
@@ -801,8 +823,8 @@ const ESTRATEGIA = [
    accion:"Finalizar obra descarga hídrica externa (85%). Seguimiento activo Ministerio SF.",
    riesgo:"Percepción de espera injusta — obra terminada sin posesión"},
   {proj:"CEPE",prio:"urgente",foco:"Finalizar red eléctrica y comunicar posesión",
-   critico:"Red eléctrica al 70%. Transformador 5MVA en CLESAPE. Suspensión levantada. Estamos desbloqueados.",
-   accion:"Ejecutar tendido eléctrico final. Coordinar con CLESAPE. Definir fecha de posesión.",
+   critico:"Red eléctrica al 70%. Trafo 5MVA entregado a CLESAPE. Suspensión levantada. Estamos desbloqueados.",
+   accion:"Ejecutar tendido eléctrico final. Coordinar con CLESAPE. Acercamiento al municipio para ajustes de posesión y marcos legales. Definir fecha de posesión.",
    riesgo:"Clientes con alta conflictividad histórica. No dejar mensajes sin respuesta."},
   {proj:"Campo Madero 2",prio:"urgente",foco:"Firmar Convenio Urbanístico (momentum post admisibilidad)",
    critico:"Convenio Urbanístico pendiente. Admisibilidad completada 24/03 — momento de impulso.",
@@ -829,8 +851,8 @@ const ESTRATEGIA = [
    accion:"Gestionar Concejo activamente. Ofrecer canje a CEPE para clientes en salida.",
    riesgo:"Clientes organizados · escrache (Betsabé Sol) · cambio masterplan · plazo vencido"},
   {proj:"CEZA",prio:"proceso",foco:"Completar gestión hídrica y ambiental",
-   critico:"CAT en trámite. CH1/CH2 en proceso. Criterio de cuenca genera demoras.",
-   accion:"Seguimiento expedientes. Explicar contexto de cuenca a propietarios.",
+   critico:"Admisibilidad aprobada municipalmente. CAT en trámite. CH1/CH2 en proceso. Criterio de cuenca genera demoras.",
+   accion:"Avanzar con Gabbe en estrategia EPE. Avanzar con proveedor de obras para ejecución de calzadas (en negociación). Seguimiento expedientes.",
    riesgo:"Sensación de estancamiento · comparación con otros proyectos"},
 ];
 
@@ -933,36 +955,64 @@ function nivBadge(niv){
 // ── BUILD HOME PROJECT GRID ──────────────────────────────────
 function buildProjGrid(list){
   const g=document.getElementById("proj-grid");
-  g.innerHTML=list.map(p=>`
+  g.innerHTML=list.map(p=>{
+    const avg=Math.round((p.avanceGestion+(p.avanceObra??p.avanceGestion))/2);
+    return `
     <div class="proj-card ${p.urgente?"urgent":""}" onclick="openDetail('${p.id}')">
-      ${ringHTML(p.avance,p.urgente)}
+      ${ringHTML(avg,p.urgente)}
       <div class="proj-info">
         <div class="proj-name">${p.nombre}</div>
         <div class="proj-meta">${p.loc}${p.ha?` · ${p.ha}ha`:""}${p.lotes?` · ${p.lotes} lotes`:""}${p.urgente?' · <span style="color:var(--orange)">⚡ urgente</span>':""}</div>
         ${p.nota?`<div style="font-size:11px;color:var(--amber);margin-top:4px">${p.nota}</div>`:""}
-        <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
-          <div class="mini-bar-wrap"><div class="mini-bar" style="width:${p.avance}%;background:${pctColor(p.avance)}"></div></div>
-          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${p.entrega}</span>
+        <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);width:46px;flex-shrink:0">GESTIÓN</span>
+            <div class="mini-bar-wrap" style="flex:1;width:auto"><div class="mini-bar" style="width:${p.avanceGestion}%;background:${pctColor(p.avanceGestion)}"></div></div>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;color:${pctColor(p.avanceGestion)};width:28px;text-align:right">${p.avanceGestion}%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);width:46px;flex-shrink:0">OBRA</span>
+            <div class="mini-bar-wrap" style="flex:1;width:auto"><div class="mini-bar" style="width:${p.avanceObra??0}%;background:${pctColor(p.avanceObra??0)}"></div></div>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;color:${pctColor(p.avanceObra??0)};width:28px;text-align:right">${p.avanceObra??0}%</span>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:1px">
+            <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">${p.entrega}</span>
+          </div>
         </div>
       </div>
-    </div>`).join("");
+    </div>`}).join("");
 }
 buildProjGrid(PROJS);
 
 // ── OPEN DETAIL ─────────────────────────────────────────────
 function openDetail(id){
   const p=PROJS.find(x=>x.id===id); if(!p) return;
+  const avg=Math.round((p.avanceGestion+(p.avanceObra??p.avanceGestion))/2);
   document.getElementById("detail-sub").textContent=p.loc+(p.ha?` · ${p.ha}ha`:""+(p.lotes?` · ${p.lotes} lotes`:""));
   document.getElementById("detail-title").textContent=p.nombre;
 
   // Tabs
-  const tabs=["Gestión","Obra","Modelos"];
+  const tabs=["Gestión","Obra","Modelos","Pendientes"];
   document.getElementById("detail-tabs").innerHTML=tabs.map((t,i)=>
     `<button class="dtab ${i===0?"active":""}" onclick="switchDTab(${i},this)">${t}</button>`
   ).join("");
 
   // Panel 0: Gestión
-  let g=p.hitos.map(h=>`
+  const gHeader=`<div style="display:flex;gap:10px;margin-bottom:14px;padding:10px 14px;background:var(--bg3);border-radius:8px">
+    <div style="flex:1">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">
+        <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);width:52px">GESTIÓN</span>
+        <div style="flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden"><div style="height:100%;width:${p.avanceGestion}%;background:${pctColor(p.avanceGestion)};border-radius:3px"></div></div>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:${pctColor(p.avanceGestion)};width:30px;text-align:right">${p.avanceGestion}%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);width:52px">OBRA</span>
+        <div style="flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden"><div style="height:100%;width:${p.avanceObra??0}%;background:${pctColor(p.avanceObra??0)};border-radius:3px"></div></div>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:${pctColor(p.avanceObra??0)};width:30px;text-align:right">${p.avanceObra??0}%</span>
+      </div>
+    </div>
+  </div>`;
+  let g=gHeader+p.hitos.map(h=>`
     <div class="hito-row">
       <div class="hito-left">
         <div class="hito-name">${h.nombre}</div>
@@ -1005,10 +1055,71 @@ function openDetail(id){
     </div>`).join("")
     || '<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin modelos específicos.</div>';
 
+  // Panel 3: Tareas pendientes (checklist)
+  const CHECKLIST=[
+    {key:"uso_conforme",   lbl:"Uso conforme"},
+    {key:"conv_urb",       lbl:"Convenio urbanístico"},
+    {key:"ch1",            lbl:"Certificado hídrico 1"},
+    {key:"ch2",            lbl:"Certificado hídrico 2"},
+    {key:"conv_elec",      lbl:"Convenio eléctrico"},
+    {key:"cat",            lbl:"CAT ambiental"},
+    {key:"eia",            lbl:"Estudio de impacto ambiental (EIA)"},
+    {key:"recepcion",      lbl:"Recepción de obras y visados"},
+    {key:"catastro",       lbl:"Catastro / Inscripción SCIT"},
+  ];
+  // Mapping from hito names/etapas to checklist keys
+  function hitoKey(h){
+    const n=h.nombre.toLowerCase(), e=h.etapa.toLowerCase();
+    if(n.includes("uso conforme")) return "uso_conforme";
+    if(n.includes("convenio urban")) return "conv_urb";
+    if(n.includes("ch1")||n==="ch1") return "ch1";
+    if(n.includes("ch2")||n==="ch2") return "ch2";
+    if(n.includes("convenio el")||n.includes("aprobación epe")||n.includes("aprobación cooperativa")) return "conv_elec";
+    if(n.includes("cat")&&e.includes("ambiental")) return "cat";
+    if(n.includes("eia")||n.includes("estudio de impacto")) return "eia";
+    if(n.includes("recepción")||n.includes("recepcion")) return "recepcion";
+    if(n.includes("catastro")||n.includes("inscripción")) return "catastro";
+    return null;
+  }
+  const hitoMap={};
+  p.hitos.forEach(h=>{const k=hitoKey(h); if(k) hitoMap[k]=h.est;});
+
+  const clRows=CHECKLIST.map(item=>{
+    const est=hitoMap[item.key];
+    let icon,color,label;
+    if(!est||est==="na"){icon="—";color="var(--dim)";label="No aplica / sin datos";}
+    else if(est==="done"){icon="✅";color="var(--green)";label="Aprobado";}
+    else if(est==="proc"){icon="🔄";color="var(--blue)";label="En proceso";}
+    else if(est==="urgent"){icon="⚡";color="var(--orange)";label="Urgente";}
+    else if(est==="block"){icon="🔴";color="var(--red)";label="Bloqueante";}
+    else {icon="🔄";color="var(--blue)";label="En proceso";}
+    return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
+      <div style="font-size:12px;color:var(--text)">${item.lbl}</div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:14px">${icon}</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;color:${color}">${label}</span>
+      </div>
+    </div>`;
+  }).join("");
+
+  const pendTotal=CHECKLIST.filter(item=>{const e=hitoMap[item.key]; return e&&e!=="done"&&e!=="na";}).length;
+  const doneTotal=CHECKLIST.filter(item=>hitoMap[item.key]==="done").length;
+  const pct=Math.round((doneTotal/CHECKLIST.length)*100);
+
+  const pnl=`<div style="margin-bottom:14px;padding:10px 14px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;margin-bottom:4px">CHECKLIST GESTIÓN</div>
+      <div style="font-size:12px;color:var(--text)">${doneTotal} de ${CHECKLIST.length} hitos completados · <span style="color:${pendTotal>0?"var(--amber)":"var(--green)"}">${pendTotal} pendientes</span></div>
+    </div>
+    <div style="font-family:'DM Serif Display',serif;font-size:28px;color:${pct===100?"var(--green)":pct>=60?"var(--amber)":"var(--orange)"}">${pct}%</div>
+  </div>
+  ${clRows}`;
+
   document.getElementById("detail-body").innerHTML=`
     <div class="dpanel active" id="dp0">${g}</div>
     <div class="dpanel" id="dp1">${o}</div>
-    <div class="dpanel" id="dp2">${m}</div>`;
+    <div class="dpanel" id="dp2">${m}</div>
+    <div class="dpanel" id="dp3">${pnl}</div>`;
 
   document.getElementById("overlay").classList.add("open");
 }
@@ -1032,7 +1143,7 @@ function buildGestion(list){
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;cursor:pointer" onclick="openDetail('${p.id}')">
         <div>
           <div style="font-size:14px;font-weight:600">${p.nombre}</div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${p.loc} · ${p.avance}% gestión</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${p.loc} · Gestión ${p.avanceGestion}% · Obra ${p.avanceObra??0}%</div>
         </div>
         <span style="color:var(--muted)">↗</span>
       </div>
@@ -1145,7 +1256,8 @@ function filterProjects(q){
 function applyProjFilters(q=""){
   q=q.toLowerCase();
   let list=PROJS.filter(p=>{
-    const matchFilter=projFilter==="all"||(projFilter==="urgente"&&p.urgente)||(projFilter==="proceso"&&p.avance<100&&!p.urgente)||(projFilter==="completo"&&p.avance===100);
+    const avg=Math.round((p.avanceGestion+(p.avanceObra??p.avanceGestion))/2);
+    const matchFilter=projFilter==="all"||(projFilter==="urgente"&&p.urgente)||(projFilter==="proceso"&&avg<100&&!p.urgente)||(projFilter==="completo"&&avg===100);
     const matchQ=!q||p.nombre.toLowerCase().includes(q)||p.loc.toLowerCase().includes(q)||
       p.hitos.some(h=>(h.exp||"").toLowerCase().includes(q));
     return matchFilter&&matchQ;
