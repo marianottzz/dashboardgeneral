@@ -406,7 +406,7 @@ const PROJS = [
    ],
    obra:[]},
 
-  {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:5.2,lotes:191,avance:100,urgente:false,entrega:"Escriturado",
+  {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avance:100,urgente:false,entrega:"Escriturado",
    tags:["completo"],
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"21/12/18",fin:"10/09/19",obs:""},
@@ -420,7 +420,7 @@ const PROJS = [
    ],
    obra:[]},
 
-  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12.7,lotes:93,avance:100,urgente:true,entrega:"Jun 2026",
+  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avance:100,urgente:true,entrega:"Jun 2026",
    tags:["urgente","proceso"],
    nota:"✅ Convenio Urbanístico completado 24/03. URGENTE: conexión eléctrica final EPE.",
    hitos:[
@@ -441,19 +441,20 @@ const PROJS = [
      {r:"Alumbrado público",p:100,nota:""},
      {r:"Señalización y mobiliario",p:100,nota:""},
      {r:"Pavimentación Av. Islas Malvinas",p:100,nota:""},
-     {r:"Red eléctrica interna",p:95,nota:"Falta inspección EPE"},
+     {r:"Red eléctrica interna",p:90,nota:"Falta obra de conexión externa con EPE · Convenio SE024/2025 iniciado 22/07/2025"},
    ]},
 
-  {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:28.3,lotes:203,avance:91,urgente:true,entrega:"Jun 2026",
+  {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avance:91,urgente:true,entrega:"Jun 2026",
    tags:["urgente","proceso"],
    nota:"CH2 bloqueante. 100% obra interna lista.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"20/12/19",fin:"30/11/21",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01907-0016058-1",ini:"06/10/23",fin:"16/08/24",obs:""},
-     {etapa:"Hídrico",nombre:"CH2",est:"block",exp:"01907-0004920-0",ini:"11/05/23",fin:"",obs:"🔴 BLOQUEANTE — Ministerio Infraestructura SF"},
+     {etapa:"Hídrico",nombre:"CH2",est:"block",exp:"01907-0016058-1",ini:"01/02/25",fin:"",obs:"🔴 A la firma — Ministerio Obras Públicas SF (Expte. Nº 286bis/2016)"},
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"20/12/19",fin:"23/10/24",obs:""},
      {etapa:"Ambiental",nombre:"CAT",est:"proc",exp:"02102-0014904-9",ini:"11/04/25",fin:"",obs:"En trámite"},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"urgent",exp:"",ini:"",fin:"",obs:""},
+     {etapa:"Eléctrico",nombre:"Aprobación Cooperativa Energía Ibarlucea",est:"done",exp:"",ini:"28/09/2022",fin:"",obs:"Convenio eléctrico firmado · Pre-factibilidad 14/02/2022"},
+     {etapa:"Comunal",nombre:"Cert. Bomberos Voluntarios Granadero Baigorria",est:"done",exp:"",ini:"10/07/2025",fin:"",obs:"Certificado acceso y movilidad al predio"},
    ],
    obra:[
      {r:"Calzadas y cordón cuneta",p:100,nota:""},
@@ -465,7 +466,7 @@ const PROJS = [
      {r:"Obra hídrica externa",p:85,nota:"🔴 CLAVE para CH2 · compartida con EN2"},
    ]},
 
-  {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:1.5,lotes:385,avance:99,urgente:false,entrega:"Dic 2028",
+  {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avance:99,urgente:false,entrega:"Dic 2028",
    tags:["proceso"],
    nota:"✅ CH2 aprobado (02/04/2025). CAT en trámite.",
    hitos:[
@@ -483,7 +484,7 @@ const PROJS = [
      {r:"Calzadas con cordón cuneta",p:100,nota:""},
    ]},
 
-  {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:1.5,lotes:19,avance:100,urgente:true,entrega:"Dic 2026",
+  {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avance:100,urgente:true,entrega:"Dic 2026",
    tags:["urgente","proceso"],
    nota:"CUR obtenido. Suspensión levantada 10/11/2025. Eléctrica 70%. Transformador 5MVA en CLESAPE.",
    hitos:[
@@ -508,9 +509,9 @@ const PROJS = [
      {r:"Forestación y mobiliario",p:90,nota:""},
    ]},
 
-  {id:"FOR",nombre:"Foresta",loc:"Ybarlucea",ha:7.3,lotes:129,avance:65,urgente:false,entrega:"Por definir",
+  {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avance:65,urgente:false,entrega:"Por definir",
    tags:["proceso"],
-   nota:"CH1 aprobado. CH2 en trámite. CAT aprobada.",
+   nota:"1.46 Ha · 19 lotes. Calzadas y agua 100%. Eléctrica depende de CM1+EPE. Co-housing (revisar con legales — no promocionar).",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"29/10/20",fin:"19/03/21",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01907-0006879-9",ini:"26/10/21",fin:"08/08/24",obs:""},
@@ -518,9 +519,16 @@ const PROJS = [
      {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"29/10/20",fin:"22/06/21",obs:""},
      {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"NO-2024-00180317-GSF-DDDZS#MMA",ini:"26/09/24",fin:"04/11/24",obs:""},
    ],
-   obra:[{r:"Obras internas",p:0,nota:"Pendiente CH2"}]},
+   obra:[
+     {r:"Calzadas con cordón cuneta",p:100,nota:""},
+     {r:"Red de agua potable",p:100,nota:""},
+     {r:"Red eléctrica",p:0,nota:"🔴 Depende de Campo Madero 1 y EPE para extensión del servicio"},
+     {r:"Alumbrado público",p:0,nota:""},
+     {r:"Forestación",p:0,nota:""},
+     {r:"Desagües pluviales",p:5,nota:""},
+   ]},
 
-  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:18.2,lotes:129,avance:100,urgente:false,entrega:"Jun 2026",
+  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:7.3,lotes:129,avance:100,urgente:false,entrega:"Jun 2026",
    tags:["proceso","completo"],
    nota:"Gestiones completas. Pendiente firma convenio eléctrico cooperativa.",
    hitos:[
@@ -541,9 +549,9 @@ const PROJS = [
      {r:"Red eléctrica",p:0,nota:"🔴 Bloqueado hasta firma convenio cooperativa"},
    ]},
 
-  {id:"EN2",nombre:"El Naranjo 2",loc:"General Lagos",ha:17.4,lotes:336,avance:64,urgente:false,entrega:"Dic 2028",
+  {id:"EN2",nombre:"El Naranjo 2",loc:"Ybarlucea",ha:18.2,lotes:336,avance:64,urgente:false,entrega:"Dic 2028",
    tags:["proceso"],
-   nota:"CH2 pendiente bloquea obras. Obra hídrica externa al 80%.",
+   nota:"CH2 (Expte 01907-0016058-1) iniciado 01/02/25. Obras internas avanzadas. Pendiente: CH2, CAT, pórtico Schilla, forestación.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"18/06/21",fin:"28/04/23",obs:""},
      {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000680-7",ini:"07/06/22",fin:"30/07/24",obs:""},
@@ -556,10 +564,10 @@ const PROJS = [
      {r:"Calzadas y cordón cuneta",p:85,nota:""},
      {r:"Red de agua potable",p:70,nota:""},
      {r:"Movimiento de suelo",p:100,nota:""},
-     {r:"Obra descarga hídrica externa",p:80,nota:"🔴 CLAVE para CH2"},
+     {r:"Aporte obras complementarias descarga hídrica externa",p:50,nota:"🔴 CLAVE para CH2 — dentro de convenio urbanístico firmado"},
    ]},
 
-  {id:"VR",nombre:"Vitta Río",loc:"Ybarlucea",ha:16.7,lotes:196,avance:52,urgente:false,entrega:"Jun 2031",
+  {id:"VR",nombre:"Vitta Río",loc:"General Lagos",ha:17.4,lotes:196,avance:52,urgente:false,entrega:"Jun 2031",
    tags:["proceso"],
    nota:"CH1 aprobado. Convenio Urbanístico URGENTE. CH2 en proceso.",
    hitos:[
@@ -576,7 +584,7 @@ const PROJS = [
      {r:"Calzadas",p:10,nota:""},
    ]},
 
-  {id:"CM2",nombre:"Campo Madero 2",loc:"Zavalla",ha:23,lotes:324,avance:18,urgente:true,entrega:"Jun 2033",
+  {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avance:18,urgente:true,entrega:"Jun 2033",
    tags:["urgente","proceso"],
    nota:"✅ Admisibilidad completada 24/03. URGENTE: Convenio Urbanístico y CH1.",
    hitos:[
@@ -593,7 +601,7 @@ const PROJS = [
      {r:"Obras internas",p:0,nota:"🔴 Bloqueado hasta aprobaciones provinciales"},
    ]},
 
-  {id:"CZ",nombre:"CEZA",loc:"Roldán",ha:66,lotes:380,avance:61,urgente:false,entrega:"Dic 2030",
+  {id:"CZ",nombre:"CEZA",loc:"Zavalla",ha:23,lotes:380,avance:61,urgente:false,entrega:"Dic 2030",
    tags:["proceso"],
    nota:"CAT en trámite. Análisis por cuenca genera demoras adicionales.",
    hitos:[
@@ -606,7 +614,7 @@ const PROJS = [
    ],
    obra:[{r:"Obras internas",p:0,nota:"🔴 No iniciadas — gestión administrativa en curso"}]},
 
-  {id:"CDE",nombre:"Clos del Este",loc:"Ybarlucea",ha:"",lotes:815,avance:4,urgente:false,entrega:"Dic 2034",
+  {id:"CDE",nombre:"Clos del Este",loc:"Roldán",ha:66,lotes:880,avance:4,urgente:false,entrega:"Dic 2034",
    tags:["proceso"],
    nota:"Mayor riesgo reputacional del portfolio. Expte Municipalidad 3954 / Concejo 1617.",
    hitos:[
@@ -901,9 +909,18 @@ function ringHTML(pct,urgente){
 }
 
 function estBadge(est){
-  const map={done:"b-done ✅",proc:"b-proc 🔄",urgent:"b-urgent ⚡",block:"b-block 🔴",na:"b-na N/A"};
-  const [cls,lbl]=(map[est]||"b-na N/A").split(" ");
-  return `<span class="badge ${cls}">${lbl}</span>`;
+  const map={
+    done:  {cls:"b-done",  icon:"✅", lbl:"Aprobado"},
+    proc:  {cls:"b-proc",  icon:"🔄", lbl:"En proceso"},
+    urgent:{cls:"b-urgent",icon:"⚡", lbl:"Urgente"},
+    block: {cls:"b-block", icon:"🔴", lbl:"Bloqueante"},
+    na:    {cls:"b-na",    icon:"—",  lbl:"N/A"},
+  };
+  const d=map[est]||map.na;
+  return `<span class="badge ${d.cls}" title="${d.lbl}" style="flex-direction:column;align-items:center;padding:4px 10px;gap:1px">
+    <span style="font-size:13px">${d.icon}</span>
+    <span style="font-size:8px;letter-spacing:.5px">${d.lbl}</span>
+  </span>`;
 }
 
 function nivBadge(niv){
