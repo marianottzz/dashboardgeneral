@@ -490,6 +490,23 @@ const PROJS = [
    ]},
 
   {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avanceGestion:95,avanceObra:80,urgente:true,entrega:"Dic 2026",
+   masterplan:{url:"https://drive.google.com/file/d/1FXor0VA2u2EHboxE2CPgLtAoho43cjKI/preview",refs:[
+     {color:"#e8c84a",lbl:"Vendidos"},
+     {color:"#c978c8",lbl:"VRA"},
+     {color:"#e07830",lbl:"Roma"},
+     {color:"#a8d070",lbl:"Patr. V. Norte"},
+     {color:"#f0b8c0",lbl:"Patr. TDA"},
+     {color:"#58d8e8",lbl:"Pablo C"},
+     {color:"#e05858",lbl:"Bloqueado"},
+     {color:"#507850",lbl:"Sixto"},
+     {color:"#78b878",lbl:"Patr. Clos"},
+     {color:"#b89878",lbl:"Patr. EN2"},
+     {color:"#8898c8",lbl:"Patr. Vita GL"},
+     {color:"#d0d0d0",lbl:"Cesiones"},
+     {color:"#f0f0e0",lbl:"Patr. Zavalla"},
+     {color:"#e8e070",lbl:"Patr. CM1"},
+     {color:"#a08878",lbl:"Patr. Eco P."},
+   ]},
    tags:["urgente","proceso"],
    nota:"CUR obtenido. Suspensión levantada 10/11/2025. Eléctrica 70%. Trafo 5MVA entregado a CLESAPE.",
    hitos:[
@@ -984,7 +1001,8 @@ function openDetail(id){
   document.getElementById("detail-title").textContent=p.nombre;
 
   // Tabs
-  const tabs=["Gestión","Obra","Modelos","Pendientes"];
+  const hasMasterplan=!!p.masterplan;
+  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[])] ;
   document.getElementById("detail-tabs").innerHTML=tabs.map((t,i)=>
     `<button class="dtab ${i===0?"active":""}" onclick="switchDTab(${i},this)">${t}</button>`
   ).join("");
@@ -1107,11 +1125,118 @@ function openDetail(id){
   </div>
   ${clRows}`;
 
+  // Panel 4: Masterplan interactivo (solo si el proyecto lo tiene)
+  let mp="";
+  if(hasMasterplan){
+    const mp_data = p.masterplan;
+    const total = p.lotes;
+
+    // Datos de lotes por categoría — CEPE 448 lotes según masterplan
+    // Basado en el plano 25/03/2026
+    const CEPE_STATS = [
+      {lbl:"Vendidos",     color:"#e8c84a", n:298, desc:"Lotes vendidos a clientes"},
+      {lbl:"VRA",          color:"#c978c8", n:22,  desc:"Venta con reserva de acción"},
+      {lbl:"Roma",         color:"#e07830", n:14,  desc:"Lotes en cartera Roma"},
+      {lbl:"Patr. V. Norte",color:"#a8d070",n:12,  desc:"Patrimonio Vitta Norte"},
+      {lbl:"Patr. TDA",    color:"#f0b8c0", n:8,   desc:"Patrimonio Tierra de Autores"},
+      {lbl:"Pablo C",      color:"#58d8e8", n:15,  desc:"Asignación Pablo C"},
+      {lbl:"Bloqueado",    color:"#e05858", n:6,   desc:"Lotes con restricción legal"},
+      {lbl:"Sixto",        color:"#507850", n:9,   desc:"Asignación Sixto"},
+      {lbl:"Patr. Clos",   color:"#78b878", n:11,  desc:"Patrimonio Clos del Este"},
+      {lbl:"Patr. EN2",    color:"#b89878", n:8,   desc:"Patrimonio El Naranjo 2"},
+      {lbl:"Patr. Vita GL",color:"#8898c8", n:10,  desc:"Patrimonio Vitta General Lagos"},
+      {lbl:"Cesiones",     color:"#d0d0d0", n:14,  desc:"Lotes cedidos"},
+      {lbl:"Patr. Zavalla",color:"#f0f0e0", n:7,   desc:"Patrimonio Zavalla"},
+      {lbl:"Patr. CM1",    color:"#e8e070", n:10,  desc:"Patrimonio Campo Madero 1"},
+      {lbl:"Patr. Eco P.", color:"#a08878", n:4,   desc:"Patrimonio Eco Pueblo"},
+    ];
+    const totalLotes = 448; // según masterplan oficial
+
+    // Calcular totales agrupados
+    const vendidos   = CEPE_STATS.find(s=>s.lbl==="Vendidos").n;
+    const bloqueados = CEPE_STATS.find(s=>s.lbl==="Bloqueado").n;
+    const cesiones   = CEPE_STATS.find(s=>s.lbl==="Cesiones").n;
+    const patrimonio = CEPE_STATS.filter(s=>s.lbl.startsWith("Patr.")).reduce((a,b)=>a+b.n,0);
+    const otros      = totalLotes - vendidos - bloqueados - cesiones - patrimonio -
+                       CEPE_STATS.find(s=>s.lbl==="Roma").n -
+                       CEPE_STATS.find(s=>s.lbl==="VRA").n;
+
+    // KPIs top
+    const kpis = [
+      {lbl:"Total lotes",  val:totalLotes, col:"var(--text)"},
+      {lbl:"Vendidos",     val:vendidos,   col:"#e8c84a", pct:Math.round(vendidos/totalLotes*100)},
+      {lbl:"Bloqueados",   val:bloqueados, col:"var(--red)",pct:Math.round(bloqueados/totalLotes*100)},
+      {lbl:"Patrimonio",   val:patrimonio, col:"var(--blue)",pct:Math.round(patrimonio/totalLotes*100)},
+    ];
+
+    const kpiHtml = kpis.map(k=>`
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;text-align:center">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px;text-transform:uppercase">${k.lbl}</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:26px;color:${k.col};line-height:1">${k.val}</div>
+        ${k.pct!==undefined?`<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px">${k.pct}%</div>`:""}
+      </div>`).join("");
+
+    // Barra apilada visual
+    const barSegments = CEPE_STATS.map(s=>`
+      <div title="${s.lbl}: ${s.n} lotes (${Math.round(s.n/totalLotes*100)}%)"
+           style="flex:${s.n};background:${s.color};height:100%;min-width:2px;cursor:pointer;transition:opacity .15s"
+           onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'"
+           onclick="document.getElementById('mp-selected').textContent='${s.lbl}: ${s.n} lotes · ${Math.round(s.n/totalLotes*100)}% · ${s.desc}'">
+      </div>`).join("");
+
+    // Grid de referencias con stats
+    const refsHtml = CEPE_STATS.map(s=>`
+      <div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);cursor:pointer;border-radius:4px;padding:6px 4px"
+           onclick="document.getElementById('mp-selected').innerHTML='<strong style=color:${s.color}>${s.lbl}</strong> &nbsp;·&nbsp; ${s.n} lotes &nbsp;·&nbsp; ${Math.round(s.n/totalLotes*100)}% del total &nbsp;·&nbsp; <span style=color:var(--muted)>${s.desc}</span>'"
+           onmouseover="this.style.background='rgba(255,255,255,.04)'" onmouseout="this.style.background='transparent'">
+        <div style="width:14px;height:14px;border-radius:3px;flex-shrink:0;background:${s.color};border:1px solid rgba(255,255,255,.2)"></div>
+        <div style="flex:1;font-size:12px;color:var(--text)">${s.lbl}</div>
+        <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:${s.color};min-width:24px;text-align:right">${s.n}</div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);min-width:32px;text-align:right">${Math.round(s.n/totalLotes*100)}%</div>
+      </div>`).join("");
+
+    mp=`
+      <div>
+        <!-- KPIs -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+          ${kpiHtml}
+        </div>
+
+        <!-- Barra apilada -->
+        <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;margin-bottom:6px;text-transform:uppercase">Distribución de lotes</div>
+        <div style="display:flex;height:18px;border-radius:6px;overflow:hidden;margin-bottom:8px;border:1px solid var(--border)">
+          ${barSegments}
+        </div>
+        <div id="mp-selected" style="font-size:11px;color:var(--muted);min-height:18px;margin-bottom:14px;padding:6px 10px;background:var(--bg3);border-radius:5px">
+          → Tocá un segmento de la barra o una categoría de la lista para ver el detalle
+        </div>
+
+        <!-- Lista de categorías -->
+        <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;margin-bottom:6px;text-transform:uppercase">Categorías · tocar para ver detalle</div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0 10px;margin-bottom:14px">
+          ${refsHtml}
+        </div>
+
+        <!-- Plano -->
+        <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;margin-bottom:6px;text-transform:uppercase">Masterplan · 25·03·2026 · Podés hacer zoom</div>
+        <div style="position:relative;width:100%;padding-top:70%;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--bg3)">
+          <iframe src="${mp_data.url}"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
+                  allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div style="font-size:10px;color:var(--dim);margin-top:6px;text-align:center">
+          Nota: los números de lotes y % son estimaciones basadas en el plano 25·03·2026. Actualizar cuando haya nueva información comercial.
+        </div>
+      </div>`;
+  }
+
   document.getElementById("detail-body").innerHTML=`
     <div class="dpanel active" id="dp0">${g}</div>
     <div class="dpanel" id="dp1">${o}</div>
     <div class="dpanel" id="dp2">${m}</div>
-    <div class="dpanel" id="dp3">${pnl}</div>`;
+    <div class="dpanel" id="dp3">${pnl}</div>
+    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}`;
 
   document.getElementById("overlay").classList.add("open");
 }
