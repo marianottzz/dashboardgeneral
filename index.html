@@ -7,38 +7,44 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:      #0e0f0c;
-  --bg2:     #161810;
-  --bg3:     #1e2018;
-  --border:  rgba(255,255,255,0.08);
-  --border2: rgba(255,255,255,0.14);
-  --text:    #e8e6df;
-  --muted:   #8a8880;
-  --dim:     #4a4840;
-  --green:   #4a9a6a;
-  --green-l: rgba(74,154,106,0.15);
-  --amber:   #c9a840;
-  --amber-l: rgba(201,168,64,0.15);
-  --red:     #c05050;
-  --red-l:   rgba(192,80,80,0.15);
-  --blue:    #5080c0;
-  --blue-l:  rgba(80,128,192,0.15);
-  --orange:  #c07840;
-  --orange-l:rgba(192,120,64,0.15);
-  --accent:  #c9a840;
+  /* ── Paleta Grupo Roma ──────────────────────────────────────
+     Azul marino profundo (header brochures) + Azul eléctrico (CTAs)
+     Blanco puro para texto sobre marino. Grises fríos neutros.
+  ─────────────────────────────────────────────────────────── */
+  --bg:      #0a1220;       /* azul marino profundo — fondo principal */
+  --bg2:     #0f1c30;       /* marino medio — cards */
+  --bg3:     #162338;       /* marino claro — inputs, bg3 */
+  --border:  rgba(255,255,255,0.09);
+  --border2: rgba(71,148,255,0.35);  /* borde activo azul Roma */
+  --text:    #f0f4ff;       /* blanco azulado — texto principal */
+  --muted:   #7a94b8;       /* azul grisáceo — texto secundario */
+  --dim:     #3a5070;       /* azul oscuro — texto terciario */
+  --green:   #2ec87a;       /* verde éxito */
+  --green-l: rgba(46,200,122,0.13);
+  --amber:   #f0b429;       /* amarillo advertencia */
+  --amber-l: rgba(240,180,41,0.13);
+  --red:     #e05555;       /* rojo error */
+  --red-l:   rgba(224,85,85,0.13);
+  --blue:    #4794ff;       /* azul eléctrico Roma — acento principal */
+  --blue-l:  rgba(71,148,255,0.13);
+  --orange:  #ff7c40;       /* naranja urgente */
+  --orange-l:rgba(255,124,64,0.13);
+  --accent:  #4794ff;       /* = blue — acento Roma */
+  --accent2: #1a56cc;       /* azul profundo para gradientes */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
 
 /* ── TOPBAR ── */
-.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;height:52px}
-.brand{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent);margin-right:32px;white-space:nowrap}
+.topbar{background:linear-gradient(135deg,#0a1a35 0%,#0f2348 60%,#0d1e3a 100%);border-bottom:1px solid rgba(71,148,255,0.2);padding:0 24px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;height:52px}
+.brand{font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-right:32px;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
 .topbar-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;flex:1}
 .topbar-tabs::-webkit-scrollbar{display:none}
 .ttab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:0 18px;height:52px;display:flex;align-items:center;border:none;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
 .ttab:hover{color:var(--text)}
-.ttab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.ttab.active{color:var(--blue);border-bottom-color:var(--blue)}
 .topbar-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto;white-space:nowrap}
 
 /* ── PAGES ── */
@@ -54,18 +60,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @media(max-width:600px){.grid2,.grid3,.grid4{grid-template-columns:1fr}body{padding-bottom:64px}}
 
 /* ── CARDS ── */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.card{background:var(--bg2);border:1px solid rgba(71,148,255,0.12);border-radius:10px;padding:16px}
 .card-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 
 /* ── STAT CARDS ── */
-.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.stat-card{background:var(--bg2);border:1px solid rgba(71,148,255,0.15);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .stat-num{font-family:'DM Serif Display',serif;font-size:32px;line-height:1}
 .stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
 .stat-sub{font-size:11px;color:var(--muted);margin-top:2px}
 
 /* ── SECTION HEADERS ── */
 .section-hdr{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;margin-top:8px}
-.section-hdr h2{font-family:'DM Serif Display',serif;font-size:22px;color:var(--text)}
+.section-hdr h2{font-family:'DM Serif Display',serif;font-size:22px;color:#fff}
 .section-hdr span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
 
 /* ── BADGES ── */
@@ -87,7 +93,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 /* ── PROJECT CARDS (home) ── */
 .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .15s;display:flex;align-items:center;gap:14px}
 .proj-card:hover{border-color:var(--border2)}
-.proj-card.urgent{border-color:rgba(192,120,64,.4)}
+.proj-card.urgent{border-color:rgba(255,124,64,.5);background:rgba(255,124,64,.04)}
 .proj-info{flex:1;min-width:0}
 .proj-name{font-size:14px;font-weight:600;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .proj-meta{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.5px}
@@ -110,7 +116,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .detail-close:hover{color:var(--text)}
 .detail-tabs{display:flex;gap:0;padding:0 24px;border-bottom:1px solid var(--border)}
 .dtab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
-.dtab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.dtab.active{color:var(--blue);border-bottom-color:var(--blue)}
 .detail-body{padding:20px 24px}
 .dpanel{display:none}.dpanel.active{display:block}
 
@@ -156,7 +162,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 /* ── FILTER CHIPS ── */
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .chip{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s}
-.chip:hover,.chip.active{border-color:var(--accent);color:var(--accent);background:var(--amber-l)}
+.chip:hover,.chip.active{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
 
 /* ── STRATEGY TABLE ── */
 .strat-row{padding:14px 0;border-bottom:1px solid var(--border)}
@@ -180,7 +186,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);z-index:50}
 @media(max-width:600px){.bottom-nav{display:flex}}
 .bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 calc(8px + env(safe-area-inset-bottom));border:none;background:transparent;color:var(--dim);cursor:pointer;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase}
-.bnav-btn.active{color:var(--accent)}
+.bnav-btn.active{color:var(--blue)}
 .bnav-icon{font-size:18px}
 
 /* ── ACCENT LINE ── */
@@ -194,7 +200,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="brand">Roma</div>
+  <div class="brand"><span class="brand-dot"></span>Grupo Roma</div>
   <div class="topbar-tabs">
     <button class="ttab active" onclick="showPage('home',this)">Resumen</button>
     <button class="ttab" onclick="showPage('gestion',this)">Gestión</button>
@@ -408,7 +414,17 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Conv. Responsabilidad Empresarial",est:"done",exp:"",ini:"31/07/18",fin:"10/09/18",obs:""},
      {etapa:"Cierre",nombre:"Inscripción Catastro",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
    ],
-   obra:[]},
+   obra:[
+     {r:"Calzadas",p:100,nota:""},
+     {r:"Red de Agua",p:100,nota:""},
+     {r:"Alumbrado Público",p:100,nota:""},
+     {r:"Plazas",p:100,nota:""},
+     {r:"Señalización",p:100,nota:""},
+     {r:"Obras Pluviales",p:100,nota:""},
+     {r:"Forestación",p:100,nota:""},
+     {r:"Red Eléctrica",p:95,nota:"Cierre final pendiente"},
+     {r:"Red de Cloacas",p:0,nota:"Pendiente"}
+   ]},
 
   {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Escriturado",
    tags:["completo"],
@@ -422,7 +438,18 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Inscripción Catastro",est:"done",exp:"",ini:"",fin:"",obs:""},
      {etapa:"Cierre",nombre:"Donación Calles y Esp. Verdes",est:"done",exp:"",ini:"",fin:"",obs:""},
    ],
-   obra:[]},
+   obra:[
+     {r:"Calzadas",p:100,nota:"Finalizados individualmente"},
+     {r:"Red de Agua",p:100,nota:""},
+     {r:"Red de Cloacas",p:100,nota:""},
+     {r:"Alumbrado Público",p:100,nota:""},
+     {r:"Red Eléctrica",p:100,nota:""},
+     {r:"Plazas y Señalización",p:100,nota:""},
+     {r:"Obras Pluviales",p:100,nota:""},
+     {r:"Forestación",p:100,nota:""},
+     {r:"Red de Gas",p:100,nota:""},
+     {r:"Puente",p:100,nota:""}
+   ]},
 
   {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avanceGestion:95,avanceObra:97,urgente:true,entrega:"Jun 2026",
    tags:["urgente","proceso"],
@@ -438,15 +465,15 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Obra Complementaria e Inspección para Conexionado",est:"proc",exp:"2/2025/16430",ini:"",fin:"",obs:"⚡ Falta aprobación — documentación presentada"},
    ],
    obra:[
-     {r:"Calzadas y cordón cuneta",p:95,nota:""},
-     {r:"Red de agua potable",p:100,nota:""},
-     {r:"Planta de agua",p:100,nota:""},
-     {r:"Obras pluviales",p:100,nota:""},
-     {r:"Forestación",p:100,nota:""},
-     {r:"Alumbrado público",p:100,nota:""},
-     {r:"Señalización y mobiliario",p:100,nota:""},
-     {r:"Pavimentación Av. Islas Malvinas",p:100,nota:""},
-     {r:"Red eléctrica interna",p:90,nota:"Falta obra de conexión externa con EPE · Convenio SE024/2025 iniciado 22/07/2025"},
+     {r:"Red Eléctrica Interna",p:100,nota:"Ejecutada"},
+     {r:"Alumbrado Público",p:100,nota:"Ejecutado"},
+     {r:"Obras Pluviales",p:100,nota:"Ejecutadas"},
+     {r:"Señalización",p:100,nota:"Ejecutada"},
+     {r:"Calzadas",p:100,nota:""},
+     {r:"Plazas",p:100,nota:"Ejecutada"},
+     {r:"Red de Agua (Interna)",p:100,nota:""},
+     {r:"Planta de Agua",p:100,nota:""},
+     {r:"Red Eléctrica Externa",p:0,nota:"Depende de EPE — Convenio SE024/2025"}
    ]},
 
   {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avanceGestion:75,avanceObra:98,urgente:true,entrega:"Jun 2026",
@@ -462,13 +489,17 @@ const PROJS = [
      {etapa:"Comunal",nombre:"Cert. Bomberos Voluntarios Granadero Baigorria",est:"done",exp:"",ini:"10/07/2025",fin:"",obs:"Certificado acceso y movilidad al predio"},
    ],
    obra:[
-     {r:"Calzadas y cordón cuneta",p:100,nota:""},
-     {r:"Red de agua potable",p:100,nota:""},
-     {r:"Red eléctrica",p:100,nota:"Finalizada jul 2025"},
-     {r:"Alumbrado público",p:100,nota:""},
-     {r:"Forestación y mobiliario",p:100,nota:""},
-     {r:"Señalización interna",p:100,nota:""},
-     {r:"Obra hídrica externa",p:85,nota:"🔴 CLAVE para CH2 · compartida con EN2"},
+     {r:"Planta Provisoria Agua",p:100,nota:"Ejecutada"},
+     {r:"Pluviales Internos",p:100,nota:"Ejecutados"},
+     {r:"Pórtico de Ingreso",p:100,nota:"Ejecutado"},
+     {r:"Calzadas",p:100,nota:"Ejecutadas"},
+     {r:"Cordones Cuneta",p:100,nota:"Ejecutados"},
+     {r:"Red Eléctrica",p:100,nota:"Ejecutada"},
+     {r:"Colocación de Juegos",p:90,nota:"Etapa final"},
+     {r:"Obras Pluviales Ext.",p:80,nota:"En ejecución avanzada — a Salvat"},
+     {r:"Señalización",p:50,nota:"En proceso"},
+     {r:"Conexión Agua Externa",p:0,nota:"Convenio Ibarlucea pendiente"},
+     {r:"Iluminación Pórtico",p:0,nota:"Verificar"}
    ]},
 
   {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avanceGestion:70,avanceObra:100,urgente:false,entrega:"Dic 2028",
@@ -484,9 +515,17 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Inicio de Obra Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Pendiente inicio"},
    ],
    obra:[
-     {r:"Red de agua potable",p:100,nota:""},
-     {r:"Red de cloacas",p:100,nota:""},
-     {r:"Calzadas con cordón cuneta",p:100,nota:""},
+     {r:"Red de Agua",p:100,nota:"Ejecutada (ajustes de detalles)"},
+     {r:"Calzadas",p:100,nota:"Ejecutadas (ajustes de detalles)"},
+     {r:"Red Cloacal Interna",p:100,nota:"Ejecutada"},
+     {r:"Forestación",p:100,nota:"Revisión de ejemplares"},
+     {r:"Cerco Perimetral",p:5,nota:"En proceso de ejecución"},
+     {r:"Pluviales",p:10,nota:"Pendiente"},
+     {r:"Estación Elevadora",p:0,nota:"Pendiente"},
+     {r:"Conexión Cloacal Ext.",p:0,nota:"Pendiente"},
+     {r:"Obra Eléctrica",p:0,nota:"Pendiente"},
+     {r:"Pórtico",p:0,nota:"Ajustando proyecto para inicio de obra"},
+     {r:"Adoquinado Kennedy",p:0,nota:"Revisar convenio urbanístico"}
    ]},
 
   {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avanceGestion:95,avanceObra:80,urgente:true,entrega:"Dic 2026",
@@ -522,15 +561,16 @@ const PROJS = [
      {etapa:"Cierre",nombre:"CUR",est:"done",exp:"EXP 0035/25",ini:"02/10/25",fin:"28/10/25",obs:"Levantamiento suspensión 10/11/2025"},
    ],
    obra:[
-     {r:"Calzadas y cordón cuneta",p:97,nota:""},
-     {r:"Red de agua potable",p:80,nota:""},
-     {r:"Red de cloacas",p:80,nota:""},
-     {r:"Red eléctrica",p:70,nota:"Transformador 5MVA en CLESAPE"},
-     {r:"Alumbrado público",p:100,nota:""},
-     {r:"Red de gas natural",p:22,nota:""},
-     {r:"Red de gas externa",p:100,nota:""},
-     {r:"Obras pluviales",p:38,nota:""},
-     {r:"Forestación y mobiliario",p:90,nota:""},
+     {r:"Red de Agua (Interna)",p:100,nota:"Realizando inspecciones"},
+     {r:"Red Cloacal (Interna)",p:100,nota:"Realizando inspecciones"},
+     {r:"Calzadas",p:95,nota:"Revisión de inspección"},
+     {r:"Red Eléctrica Interna",p:90,nota:"Ejecutada"},
+     {r:"Forestación",p:70,nota:"Replantar y mejorar ejemplares"},
+     {r:"Convenio CLESAPE",p:75,nota:"Trafo 5MVA entregado"},
+     {r:"Estación Impulsora",p:30,nota:"En ejecución"},
+     {r:"Red Eléctrica Externa",p:0,nota:"Convenio CLESAPE en proceso"},
+     {r:"Red Agua (Impulsión Ext.)",p:0,nota:"Gestión pendiente"},
+     {r:"Red Cloaca (Impulsión Ext.)",p:0,nota:"Gestión pendiente"}
    ]},
 
   {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avanceGestion:60,avanceObra:34,urgente:false,entrega:"Por definir",
@@ -564,13 +604,17 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación Cooperativa Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Acuerdo técnico cerrado · pendiente firma convenio"},
    ],
    obra:[
-     {r:"Movimiento de suelo",p:100,nota:""},
-     {r:"Calzadas y cordón cuneta",p:100,nota:""},
-     {r:"Red de agua potable",p:100,nota:""},
-     {r:"Red de cloacas",p:100,nota:""},
-     {r:"Obras pluviales",p:70,nota:""},
-     {r:"Alumbrado público (postes)",p:90,nota:""},
-     {r:"Red eléctrica",p:0,nota:"🔴 Bloqueado hasta firma convenio cooperativa"},
+     {r:"Red de Agua",p:100,nota:"Ejecutada"},
+     {r:"Red de Cloacas",p:100,nota:"Ejecutada"},
+     {r:"Impulsión Cloaca",p:100,nota:"Obra complementaria OK"},
+     {r:"Calzadas Internas",p:100,nota:"Ejecutadas"},
+     {r:"Alumbrado Público",p:100,nota:"Ejecutado"},
+     {r:"Obras Pluviales",p:40,nota:"En ejecución"},
+     {r:"Red Eléctrica Interna",p:0,nota:"Espera firma Cooperativa"},
+     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"},
+     {r:"Av. Islas Malvinas y Venezuela",p:0,nota:"Depende de adenda comuna"},
+     {r:"Señalización",p:0,nota:"Pendiente"},
+     {r:"Plazas",p:0,nota:"Pendiente"}
    ]},
 
   {id:"EN2",nombre:"El Naranjo 2",loc:"Ybarlucea",ha:18.2,lotes:336,avanceGestion:60,avanceObra:76,urgente:false,entrega:"Dic 2028",
@@ -585,10 +629,16 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación Cooperativa Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:""},
    ],
    obra:[
-     {r:"Calzadas y cordón cuneta",p:85,nota:""},
-     {r:"Red de agua potable",p:70,nota:""},
-     {r:"Movimiento de suelo",p:100,nota:""},
-     {r:"Aporte obras complementarias descarga hídrica externa",p:50,nota:"🔴 CLAVE para CH2 — dentro de convenio urbanístico firmado"},
+     {r:"Calzadas",p:100,nota:"Ejecutadas"},
+     {r:"Cordones Cuneta",p:100,nota:""},
+     {r:"Red de Agua",p:90,nota:"Ejecutada"},
+     {r:"Pórtico de Ingreso",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica",p:0,nota:"Pendiente — falta proyecto"},
+     {r:"Alumbrado Público",p:0,nota:"Pendiente"},
+     {r:"Cloacas",p:0,nota:"Pendiente"},
+     {r:"Pluviales",p:0,nota:"Pendiente"},
+     {r:"Señalización",p:0,nota:"Pendiente"},
+     {r:"Plazas",p:0,nota:"Pendiente"}
    ]},
 
   {id:"VR",nombre:"Vitta Río",loc:"General Lagos",ha:17.4,lotes:196,avanceGestion:45,avanceObra:37,urgente:false,entrega:"Jun 2031",
@@ -605,9 +655,14 @@ const PROJS = [
      {etapa:"Gas",nombre:"Factibilidad de Gas — Litoral Gas",est:"done",exp:"",ini:"",fin:"10/03/26",obs:"✅ Aprobada por Litoral Gas 10/03/2026"},
    ],
    obra:[
-     {r:"Red cloacal",p:90,nota:""},
-     {r:"Red de agua (materiales acopiados)",p:10,nota:""},
-     {r:"Calzadas",p:10,nota:""},
+     {r:"Calzadas",p:5,nota:"Inicio de trazado"},
+     {r:"Obras Pluviales",p:5,nota:"Inicio de ejecución"},
+     {r:"Red de Agua",p:0,nota:"Convenio macro pendiente"},
+     {r:"Red de Cloacas",p:0,nota:"Convenio macro pendiente"},
+     {r:"Estación Elevadora",p:0,nota:"Pendiente — acuerdo con Life"},
+     {r:"Alumbrado",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica Interna",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"}
    ]},
 
   {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avanceGestion:35,avanceObra:67,urgente:true,entrega:"Jun 2033",
@@ -622,9 +677,16 @@ const PROJS = [
      {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"NO-2024-00180317-GSF-DDDZS#MMA",ini:"26/09/24",fin:"04/11/24",obs:""},
    ],
    obra:[
-     {r:"Canal descarga pluvial (compartido CM1)",p:100,nota:""},
-     {r:"Acceso Av. Incas (900ml asfalto+cordón)",p:100,nota:""},
-     {r:"Obras internas",p:0,nota:"🔴 Bloqueado hasta aprobaciones provinciales"},
+     {r:"Calzadas",p:0,nota:"Pendiente"},
+     {r:"Red de Agua",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica Interna",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"},
+     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
+     {r:"Planta Compacta Cloacal",p:0,nota:"Pendiente"},
+     {r:"Red de Gas",p:0,nota:"Pendiente"},
+     {r:"Obras Pluviales",p:0,nota:"Pendiente"},
+     {r:"Alumbrado Público",p:0,nota:"Pendiente"},
+     {r:"Plazas",p:0,nota:"Pendiente"}
    ]},
 
   {id:"CZ",nombre:"CEZA",loc:"Zavalla",ha:23,lotes:380,avanceGestion:55,avanceObra:30,urgente:false,entrega:"Dic 2030",
@@ -640,8 +702,17 @@ const PROJS = [
      {etapa:"Gas",nombre:"Factibilidad Corrimiento Caño Gas — Pacífico Otero",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado por Litoral Gas"},
    ],
    obra:[
-     {r:"Obra de calzada calle Sarmiento",p:60,nota:"Único rubro con avance activo"},
-     {r:"Obras internas restantes",p:0,nota:"🔴 No iniciadas — gestión administrativa en curso"},
+     {r:"Calzadas",p:10,nota:"600m calle Sarmiento ejecutados"},
+     {r:"Red de Agua",p:0,nota:"Pendiente"},
+     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
+     {r:"Alumbrado",p:0,nota:"Pendiente"},
+     {r:"Red Eléctrica",p:0,nota:"Pendiente"},
+     {r:"Plazas y Señalización",p:0,nota:""},
+     {r:"Obras Pluviales",p:0,nota:""},
+     {r:"Obra Comp. de Agua",p:0,nota:"Acordar con Cooperativa"},
+     {r:"Obra Comp. de Cloaca",p:0,nota:""},
+     {r:"Forestación",p:0,nota:""},
+     {r:"Red de Gas",p:0,nota:""}
    ]},
 
   {id:"CDE",nombre:"Clos del Este",loc:"Roldán",ha:66,lotes:880,avanceGestion:10,avanceObra:0,urgente:false,entrega:"Dic 2034",
@@ -654,7 +725,20 @@ const PROJS = [
      {etapa:"Hídrico",nombre:"CH2",est:"proc",exp:"",ini:"",fin:"",obs:""},
      {etapa:"Gas",nombre:"Factibilidad de Gas — Litoral Gas",est:"done",exp:"",ini:"",fin:"20/03/26",obs:"✅ Aprobada por Litoral Gas 20/03/2026"},
    ],
-   obra:[{r:"Obras internas",p:0,nota:"🔴 No iniciadas — normativa exige CH1+CH2+CAT previos"}]},
+   obra:[
+     {r:"Mojonamiento",p:0,nota:"Espera acuerdo Municipal"},
+     {r:"Calzadas",p:0,nota:"Pendiente"},
+     {r:"Red de Agua",p:0,nota:""},
+     {r:"Red de Cloacas",p:0,nota:""},
+     {r:"Alumbrado",p:0,nota:""},
+     {r:"Red Eléctrica",p:0,nota:""},
+     {r:"Plazas y Señalización",p:0,nota:""},
+     {r:"Obras Pluviales",p:0,nota:""},
+     {r:"Planta de Agua",p:0,nota:""},
+     {r:"Planta Impulsora Cloacal",p:0,nota:""},
+     {r:"Forestación",p:0,nota:""},
+     {r:"Red de Gas",p:0,nota:""}
+   ]},
 
   {id:"VN",nombre:"Vitta Norte",loc:"Soldini",ha:"",lotes:"",avanceGestion:5,avanceObra:0,urgente:false,entrega:"Jun 2036",
    tags:["proceso"],nota:"Inicio de trámites.",
@@ -1032,20 +1116,47 @@ function openDetail(id){
       <div class="hito-right">${estBadge(h.est)}</div>
     </div>`).join("") || '<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin datos de gestión.</div>';
 
-  // Panel 1: Obra
-  let o=p.obra.length?p.obra.map(r=>{
-    const col=pctColor(r.p);
-    return `<div class="obra-row">
-      <div style="flex:1;min-width:0">
-        <div class="obra-name">${r.r}</div>
-        ${r.nota?`<div class="obra-note">${r.nota}</div>`:""}
-      </div>
-      <div class="obra-pct-wrap">
-        <div class="obra-bar-bg"><div class="obra-bar-fill" style="width:${r.p}%;background:${col}"></div></div>
-        <div class="obra-pct" style="color:${col}">${r.p}%</div>
-      </div>
-    </div>`}).join("")
-    : '<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin datos de obra.</div>';
+  // Panel 1: Obra — render detallado por rubro
+  let o;
+  if(!p.obra.length){
+    o='<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin datos de obra registrados.</div>';
+  } else {
+    // Separar en 100%, parcial, 0%
+    const done  = p.obra.filter(r=>r.p===100);
+    const parcial= p.obra.filter(r=>r.p>0&&r.p<100);
+    const pend  = p.obra.filter(r=>r.p===0||r.p===null);
+
+    function rubroRow(r){
+      const col = r.p===100?"var(--green)": r.p>=70?"#3aaa70": r.p>=40?"var(--amber)": r.p>0?"var(--orange)":"var(--red)";
+      const labelBg = r.p===100?"rgba(46,200,122,.12)": r.p>0?"rgba(71,148,255,.08)":"rgba(224,85,85,.07)";
+      const pctLabel = r.p===100?"Completo": r.p===0?"Pendiente":`${r.p}%`;
+      return `<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:9px 12px;border-radius:7px;background:var(--bg3);border:1px solid var(--border);margin-bottom:6px">
+        <div>
+          <div style="font-size:12px;font-weight:500;color:var(--text)">${r.r}</div>
+          ${r.nota?`<div style="font-size:10px;color:var(--muted);margin-top:2px">${r.nota}</div>`:""}
+          ${r.p>0&&r.p<100?`<div style="margin-top:6px;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden">
+            <div style="width:${r.p}%;height:100%;background:${col};border-radius:2px;transition:width .5s"></div>
+          </div>`:""}
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;padding:3px 9px;border-radius:12px;background:${labelBg};color:${col};white-space:nowrap">${pctLabel}</div>
+      </div>`;
+    }
+
+    let oHtml="";
+    if(done.length){
+      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:12px 0 6px">✓ Completados (${done.length})</div>`;
+      oHtml+=done.map(rubroRow).join("");
+    }
+    if(parcial.length){
+      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:14px 0 6px">◎ En ejecución (${parcial.length})</div>`;
+      oHtml+=parcial.map(rubroRow).join("");
+    }
+    if(pend.length){
+      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:14px 0 6px">○ Pendientes (${pend.length})</div>`;
+      oHtml+=pend.map(rubroRow).join("");
+    }
+    o=oHtml;
+  }
 
   // Panel 2: Modelos de respuesta del proyecto
   const mods=MODELOS.filter(m=>m.id===id||m.id==="TODOS");
@@ -1281,24 +1392,50 @@ buildGestion(PROJS);
 function buildObra(list){
   const el=document.getElementById("obra-list");
   const withObra=list.filter(p=>p.obra.length>0);
-  el.innerHTML=withObra.map(p=>`
-    <div class="card" style="margin-bottom:12px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-        <div style="font-size:14px;font-weight:600">${p.nombre}</div>
-        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${p.loc}</span>
+
+  el.innerHTML=withObra.map(p=>{
+    // Calcular avance promedio
+    const rubros=p.obra.filter(r=>r.p!==null&&r.p!==undefined);
+    const avg=rubros.length?Math.round(rubros.reduce((s,r)=>s+r.p,0)/rubros.length):0;
+    const done100=p.obra.filter(r=>r.p===100).length;
+    const enEjec=p.obra.filter(r=>r.p>0&&r.p<100).length;
+    const pend=p.obra.filter(r=>r.p===0||r.p===null).length;
+
+    const rows=p.obra.map(r=>{
+      const col=r.p===100?"var(--green)":r.p>=70?"#3aaa70":r.p>=40?"var(--amber)":r.p>0?"var(--orange)":"var(--dim)";
+      const lbl=r.p===100?"✓":r.p===0?"—":`${r.p}%`;
+      const barW=r.p||0;
+      return `<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
+        <div>
+          <div style="font-size:12px;color:var(--text)">${r.r}</div>
+          ${r.nota&&r.nota!=="Pendiente"&&r.nota!=="Ejecutada"&&r.nota!=="Ejecutadas"&&r.nota!=="Ejecutados"&&r.nota!=="Ejecutado"?
+            `<div style="font-size:10px;color:var(--muted)">${r.nota}</div>`:""}
+          ${r.p>0&&r.p<100?`<div style="margin-top:4px;height:2px;background:var(--bg);border-radius:1px;overflow:hidden;width:120px">
+            <div style="width:${barW}%;height:100%;background:${col}"></div></div>`:""}
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;color:${col};white-space:nowrap;min-width:36px;text-align:right">${lbl}</div>
+      </div>`;
+    }).join("");
+
+    return `<div class="card" style="margin-bottom:12px;cursor:pointer" onclick="openDetail('${p.id}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div>
+          <div style="font-size:14px;font-weight:600;color:#fff">${p.nombre}</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px">${p.loc}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'DM Serif Display',serif;font-size:20px;color:${avg===100?"var(--green)":avg>50?"var(--blue)":avg>20?"var(--amber)":"var(--orange)"}">${avg}%</div>
+          <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">promedio</div>
+        </div>
       </div>
-      ${p.obra.map(r=>{const col=pctColor(r.p);return `
-        <div class="obra-row">
-          <div style="flex:1;min-width:0">
-            <div class="obra-name">${r.r}</div>
-            ${r.nota?`<div class="obra-note">${r.nota}</div>`:""}
-          </div>
-          <div class="obra-pct-wrap">
-            <div class="obra-bar-bg"><div class="obra-bar-fill" style="width:${r.p}%;background:${col}"></div></div>
-            <div class="obra-pct" style="color:${col}">${r.p}%</div>
-          </div>
-        </div>`}).join("")}
-    </div>`).join("");
+      <div style="display:flex;gap:10px;margin-bottom:10px">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--green)">✓ ${done100}</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--blue)">◎ ${enEjec}</span>
+        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--dim)">○ ${pend}</span>
+      </div>
+      ${rows}
+    </div>`;
+  }).join("");
 }
 buildObra(PROJS);
 
