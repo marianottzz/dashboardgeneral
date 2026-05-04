@@ -2440,7 +2440,15 @@ function openDetail(id){
 
   // Tabs
   const hasMasterplan=!!p.masterplan;
-  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[])] ;
+  const CHAT_IA_LINKS={
+    "CEPE": "https://notebooklm.google.com/notebook/107c0e95-ec2a-43f4-ac03-99329c988ec8",
+    "CM":   "https://notebooklm.google.com/notebook/8b1faa8b-d371-4417-bdea-6cbadd51cb36",
+    "EN2":  "https://notebooklm.google.com/notebook/db6e06d5-e77c-402b-a3c9-97c550c85563",
+    "EN":   "https://notebooklm.google.com/notebook/f79f9ea8-5025-4368-a26c-a020c3b69c9f",
+    "OR":   "https://notebooklm.google.com/notebook/70dcf3ac-1bd9-4205-9195-3a43e33bad01",
+  };
+  const hasChatIA=!!(CHAT_IA_LINKS[id]);
+  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[]),...(hasChatIA?["🤖 Chat IA"]:[])];
   document.getElementById("detail-tabs").innerHTML=tabs.map((t,i)=>
     `<button class="dtab ${i===0?"active":""}" onclick="switchDTab(${i},this)">${t}</button>`
   ).join("");
@@ -2688,12 +2696,66 @@ function openDetail(id){
       </div>`;
   }
 
+  // Panel Chat IA — proyectos con cuaderno NotebookLM
+  let chatIA = "";
+  if(hasChatIA){
+    const chatUrl = CHAT_IA_LINKS[id];
+    chatIA = `
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px;padding:8px 0 4px">
+        <!-- Header descriptivo -->
+        <div style="width:100%;background:linear-gradient(135deg,#0f2348 0%,#162338 100%);border:1px solid rgba(71,148,255,0.25);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px">
+          <div style="font-size:32px;line-height:1;flex-shrink:0">🤖</div>
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:4px">Asistente IA · CEPE</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6">
+              Consultá el cuaderno inteligente de CEPE en NotebookLM. Podés hacer preguntas sobre el proyecto, los hitos, la gestión, el estado de obra y más — el asistente responde con base en los documentos del proyecto.
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejemplos de consulta -->
+        <div style="width:100%">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Ejemplos de consultas</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            ${[
+              "¿Cuál es el estado actual de la red eléctrica?",
+              "¿Qué hitos de gestión están pendientes?",
+              "¿Cuándo es la entrega estimada del proyecto?",
+              "¿Cuál es el avance de obra en infraestructura?"
+            ].map(q=>`
+              <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--muted);line-height:1.4;display:flex;align-items:flex-start;gap:6px">
+                <span style="color:var(--blue);font-size:14px;line-height:1;flex-shrink:0">›</span>
+                <span>${q}</span>
+              </div>`).join("")}
+          </div>
+        </div>
+
+        <!-- Botón principal -->
+        <a href="${chatUrl}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#4794ff,#1a56cc);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.3px;box-shadow:0 4px 20px rgba(71,148,255,0.35);transition:opacity .15s;width:100%;justify-content:center;max-width:360px"
+           onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <span style="font-size:20px">🤖</span>
+          Abrir Chat IA · CEPE
+          <span style="font-size:16px;opacity:.7">↗</span>
+        </a>
+
+        <!-- Nota -->
+        <div style="width:100%;background:var(--amber-l);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:8px">
+          <span style="color:var(--amber);flex-shrink:0">💡</span>
+          <div style="font-size:11px;color:var(--amber);line-height:1.5">
+            El asistente accede solo a los documentos cargados en el cuaderno de CEPE. Se abre en una nueva pestaña — necesitás tener acceso a NotebookLM con tu cuenta de Google.
+          </div>
+        </div>
+      </div>`;
+  }
+
   document.getElementById("detail-body").innerHTML=`
     <div class="dpanel active" id="dp0">${g}</div>
     <div class="dpanel" id="dp1">${o}</div>
     <div class="dpanel" id="dp2">${m}</div>
     <div class="dpanel" id="dp3">${pnl}</div>
-    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}`;
+    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}
+    ${hasChatIA?`<div class="dpanel" id="dp${hasMasterplan?5:4}">${chatIA}</div>`:""}`;
 
   document.getElementById("overlay").classList.add("open");
 }
