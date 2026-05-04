@@ -194,6 +194,253 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 /* ── MOBILE PROJ LIST ── */
 @media(max-width:600px){.grid2.proj-grid{grid-template-columns:1fr}}
+/* ── PRINT / PDF STYLES ─────────────────────────────────── */
+@media print {
+  body > *:not(#pdf-report) { display: none !important; }
+  #pdf-report { display: block !important; }
+  @page { margin: 15mm 14mm; size: A4; }
+}
+
+/* ── PDF REPORT INTERNAL STYLES ─────────────────────────── */
+#pdf-report {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #0a1220;
+  background: #fff;
+  padding: 0;
+  line-height: 1.5;
+}
+#pdf-report .pr-page {
+  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#pdf-report .pr-header {
+  background: linear-gradient(135deg, #0a1a35 0%, #0f2348 70%, #0d1e3a 100%);
+  color: #fff;
+  padding: 28px 32px 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  page-break-inside: avoid;
+}
+#pdf-report .pr-logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#pdf-report .pr-logo-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#pdf-report .pr-logo-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #4794ff;
+  display: inline-block;
+  flex-shrink: 0;
+}
+#pdf-report .pr-logo-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+#pdf-report .pr-header-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#pdf-report .pr-proj-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: #fff;
+}
+#pdf-report .pr-proj-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 1px;
+}
+#pdf-report .pr-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: #4794ff;
+  margin-top: 6px;
+}
+#pdf-report .pr-body {
+  padding: 24px 32px;
+}
+#pdf-report .pr-section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #4794ff;
+  border-bottom: 1px solid #e0e8f0;
+  padding-bottom: 5px;
+  margin: 20px 0 12px;
+}
+#pdf-report .pr-kpi-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+#pdf-report .pr-kpi {
+  flex: 1;
+  background: #f0f5ff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  border-left: 3px solid #4794ff;
+}
+#pdf-report .pr-kpi-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #6080a0;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+#pdf-report .pr-kpi-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #0a1a35;
+  line-height: 1;
+}
+#pdf-report .pr-kpi-sub {
+  font-size: 10px;
+  color: #8090a0;
+  margin-top: 2px;
+}
+#pdf-report .pr-bar-wrap {
+  background: #e8eef6;
+  border-radius: 4px;
+  height: 7px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+#pdf-report .pr-bar {
+  height: 100%;
+  border-radius: 4px;
+  background: #4794ff;
+}
+#pdf-report .pr-hito-block {
+  border: 1px solid #dde6f0;
+  border-radius: 7px;
+  margin-bottom: 7px;
+  overflow: hidden;
+  page-break-inside: avoid;
+}
+#pdf-report .pr-hito-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  gap: 8px;
+}
+#pdf-report .pr-hito-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0a1a35;
+  flex: 1;
+}
+#pdf-report .pr-hito-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: #8090a0;
+}
+#pdf-report .pr-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+#pdf-report .pr-badge-done  { background: #e6f9f0; color: #1a8a50; }
+#pdf-report .pr-badge-proc  { background: #e6f0ff; color: #2060c0; }
+#pdf-report .pr-badge-urgent{ background: #fff3e6; color: #c06010; }
+#pdf-report .pr-badge-block { background: #ffe6e6; color: #c02020; }
+#pdf-report .pr-badge-prog  { background: #f0f0f0; color: #606070; }
+#pdf-report .pr-badge-na    { background: #f4f4f4; color: #909090; }
+#pdf-report .pr-sub-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 12px 5px 24px;
+  border-top: 1px solid #eef2f7;
+  gap: 8px;
+}
+#pdf-report .pr-sub-name {
+  font-size: 11px;
+  color: #3a5070;
+  flex: 1;
+}
+#pdf-report .pr-rubro-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eef2f7;
+}
+#pdf-report .pr-rubro-name {
+  font-size: 12px;
+  color: #0a1a35;
+  flex: 1;
+}
+#pdf-report .pr-rubro-pct {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: right;
+}
+#pdf-report .pr-nota-box {
+  background: #f8f2e8;
+  border-left: 3px solid #f0b429;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: #5a4010;
+  margin-bottom: 14px;
+}
+#pdf-report .pr-footer {
+  background: #f0f4fa;
+  border-top: 1px solid #dde6f0;
+  padding: 12px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+#pdf-report .pr-footer-left {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #8090a0;
+  letter-spacing: 1px;
+}
+#pdf-report .pr-footer-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: #4794ff;
+}
+#pdf-report .pr-checklist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #eef2f7;
+}
+#pdf-report .pr-checklist-lbl { font-size: 12px; color: #0a1a35; }
 </style>
 </head>
 <body>
@@ -381,12 +628,23 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:4px" id="detail-sub"></div>
         <div class="detail-title" id="detail-title"></div>
       </div>
-      <button class="detail-close" onclick="document.getElementById('overlay').classList.remove('open')">✕</button>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button id="btn-export-pdf"
+          style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1px solid rgba(71,148,255,0.4);background:rgba(71,148,255,0.1);color:#4794ff;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;cursor:pointer;white-space:nowrap;transition:all .15s"
+          onmouseover="this.style.background='rgba(71,148,255,0.2)'" onmouseout="this.style.background='rgba(71,148,255,0.1)'"
+          onclick="exportInformePDF()">
+          <span style="font-size:13px">⬇</span> Exportar informe
+        </button>
+        <button class="detail-close" onclick="document.getElementById('overlay').classList.remove('open')">✕</button>
+      </div>
     </div>
     <div class="detail-tabs" id="detail-tabs"></div>
     <div class="detail-body" id="detail-body"></div>
   </div>
 </div>
+
+<!-- INFORME PDF (oculto, solo se activa al imprimir) -->
+<div id="pdf-report" style="display:none"></div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
@@ -428,8 +686,8 @@ const PROJS = [
      {r:"Señalización",p:100,nota:""},
      {r:"Obras Pluviales",p:100,nota:""},
      {r:"Forestación",p:100,nota:""},
-     {r:"Red Eléctrica",p:95,nota:"Cierre final pendiente"},
-     {r:"Red de Cloacas",p:0,nota:"Pendiente"}
+     {r:"Red Eléctrica",p:95,nota:"Cierre final"},
+     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
    ]},
 
   {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Escriturado",
@@ -471,15 +729,16 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Conv. de Responsabilidad Empresarial",est:"done",exp:"",ini:"",fin:"",obs:"✅ Completado"},
    ],
    obra:[
-     {r:"Red Eléctrica Interna",p:100,nota:"Ejecutada"},
+     {r:"Pavimentación Av. de los Incas (1400ml)",p:100,nota:"Ejecutado"},
+     {r:"Red de Agua",p:100,nota:"Ejecutado"},
      {r:"Alumbrado Público",p:100,nota:"Ejecutado"},
      {r:"Obras Pluviales",p:100,nota:"Ejecutadas"},
      {r:"Señalización",p:100,nota:"Ejecutada"},
-     {r:"Calzadas",p:100,nota:""},
+     {r:"Calzadas",p:100,nota:"Ejecutada"},
      {r:"Plazas",p:100,nota:"Ejecutada"},
-     {r:"Red de Agua (Interna)",p:100,nota:""},
-     {r:"Planta de Agua",p:100,nota:""},
-     {r:"Red Eléctrica Externa",p:0,nota:"Depende de EPE — Convenio SE024/2025"}
+     {r:"Red Eléctrica Interna",p:100,nota:"Ejecutada — falta inspección EPE y resolución Santa Fe"},
+     {r:"Planta de Agua",p:100,nota:"Ejecutada"},
+     {r:"Red Eléctrica Externa",p:0,nota:"Espera aprobación EPE Santa Fe"},
    ]},
 
   {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avanceGestion:91,avanceObra:98,urgente:true,entrega:"Jun 2026",
@@ -497,15 +756,16 @@ const PROJS = [
    obra:[
      {r:"Planta Provisoria Agua",p:100,nota:"Ejecutada"},
      {r:"Pluviales Internos",p:100,nota:"Ejecutados"},
+     {r:"Nivelación de terreno",p:100,nota:"Ejecutado"},
      {r:"Pórtico de Ingreso",p:100,nota:"Ejecutado"},
      {r:"Calzadas",p:100,nota:"Ejecutadas"},
      {r:"Cordones Cuneta",p:100,nota:"Ejecutados"},
      {r:"Red Eléctrica",p:100,nota:"Ejecutada"},
-     {r:"Colocación de Juegos",p:90,nota:"Etapa final"},
-     {r:"Obras Pluviales Ext.",p:80,nota:"En ejecución avanzada — a Salvat"},
+     {r:"Colocación de Juegos",p:100,nota:"Etapa final"},
+     {r:"Obras Pluviales Ext. (aporte a comuna)",p:80,nota:"En ejecución avanzada — a Salvat"},
      {r:"Señalización",p:50,nota:"En proceso"},
      {r:"Conexión Agua Externa",p:0,nota:"Convenio Ibarlucea pendiente"},
-     {r:"Iluminación Pórtico",p:0,nota:"Verificar"}
+     {r:"Iluminación Pórtico",p:0,nota:"Verificar"},
    ]},
 
   {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Dic 2028",
@@ -524,14 +784,14 @@ const PROJS = [
      {r:"Red de Agua",p:100,nota:"Ejecutada (ajustes de detalles)"},
      {r:"Calzadas",p:100,nota:"Ejecutadas (ajustes de detalles)"},
      {r:"Red Cloacal Interna",p:100,nota:"Ejecutada"},
-     {r:"Forestación",p:100,nota:"Revisión de ejemplares"},
+     {r:"Forestación",p:100,nota:"Revisión de ejemplares a corregir"},
      {r:"Cerco Perimetral",p:5,nota:"En proceso de ejecución"},
      {r:"Pluviales",p:10,nota:"Pendiente"},
      {r:"Estación Elevadora",p:0,nota:"Pendiente"},
      {r:"Conexión Cloacal Ext.",p:0,nota:"Pendiente"},
      {r:"Obra Eléctrica",p:0,nota:"Pendiente"},
      {r:"Pórtico",p:0,nota:"Ajustando proyecto para inicio de obra"},
-     {r:"Adoquinado Kennedy",p:0,nota:"Revisar convenio urbanístico"}
+     {r:"Adoquinado Kennedy",p:0,nota:"Revisar convenio urbanístico"},
    ]},
 
   {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avanceGestion:100,avanceObra:80,urgente:true,entrega:"Dic 2026",
@@ -2172,6 +2432,7 @@ buildProjGrid(PROJS);
 
 // ── OPEN DETAIL ─────────────────────────────────────────────
 function openDetail(id){
+  _currentProjId = id;
   const p=PROJS.find(x=>x.id===id); if(!p) return;
   const avg=Math.round((p.avanceGestion+(p.avanceObra??p.avanceGestion))/2);
   document.getElementById("detail-sub").textContent=p.loc+(p.ha?` · ${p.ha}ha`:""+(p.lotes?` · ${p.lotes} lotes`:""));
@@ -2203,7 +2464,7 @@ function openDetail(id){
 
   // Panel 1: Obra — render detallado por rubro
   let o;
-  if(!p.obra.length){
+  if(!p.obra||!p.obra.length){
     o='<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin datos de obra registrados.</div>';
   } else {
     // Separar en 100%, parcial, 0%
@@ -2275,20 +2536,20 @@ function openDetail(id){
   ];
   // Mapping from hito names/etapas to checklist keys
   function hitoKey(h){
-    const n=h.nombre.toLowerCase(), e=h.etapa.toLowerCase();
+    const n=h.nombre.toLowerCase(), e=(h.etapa||"").toLowerCase();
     if(n.includes("uso conforme")) return "uso_conforme";
     if(n.includes("convenio urban")) return "conv_urb";
     if(n.includes("ch1")||n==="ch1") return "ch1";
     if(n.includes("ch2")||n==="ch2") return "ch2";
     if(n.includes("convenio el")||n.includes("aprobación epe")||n.includes("aprobación cooperativa")) return "conv_elec";
-    if(n.includes("cat")&&e.includes("ambiental")) return "cat";
+    if(n.includes("cat")&&(e.includes("ambiental")||n.includes("categoriz"))) return "cat";
     if(n.includes("eia")||n.includes("estudio de impacto")) return "eia";
     if(n.includes("recepción")||n.includes("recepcion")) return "recepcion";
     if(n.includes("catastro")||n.includes("inscripción")) return "catastro";
     return null;
   }
   const hitoMap={};
-  p.hitos.forEach(h=>{const k=hitoKey(h); if(k) hitoMap[k]=h.est;});
+  (p.hitos||[]).forEach(h=>{const k=hitoKey(h); if(k) hitoMap[k]=h.est;});
 
   const clRows=CHECKLIST.map(item=>{
     const est=hitoMap[item.key];
@@ -2460,11 +2721,11 @@ function buildGestion(list){
         </div>
         <span style="color:var(--muted)">↗</span>
       </div>
-      ${p.hitos.map(h=>`
+      ${(p.hitos||[]).map(h=>`
         <div class="hito-row">
           <div class="hito-left">
             <div class="hito-name">${h.nombre}</div>
-            <div class="hito-detail">${h.etapa}${h.exp?` · ${h.exp}`:""}${h.ini?` · ${h.ini}`:""}${h.fin?` → ${h.fin}`:""}</div>
+            <div class="hito-detail">${h.etapa||""}${h.exp?` · ${h.exp}`:""}${h.ini?` · ${h.ini}`:""}${h.fin?` → ${h.fin}`:""}</div>
             ${h.obs?`<div style="font-size:10px;color:var(--amber);margin-top:2px">${h.obs}</div>`:""}
           </div>
           <div class="hito-right">${estBadge(h.est)}</div>
@@ -2476,7 +2737,7 @@ buildGestion(PROJS);
 // ── OBRA PAGE ─────────────────────────────────────────────────
 function buildObra(list){
   const el=document.getElementById("obra-list");
-  const withObra=list.filter(p=>p.obra.length>0);
+  const withObra=list.filter(p=>p.obra&&p.obra.length>0);
 
   el.innerHTML=withObra.map(p=>{
     // Calcular avance promedio
@@ -2686,6 +2947,212 @@ function showPage(id, btn, fromBottomNav=false){
     });
   }
   window.scrollTo(0,0);
+}
+// ══════════════════════════════════════════════════════════════
+// EXPORTAR INFORME PDF
+// ══════════════════════════════════════════════════════════════
+let _currentProjId = null;
+
+function exportInformePDF(){
+  const p = PROJS.find(x => x.id === _currentProjId);
+  if(!p) return;
+
+  const fecha = new Date().toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric"});
+
+  // ── Helpers ──────────────────────────────────────────────
+  const EST = {
+    done:   {cls:"pr-badge-done",  icon:"✅", lbl:"Aprobado"},
+    proc:   {cls:"pr-badge-proc",  icon:"🔄", lbl:"En proceso"},
+    urgent: {cls:"pr-badge-urgent",icon:"⚡", lbl:"Urgente"},
+    block:  {cls:"pr-badge-block", icon:"🔴", lbl:"Bloqueante"},
+    prog:   {cls:"pr-badge-prog",  icon:"○",  lbl:"Programado"},
+    na:     {cls:"pr-badge-na",    icon:"—",  lbl:"N/A"},
+  };
+  function badge(est){ const d=EST[est]||EST.na; return `<span class="pr-badge ${d.cls}">${d.icon} ${d.lbl}</span>`; }
+
+  function pctCol(v){ return v===100?"#1a8a50":v>=70?"#2060c0":v>=40?"#c06010":"#c02020"; }
+
+  // ── KPIs ─────────────────────────────────────────────────
+  const avg = Math.round((p.avanceGestion + (p.avanceObra??p.avanceGestion))/2);
+  const kpis = `
+    <div class="pr-kpi-row">
+      <div class="pr-kpi">
+        <div class="pr-kpi-label">Gestión</div>
+        <div class="pr-kpi-val" style="color:${pctCol(p.avanceGestion)}">${p.avanceGestion}%</div>
+        <div class="pr-bar-wrap"><div class="pr-bar" style="width:${p.avanceGestion}%;background:${pctCol(p.avanceGestion)}"></div></div>
+      </div>
+      <div class="pr-kpi">
+        <div class="pr-kpi-label">Obra</div>
+        <div class="pr-kpi-val" style="color:${pctCol(p.avanceObra??0)}">${p.avanceObra??0}%</div>
+        <div class="pr-bar-wrap"><div class="pr-bar" style="width:${p.avanceObra??0}%;background:${pctCol(p.avanceObra??0)}"></div></div>
+      </div>
+      <div class="pr-kpi">
+        <div class="pr-kpi-label">Avance general</div>
+        <div class="pr-kpi-val" style="color:${pctCol(avg)}">${avg}%</div>
+        <div class="pr-bar-wrap"><div class="pr-bar" style="width:${avg}%;background:${pctCol(avg)}"></div></div>
+      </div>
+      <div class="pr-kpi" style="border-left-color:#0a1a35">
+        <div class="pr-kpi-label">Entrega estimada</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:17px;color:#0a1a35;line-height:1.2;margin-top:3px">${p.entrega}</div>
+        <div class="pr-kpi-sub">${p.lotes?p.lotes+" lotes":""} ${p.ha?p.ha+"ha":""}</div>
+      </div>
+    </div>`;
+
+  // ── Nota del proyecto ─────────────────────────────────────
+  const notaHtml = p.nota ? `<div class="pr-nota-box">📌 ${p.nota}</div>` : "";
+
+  // ── Hitos de gestión ─────────────────────────────────────
+  let hitosHtml = "";
+  if(p.hitos && p.hitos.length){
+    const hitoRows = p.hitos.map(h => {
+      const d = EST[h.est]||EST.na;
+      const hdrBg = h.est==="done"?"#f0faf5": h.est==="urgent"?"#fff8f0": h.est==="block"?"#fff0f0": h.est==="proc"?"#f0f5ff":"#f8f9fa";
+      const subs = (h.sub||[]).map(s=>`
+        <div class="pr-sub-row">
+          <span style="color:#8090a0;font-size:10px;flex-shrink:0">└</span>
+          <span class="pr-sub-name">${s.nombre}${s.exp?` <span style="color:#b0c0d0;font-family:'DM Mono',monospace;font-size:9px">${s.exp}</span>`:""}</span>
+          ${badge(s.est)}
+        </div>`).join("");
+      return `<div class="pr-hito-block">
+        <div class="pr-hito-header" style="background:${hdrBg}">
+          <span class="pr-hito-name">${h.nombre}${h.exp?` <span style="color:#8090a0;font-family:'DM Mono',monospace;font-size:9px">${h.exp}</span>`:""}</span>
+          ${h.ini?`<span class="pr-hito-meta">${h.ini}${h.fin?" → "+h.fin:""}</span>`:""}
+          ${badge(h.est)}
+        </div>
+        ${subs}
+        ${h.obs?`<div style="padding:5px 12px 7px;font-size:10px;color:#6080a0;border-top:1px solid #eef2f7">${h.obs}</div>`:""}
+      </div>`;
+    }).join("");
+    hitosHtml = `<div class="pr-section-title">Hitos de gestión</div>${hitoRows}`;
+  } else if(p.gestion && p.gestion.length){
+    // Usar GESTION_DATA si no hay hitos simples
+    const hitoRows = p.gestion.map(h => {
+      const d = EST[h.est]||EST.na;
+      const hdrBg = h.est==="done"?"#f0faf5": h.est==="urgent"?"#fff8f0": h.est==="block"?"#fff0f0": h.est==="proc"?"#f0f5ff":"#f8f9fa";
+      return `<div class="pr-hito-block">
+        <div class="pr-hito-header" style="background:${hdrBg}">
+          <span class="pr-hito-name">${h.nombre}${h.exp?` <span style="color:#8090a0;font-family:'DM Mono',monospace;font-size:9px">${h.exp}</span>`:""}</span>
+          ${badge(h.est)}
+        </div>
+      </div>`;
+    }).join("");
+    hitosHtml = `<div class="pr-section-title">Hitos de gestión</div>${hitoRows}`;
+  }
+
+  // ── Obra ─────────────────────────────────────────────────
+  let obraHtml = "";
+  if(p.obra && p.obra.length){
+    const rows = p.obra.map(r=>{
+      const col = r.p===100?pctCol(100): r.p>=70?pctCol(70): r.p>=40?pctCol(40): pctCol(r.p);
+      const lbl = r.p===100?"Completo": r.p===0?"Pendiente":`${r.p}%`;
+      return `<div class="pr-rubro-row">
+        <div style="flex:1">
+          <div class="pr-rubro-name">${r.r}</div>
+          ${r.nota?`<div style="font-size:10px;color:#8090a0">${r.nota}</div>`:""}
+          ${r.p>0&&r.p<100?`<div class="pr-bar-wrap" style="margin-top:4px"><div class="pr-bar" style="width:${r.p}%;background:${col}"></div></div>`:""}
+        </div>
+        <div class="pr-rubro-pct" style="color:${col}">${lbl}</div>
+      </div>`;
+    }).join("");
+    obraHtml = `<div class="pr-section-title">Estado de obra</div><div style="padding:0 2px">${rows}</div>`;
+  }
+
+  // ── Checklist pendientes ──────────────────────────────────
+  const CL=[
+    {key:"uso_conforme", lbl:"Uso conforme"},
+    {key:"conv_urb",     lbl:"Convenio urbanístico"},
+    {key:"ch1",          lbl:"Certificado hídrico 1"},
+    {key:"ch2",          lbl:"Certificado hídrico 2"},
+    {key:"conv_elec",    lbl:"Convenio eléctrico"},
+    {key:"cat",          lbl:"CAT ambiental"},
+    {key:"eia",          lbl:"Estudio de impacto ambiental (EIA)"},
+    {key:"recepcion",    lbl:"Recepción de obras y visados"},
+    {key:"catastro",     lbl:"Catastro / Inscripción SCIT"},
+  ];
+  function hitoKeyPDF(h){
+    const n=h.nombre.toLowerCase();
+    if(n.includes("uso conforme")) return "uso_conforme";
+    if(n.includes("convenio urban")) return "conv_urb";
+    if(n.includes("ch1")||n==="ch1"||n==="certificado hídrico 1") return "ch1";
+    if(n.includes("ch2")||n==="ch2"||n==="certificado hídrico 2") return "ch2";
+    if(n.includes("convenio el")||n.includes("aprobación epe")) return "conv_elec";
+    if(n.includes("cat")&&(n.includes("ambiental")||n.includes("categoriz"))) return "cat";
+    if(n.includes("eia")||n.includes("impacto ambiental")) return "eia";
+    if(n.includes("recepción")||n.includes("recepcion")) return "recepcion";
+    if(n.includes("catastro")||n.includes("inscripción")) return "catastro";
+    return null;
+  }
+  const hMap={};
+  (p.hitos||[]).forEach(h=>{ const k=hitoKeyPDF(h); if(k) hMap[k]=h.est; });
+  (p.gestion||[]).forEach(h=>{ const k=hitoKeyPDF(h); if(k&&!hMap[k]) hMap[k]=h.est; });
+
+  const clRows = CL.map(item=>{
+    const est=hMap[item.key];
+    const d=EST[est]||{cls:"pr-badge-na",icon:"—",lbl:"Sin datos"};
+    return `<div class="pr-checklist-row">
+      <span class="pr-checklist-lbl">${item.lbl}</span>
+      <span class="pr-badge ${d.cls}">${d.icon} ${d.lbl}</span>
+    </div>`;
+  }).join("");
+  const doneCount = CL.filter(i=>hMap[i.key]==="done").length;
+  const clHtml = `<div class="pr-section-title">Checklist de gestión · ${doneCount}/${CL.length} completados</div>
+    <div style="padding:0 2px">${clRows}</div>`;
+
+  // ── Estrategia (si existe) ────────────────────────────────
+  const estr = ESTRATEGIA.find(e=>e.proj===p.nombre);
+  let estrHtml = "";
+  if(estr){
+    estrHtml = `<div class="pr-section-title">Estrategia interna</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px">
+        <div style="background:#f0f5ff;border-radius:7px;padding:12px 14px;border-left:3px solid #4794ff">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;color:#4060a0;text-transform:uppercase;margin-bottom:5px">Foco</div>
+          <div style="font-size:12px;color:#0a1a35">${estr.foco}</div>
+        </div>
+        <div style="background:#fff8f0;border-radius:7px;padding:12px 14px;border-left:3px solid #f0b429">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;color:#a07020;text-transform:uppercase;margin-bottom:5px">Punto crítico</div>
+          <div style="font-size:12px;color:#0a1a35">${estr.critico}</div>
+        </div>
+        <div style="background:#f0faf5;border-radius:7px;padding:12px 14px;border-left:3px solid #2ec87a;grid-column:1/-1">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;color:#1a6a40;text-transform:uppercase;margin-bottom:5px">Acciones clave</div>
+          <div style="font-size:12px;color:#0a1a35">${estr.accion}</div>
+        </div>
+      </div>`;
+  }
+
+  // ── Armar el HTML del informe ─────────────────────────────
+  document.getElementById("pdf-report").innerHTML = `
+    <div class="pr-page">
+      <div class="pr-header">
+        <div class="pr-logo-area">
+          <div class="pr-logo-name">
+            <span class="pr-logo-dot"></span> Grupo Roma
+          </div>
+          <div class="pr-logo-sub">Panel de gestión interna</div>
+        </div>
+        <div class="pr-header-right">
+          <div class="pr-proj-name">${p.nombre}</div>
+          <div class="pr-proj-meta">${p.loc}${p.ha?" · "+p.ha+"ha":""}${p.lotes?" · "+p.lotes+" lotes":""}</div>
+          <div class="pr-date">Informe generado: ${fecha}</div>
+        </div>
+      </div>
+
+      <div class="pr-body">
+        ${kpis}
+        ${notaHtml}
+        ${hitosHtml}
+        ${obraHtml}
+        ${clHtml}
+        ${estrHtml}
+      </div>
+
+      <div class="pr-footer">
+        <div class="pr-footer-left">GRUPO ROMA · INFORME INTERNO · ${fecha} · CONFIDENCIAL</div>
+        <div class="pr-footer-right">Panel de gestión v10 · gruporoma.com.ar</div>
+      </div>
+    </div>`;
+
+  // ── Imprimir ──────────────────────────────────────────────
+  setTimeout(()=>{ window.print(); }, 120);
 }
 </script>
 </body>
