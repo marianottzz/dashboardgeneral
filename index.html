@@ -813,32 +813,66 @@ const PROJS = [
      {color:"#a08878",lbl:"Patr. Eco P."},
    ]},
    tags:["urgente","proceso"],
-   nota:"100% avance gestión para permiso prov. DPV: convenio + acta inicio en proceso. CAT ✅ todas las prefactibilidades completas. CH3: CH2 ✅, mensura ✅, fact. ambiental ✅.",
+   nota:"100% avance gestión para permiso prov. DPV: convenio + acta de inicio en proceso. Eléctrica interna 90%. Trafo 5MVA entregado a CLESAPE. CH3, Visado Mensura y Cambio de Zona: programados.",
    hitos:[
-     {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"01/06/19",fin:"27/11/19",obs:"Plazo estadística: 6 meses"},
-     {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000288-9",ini:"14/12/20",fin:"06/01/22",obs:"Plazo estadística: 13 meses"},
-     {etapa:"Hídrico",nombre:"CH2",est:"done",exp:"01909-0000288-9",ini:"23/05/22",fin:"02/04/25",obs:"Plazo estadística: 29 meses — todos los sub-ítems completados"},
-     {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"01/06/19",fin:"26/11/19",obs:"Plazo estadística: 6 meses"},
-     {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"EX-2022-00154694-GSF-DDDZS#MMA",ini:"26/07/22",fin:"13/05/25",obs:"Plazo estadística: 2 meses — todas las prefactibilidades ✅ incl. fibra óptica"},
-     {etapa:"Ambiental",nombre:"EIA",est:"done",exp:"02102-0015190-7",ini:"07/07/25",fin:"02/10/25",obs:"Plazo estadística: 3 meses"},
-     {etapa:"Cierre",nombre:"CUR",est:"done",exp:"0035/25",ini:"02/10/25",fin:"28/10/25",obs:"✅ Obtenido. Suspensión levantada 10/11/2025"},
-     {etapa:"Vial",nombre:"Gestiones DPV",est:"proc",exp:"",ini:"",fin:"",obs:"Aprobación de proyecto ✅ · Visado mensura ✅ — Convenio y Acta de inicio en proceso"},
-     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Visado mensura completado. Aprobación proy. eléctrico y acta fin: programados"},
-     {etapa:"Eléctrico",nombre:"Aprobación Cooperativa CLESAPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Prefactibilidad, proyecto, convenio y factibilidad completados. Acta fin: programada"},
-     {etapa:"Cierre",nombre:"Final de Obra Comunal",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
-     {etapa:"Cierre",nombre:"Conv. de Responsabilidad Empresarial",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
+     // ── ADMISIBILIDAD ──
+     {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"01/06/19",fin:"27/11/19",obs:"Plazo estadística: 6 meses. Docs internas y anteproyectos completos."},
+     // ── HÍDRICO ──
+     {etapa:"Hídrico",nombre:"CH1",est:"done",exp:"01909-0000288-9",ini:"14/12/20",fin:"06/01/22",obs:"Plazo estadística: 13 meses."},
+     {etapa:"Hídrico",nombre:"CH2",est:"done",exp:"01909-0000288-9",ini:"23/05/22",fin:"02/04/25",obs:"Plazo estadística: 29 meses. Todos los sub-requisitos completados."},
+     {etapa:"Hídrico",nombre:"CH3",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO — requiere: CH2 aprobado ✅ · Final obra pluvial · Docs internas"},
+     // ── CONVENIO ──
+     {etapa:"Convenio",nombre:"Convenio Urbanístico",est:"done",exp:"",ini:"01/06/19",fin:"26/11/19",obs:"Plazo estadística: 6 meses."},
+     // ── AMBIENTAL ──
+     {etapa:"Ambiental",nombre:"CAT",est:"done",exp:"EX-2022-00154694-GSF-DDDZS#MMA",ini:"26/07/22",fin:"13/05/25",obs:"Plazo estadística: 2 meses."},
+     {etapa:"Ambiental",nombre:"EIA",est:"done",exp:"02102-0015190-7",ini:"07/07/25",fin:"02/10/25",obs:"Plazo estadística: 3 meses."},
+     // ── CIERRE PARCIAL ──
+     {etapa:"Cierre",nombre:"CUR",est:"done",exp:"0035/25",ini:"02/10/25",fin:"28/10/25",obs:"✅ Obtenido. Suspensión levantada 10/11/2025."},
+     // ── VIAL ──
+     {etapa:"Vial",nombre:"Gestiones DPV",est:"proc",exp:"",ini:"",fin:"",obs:"Aprobación de proyecto ✅ · Visado mensura ✅ · Convenio: en proceso · Acta de inicio: en proceso · Acta de fin e inspección: PROGRAMADO"},
+     // ── ELÉCTRICO ──
+     {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Visado mensura completado. Sub-ítems (prefactibilidad, proyecto, convenio, factibilidad, acta): no requiere."},
+     {etapa:"Eléctrico",nombre:"Aprobación Cooperativa CLESAPE",est:"proc",exp:"",ini:"",fin:"",obs:"✅ Prefactibilidad · ✅ Proyecto · ✅ Convenio · ✅ Factibilidad · Acta de fin e inspección: EN PROCESO"},
+     // ── CIERRE FINAL ──
+     {etapa:"Cierre",nombre:"Final de Obra Comunal",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso."},
+     {etapa:"Cierre",nombre:"Conv. de Responsabilidad Empresarial / Acuerdo de Posesión",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso."},
+     {etapa:"Cierre",nombre:"Visado Mensura MAyCC",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO — requiere: CH3 · Final obra comunal · Final obra EPE · Final obra DPV. Mensura visada ✅."},
+     {etapa:"Cierre",nombre:"Cambio de Zona",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO — requiere: uso conforme ✅ · Ordenanza cambio de uso del suelo ✅ · CH1 ✅ · EIA ✅ · Tramite FAC · Visado MAyCC."},
+     {etapa:"Cierre",nombre:"Inscripción Catastro",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO"},
+     {etapa:"Cierre",nombre:"Donación Calles y Espacios Verdes",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO — acta aceptación calles y espacios verdes pendientes."},
+     {etapa:"Cierre",nombre:"Final de Convenio Urbanístico",est:"prog",exp:"",ini:"",fin:"",obs:"PROGRAMADO"},
+   ],
+   pendientes:[
+     {area:"Municipalidad",prio:"critica",titulo:"TGI — Legales, tributos y acuerdo",detalle:"Resolver con Luciano (recurso legal). Punto crítico político para posesión."},
+     {area:"Municipalidad",prio:"critica",titulo:"Obra complementaria: 4.500 m² de adoquines",detalle:"Definir fecha de entrega con Pavitec. Saldo pendiente con municipalidad."},
+     {area:"Municipalidad",prio:"alta",titulo:"Metodología de posesión con obras en proceso",detalle:"Opción 1 (3ª vía): permiso interno por empresa + regularización posterior. Alinear con municipalidad permisos sin número oficial → habilita bajada eléctrica + perforación agua. Opción 2: seguir proceso municipal según convenio de responsabilidad (más lento)."},
+     {area:"Municipalidad",prio:"media",titulo:"Indicadores urbanísticos frente CEPE",detalle:"Acordar FOS y FOT para lotes comerciales en colectora."},
+     {area:"Municipalidad",prio:"media",titulo:"Modificaciones en Masterplan",detalle:"Lotes de 200m² vendidos donde había 400m². Frente CEPE: modificaciones de lotes que alteraron el esquema base de 1.000 m²."},
+     {area:"Gestión",prio:"critica",titulo:"Canon cruce FFCC (cloaca y agua) — vence junio 2026",detalle:"Pagar antes de junio 2026 o gestionar con Jonatan (único apoderado que puede reactivar el trámite). No es transferible."},
+     {area:"Eléctrico",prio:"alta",titulo:"Obra eléctrica: cierre en ~3 semanas",detalle:"Pendiente: colocación trafo Inelpa (Jesuan provee instalación) · Cableado general · Elementos negociación CECARRI listos. Luego: inspección + conforme a obra CLESAPE → condición para bajadas eléctricas a lotes."},
+     {area:"Eléctrico",prio:"alta",titulo:"Convenio CLESAPE — elementos a definir",detalle:"Reconectador (posible condicionante) · Materiales repotenciación · Canon: acuerdo entrega materiales CECARRI (134 columnas). Alinear posesión mínima según avance obra eléctrica."},
+     {area:"Cloacas",prio:"alta",titulo:"Red cloacal interna: pruebas + recepción parcial",detalle:"Pruebas semana 20/04 con Municipalidad. Resultado define recepción parcial."},
+     {area:"Cloacas",prio:"critica",titulo:"Estación impulsora cloacal (30% avance)",detalle:"Falta: terminar construcción planta impulsora · Máquinas para excavación · Materiales y equipos para puesta en marcha. Requerimiento fundamental de la municipalidad."},
+     {area:"Cloacas",prio:"alta",titulo:"Impulsión externa cloaca y agua",detalle:"Avanzar obras de impulsión (aunque sea externas al cruce) · Pagar canon cruces antes de junio · Resolver compra de caños + cambio."},
+     {area:"Agua",prio:"alta",titulo:"Red de agua: pruebas de presión + recepción parcial",detalle:"Semana 20/04: avanzar con manómetros para pruebas de red. Coordinado con CLESAPE. Resultado define recepción parcial."},
+     {area:"Obra",prio:"media",titulo:"Alteo: planificar por sectores / manzanas",detalle:"No urgente pero necesario a corto plazo. Viviendas con permiso de edificación en ese sector requieren alteo terminado. Planificar por manzanas."},
+     {area:"Comercial",prio:"media",titulo:"Postventa: reubicación container y corrección de planos",detalle:"Mover container para recibir clientes en territorio. Corregir planos en campo."},
+     {area:"Gestión",prio:"alta",titulo:"3ª vía — Roma: 20 casas sin proceso municipal",detalle:"Objetivo: permitir a Roma construir 20 casas como dueño (área mayor) sin pasar por obras particulares de la muni. Posterior regularización. Acciones: reunión Pablo + Martín + Luciano · Alinear comunicación con obras particulares · Si hay aval político, ajustar procedimiento y discurso para postventa y clientes."},
    ],
    obra:[
      {r:"Red de Agua (Interna)",p:100,nota:"Realizando inspecciones"},
-     {r:"Red Cloacal (Interna)",p:100,nota:"Realizando inspecciones"},
-     {r:"Calzadas",p:95,nota:"Revisión de inspección"},
-     {r:"Red Eléctrica Interna",p:90,nota:"Ejecutada"},
-     {r:"Forestación",p:70,nota:"Replantar y mejorar ejemplares"},
-     {r:"Convenio CLESAPE",p:75,nota:"Trafo 5MVA entregado"},
-     {r:"Estación Impulsora",p:30,nota:"En ejecución"},
-     {r:"Red Eléctrica Externa",p:0,nota:"Convenio CLESAPE en proceso"},
+     {r:"Red Cloacal (Interna)",p:100,nota:"Realizando inspecciones + hormigonando tapa boca de inspección"},
+     {r:"Calzadas",p:95,nota:"Realizando inspección"},
+     {r:"Red Eléctrica Interna",p:90,nota:"Ejecución bases columnas media tensión + finalización red baja tensión (1/04/2026)"},
+     {r:"Convenio CLESAPE",p:75,nota:"Trafo entregado, falta entregar caños de agua y terminar de pagar el canon"},
+     {r:"Forestación",p:70,nota:"Replantar ejemplares (revisar cantidad con obras)"},
+     {r:"Estación Impulsora",p:30,nota:"Ajustar planificación y acopio de materiales"},
+     {r:"Red Eléctrica Externa",p:0,nota:"En proceso de entrega de materiales convenio CLESAPE + Reconectador"},
      {r:"Red Agua (Impulsión Ext.)",p:0,nota:"Gestión pendiente"},
-     {r:"Red Cloaca (Impulsión Ext.)",p:0,nota:"Gestión pendiente"}
+     {r:"Red Cloaca (Impulsión Ext.)",p:0,nota:"Compra y cambio de caños — Gestión pendiente"},
+     {r:"Red de Gas Externa",p:100,nota:"Ejecutada y entregada a Litoral Gas"},
+     {r:"Red de Gas Interna",p:0,nota:"Se ejecuta posterior a finalización de otras obras"},
+     {r:"Demolición casa okupa",p:100,nota:"Resolución legal judicial cerrada"},
    ]},
 
   {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avanceGestion:60,avanceObra:34,urgente:false,entrega:"Por definir",
@@ -1835,7 +1869,7 @@ const GESTION_DATA = {
 ],
 
 // ──────────────────────────────────────────────────────────────
-"CEPE": [ // CEPE · Pueblo Esther · 417 lotes · 100% — Actualizado May 2026
+"CEPE": [ // CEPE · Pueblo Esther · 417 lotes · 100%
   {nombre:"Admisibilidad de Proyecto", est:"na"},
   {nombre:"Uso Conforme", est:"done", plazo:"23m", ini:"01/06/19", fin:"27/11/19", sub:[
     {nombre:"Aprobación del concejo municipal", est:"na"},
@@ -1846,39 +1880,33 @@ const GESTION_DATA = {
     ]},
   ]},
   {nombre:"Certificado Hídrico 1", est:"done", plazo:"16m", exp:"01909-0000288-9", ini:"14/12/20", fin:"06/01/22", sub:[
-    {nombre:"Actualización uso conforme", est:"done"},
+    {nombre:"Actualización uso conforme", est:"prog"},
     {nombre:"Proyecto mensura visada", est:"done"},
     {nombre:"Documentación y proyecto interno", est:"done"},
   ]},
   {nombre:"Certificado Hídrico 2", est:"done", plazo:"23m", exp:"01909-0000288-9", ini:"23/05/22", fin:"02/04/25", sub:[
     {nombre:"CH1 Aprobado", est:"done"},
-    {nombre:"Actualización uso conforme", est:"done"},
+    {nombre:"Actualización uso conforme", est:"prog"},
     {nombre:"Anuencia de proyecto de comuna", est:"done"},
-    {nombre:"Proyecto mensura visada", est:"done"},
+    {nombre:"Proyecto mensura visada", est:"prog"},
     {nombre:"Documentación interna", est:"done"},
   ]},
-  {nombre:"Convenio Urbanístico", est:"done", plazo:"30m", ini:"01/06/19", fin:"26/11/19"},
-  {nombre:"Categorización Ambiental", est:"done", plazo:"4m", exp:"EX-2022-00154694-GSF-DDDZS#MMA", ini:"26/07/22", fin:"13/05/25", sub:[
+  {nombre:"Convenio Urbanístico", est:"done", ini:"01/06/19", fin:"26/11/19"},
+  {nombre:"Categorización Ambiental", est:"done", exp:"EX-2022-00154694-GSF-DDDZS#MMA", ini:"26/07/22", fin:"13/05/25", sub:[
     {nombre:"Ordenanzas fitosanitarias", est:"done"},
     {nombre:"CH2 Aprobado", est:"done"},
-    {nombre:"Proyecto mensura visada", est:"done", sub:[
-      {nombre:"Comuna o municipio", est:"done"},
-      {nombre:"EPE", est:"done"},
-      {nombre:"Litoral Gas", est:"na"},
-      {nombre:"DPV", est:"done"},
+    {nombre:"Proyecto mensura visada", est:"prog", sub:[
+      {nombre:"Comuna o municipio", est:"done"},{nombre:"EPE", est:"done"},
+      {nombre:"Litoral Gas", est:"na"},{nombre:"DPV", est:"done"},
     ]},
     {nombre:"Convenio urbanístico", est:"done"},
-    {nombre:"Pre-factibilidad de servicios", est:"done", sub:[
-      {nombre:"Agua", est:"done"},
-      {nombre:"Cloaca", est:"done"},
-      {nombre:"RSU", est:"done"},
-      {nombre:"Gas", est:"done"},
-      {nombre:"Electricidad", est:"done"},
-      {nombre:"Fibra óptica", est:"done"},
+    {nombre:"Pre-factibilidad de servicios", est:"prog", sub:[
+      {nombre:"Agua", est:"prog"},{nombre:"Cloaca", est:"prog"},{nombre:"RSU", est:"prog"},
+      {nombre:"Gas", est:"prog"},{nombre:"Electricidad", est:"prog"},{nombre:"Fibra óptica", est:"done"},
     ]},
     {nombre:"Documentación interna", est:"done"},
   ]},
-  {nombre:"Estudio de Impacto Ambiental (EIA)", est:"done", plazo:"18m", exp:"02102-0015190-7", ini:"07/07/25", fin:"02/10/25", sub:[
+  {nombre:"Estudio de Impacto Ambiental (EIA)", est:"done", exp:"02102-0015190-7", ini:"07/07/25", fin:"02/10/25", sub:[
     {nombre:"Categorización ambiental", est:"done"},
     {nombre:"Documentación interna", est:"done"},
   ]},
@@ -1907,18 +1935,16 @@ const GESTION_DATA = {
   ]},
   {nombre:"Final de Obra Comunal o Municipal", est:"proc"},
   {nombre:"Conv. de Responsabilidad Empresarial", est:"proc"},
-  {nombre:"Certificado Hídrico 3", est:"prog", plazo:"23m", sub:[
+  {nombre:"Certificado Hídrico 3", est:"prog", sub:[
     {nombre:"CH2 Aprobado", est:"done"},
-    {nombre:"Proyecto mensura visada", est:"done"},
+    {nombre:"Proyecto mensura visada", est:"prog"},
     {nombre:"Factibilidad ambiental", est:"done"},
     {nombre:"Final de obra pluvial", est:"prog"},
     {nombre:"Documentación interna", est:"prog"},
   ]},
   {nombre:"Visado Mensura MAyCC", est:"prog", sub:[
-    {nombre:"CH3 Aprobado", est:"prog"},
-    {nombre:"Final de obra comunal o municipal", est:"prog"},
-    {nombre:"Final de obra EPE", est:"prog"},
-    {nombre:"Final de obra DPV", est:"prog"},
+    {nombre:"CH3 Aprobado", est:"prog"},{nombre:"Final de obra comunal o municipal", est:"prog"},
+    {nombre:"Final de obra EPE", est:"prog"},{nombre:"Final de obra DPV", est:"prog"},
     {nombre:"Mensura visada", est:"done"},
   ]},
   {nombre:"Cambio de Zona", est:"prog", sub:[
@@ -1926,8 +1952,7 @@ const GESTION_DATA = {
     {nombre:"Uso conforme", est:"done"},
     {nombre:"Ordenanza cambio de uso del suelo", est:"done"},
     {nombre:"CH1 Aprobado", est:"done"},
-    {nombre:"EIA", est:"done"},
-    {nombre:"Trámite de FAC", est:"prog"},
+    {nombre:"EIA", est:"done"},{nombre:"Trámite de FAC", est:"prog"},
     {nombre:"Visado de mensura MAyCC", est:"prog"},
   ]},
   {nombre:"Inscripción Catastro", est:"prog"},
@@ -2449,7 +2474,15 @@ function openDetail(id){
 
   // Tabs
   const hasMasterplan=!!p.masterplan;
-  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[])] ;
+  const CHAT_IA_LINKS={
+    "CEPE": "https://notebooklm.google.com/notebook/107c0e95-ec2a-43f4-ac03-99329c988ec8",
+    "CM":   "https://notebooklm.google.com/notebook/8b1faa8b-d371-4417-bdea-6cbadd51cb36",
+    "EN2":  "https://notebooklm.google.com/notebook/db6e06d5-e77c-402b-a3c9-97c550c85563",
+    "EN":   "https://notebooklm.google.com/notebook/f79f9ea8-5025-4368-a26c-a020c3b69c9f",
+    "OR":   "https://notebooklm.google.com/notebook/70dcf3ac-1bd9-4205-9195-3a43e33bad01",
+  };
+  const hasChatIA=!!(CHAT_IA_LINKS[id]);
+  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[]),...(hasChatIA?["🤖 Chat IA"]:[])];
   document.getElementById("detail-tabs").innerHTML=tabs.map((t,i)=>
     `<button class="dtab ${i===0?"active":""}" onclick="switchDTab(${i},this)">${t}</button>`
   ).join("");
@@ -2582,6 +2615,47 @@ function openDetail(id){
   const doneTotal=CHECKLIST.filter(item=>hitoMap[item.key]==="done").length;
   const pct=Math.round((doneTotal/CHECKLIST.length)*100);
 
+  // Pendientes específicos del proyecto (campo p.pendientes)
+  const PRIO_META={
+    critica:{lbl:"🔴 CRÍTICA", col:"#f05858", bg:"rgba(240,88,88,0.08)", border:"rgba(240,88,88,0.25)"},
+    alta:   {lbl:"🟠 ALTA",    col:"#f0a040", bg:"rgba(240,160,64,0.08)", border:"rgba(240,160,64,0.25)"},
+    media:  {lbl:"🟡 MEDIA",   col:"#e8c84a", bg:"rgba(232,200,74,0.06)", border:"rgba(232,200,74,0.2)"},
+    baja:   {lbl:"⚪ BAJA",    col:"var(--muted)", bg:"rgba(255,255,255,0.03)", border:"var(--border)"},
+  };
+  let proyPendHtml = "";
+  if(p.pendientes && p.pendientes.length){
+    // Agrupar por área
+    const areaOrder=["Gestión","Municipalidad","Eléctrico","Cloacas","Agua","Obra","Comercial"];
+    const byArea={};
+    p.pendientes.forEach(item=>{
+      const a=item.area||"Otros";
+      if(!byArea[a]) byArea[a]=[];
+      byArea[a].push(item);
+    });
+    const areas=[...areaOrder.filter(a=>byArea[a]),...Object.keys(byArea).filter(a=>!areaOrder.includes(a))];
+    proyPendHtml = `
+      <div style="margin-top:20px">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+          <span>● Puntos a resolver · posesión</span>
+          <span style="background:var(--orange);color:#fff;border-radius:10px;padding:1px 7px;font-size:8px">${p.pendientes.length}</span>
+        </div>
+        ${areas.map(area=>`
+          <div style="margin-bottom:14px">
+            <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;color:var(--blue);text-transform:uppercase;margin-bottom:6px;padding:4px 0;border-bottom:1px solid rgba(71,148,255,0.2)">${area}</div>
+            ${byArea[area].map(item=>{
+              const pm=PRIO_META[item.prio]||PRIO_META.baja;
+              return `<div style="background:${pm.bg};border:1px solid ${pm.border};border-radius:8px;padding:10px 12px;margin-bottom:6px">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px">
+                  <div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.4">${item.titulo}</div>
+                  <span style="font-family:'DM Mono',monospace;font-size:8px;color:${pm.col};white-space:nowrap;flex-shrink:0;margin-top:1px">${pm.lbl}</span>
+                </div>
+                <div style="font-size:11px;color:var(--muted);line-height:1.55">${item.detalle}</div>
+              </div>`;
+            }).join("")}
+          </div>`).join("")}
+      </div>`;
+  }
+
   const pnl=`<div style="margin-bottom:14px;padding:10px 14px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;gap:12px">
     <div style="flex:1">
       <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;margin-bottom:4px">CHECKLIST GESTIÓN</div>
@@ -2589,7 +2663,8 @@ function openDetail(id){
     </div>
     <div style="font-family:'DM Serif Display',serif;font-size:28px;color:${pct===100?"var(--green)":pct>=60?"var(--amber)":"var(--orange)"}">${pct}%</div>
   </div>
-  ${clRows}`;
+  ${clRows}
+  ${proyPendHtml}`;
 
   // Panel 4: Masterplan interactivo (solo si el proyecto lo tiene)
   let mp="";
@@ -2697,12 +2772,66 @@ function openDetail(id){
       </div>`;
   }
 
+  // Panel Chat IA — proyectos con cuaderno NotebookLM
+  let chatIA = "";
+  if(hasChatIA){
+    const chatUrl = CHAT_IA_LINKS[id];
+    chatIA = `
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px;padding:8px 0 4px">
+        <!-- Header descriptivo -->
+        <div style="width:100%;background:linear-gradient(135deg,#0f2348 0%,#162338 100%);border:1px solid rgba(71,148,255,0.25);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px">
+          <div style="font-size:32px;line-height:1;flex-shrink:0">🤖</div>
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:4px">Asistente IA · CEPE</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6">
+              Consultá el cuaderno inteligente de CEPE en NotebookLM. Podés hacer preguntas sobre el proyecto, los hitos, la gestión, el estado de obra y más — el asistente responde con base en los documentos del proyecto.
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejemplos de consulta -->
+        <div style="width:100%">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Ejemplos de consultas</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            ${[
+              "¿Cuál es el estado actual de la red eléctrica?",
+              "¿Qué hitos de gestión están pendientes?",
+              "¿Cuándo es la entrega estimada del proyecto?",
+              "¿Cuál es el avance de obra en infraestructura?"
+            ].map(q=>`
+              <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--muted);line-height:1.4;display:flex;align-items:flex-start;gap:6px">
+                <span style="color:var(--blue);font-size:14px;line-height:1;flex-shrink:0">›</span>
+                <span>${q}</span>
+              </div>`).join("")}
+          </div>
+        </div>
+
+        <!-- Botón principal -->
+        <a href="${chatUrl}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#4794ff,#1a56cc);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.3px;box-shadow:0 4px 20px rgba(71,148,255,0.35);transition:opacity .15s;width:100%;justify-content:center;max-width:360px"
+           onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+          <span style="font-size:20px">🤖</span>
+          Abrir Chat IA · CEPE
+          <span style="font-size:16px;opacity:.7">↗</span>
+        </a>
+
+        <!-- Nota -->
+        <div style="width:100%;background:var(--amber-l);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:8px">
+          <span style="color:var(--amber);flex-shrink:0">💡</span>
+          <div style="font-size:11px;color:var(--amber);line-height:1.5">
+            El asistente accede solo a los documentos cargados en el cuaderno de CEPE. Se abre en una nueva pestaña — necesitás tener acceso a NotebookLM con tu cuenta de Google.
+          </div>
+        </div>
+      </div>`;
+  }
+
   document.getElementById("detail-body").innerHTML=`
     <div class="dpanel active" id="dp0">${g}</div>
     <div class="dpanel" id="dp1">${o}</div>
     <div class="dpanel" id="dp2">${m}</div>
     <div class="dpanel" id="dp3">${pnl}</div>
-    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}`;
+    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}
+    ${hasChatIA?`<div class="dpanel" id="dp${hasMasterplan?5:4}">${chatIA}</div>`:""}`;
 
   document.getElementById("overlay").classList.add("open");
 }
