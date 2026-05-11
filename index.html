@@ -2504,46 +2504,62 @@ function openDetail(id){
   </div>`;
   let g = gHeader + buildGestionTable(p);
 
-  // Panel 1: Obra — render detallado por rubro
+  // Panel 1: Obra — tabla rubro / barra+% / observaciones
   let o;
   if(!p.obra||!p.obra.length){
     o='<div style="color:var(--muted);font-size:12px;padding:12px 0">Sin datos de obra registrados.</div>';
   } else {
-    // Separar en 100%, parcial, 0%
-    const done  = p.obra.filter(r=>r.p===100);
-    const parcial= p.obra.filter(r=>r.p>0&&r.p<100);
-    const pend  = p.obra.filter(r=>r.p===0||r.p===null);
+    // Calcular % total ponderado (promedio simple de rubros con valor)
+    const rubrosValidos = p.obra.filter(r=>r.p!==null&&r.p!==undefined);
+    const totalPct = rubrosValidos.length ? Math.round(rubrosValidos.reduce((s,r)=>s+r.p,0)/rubrosValidos.length) : 0;
+    const totalCol = totalPct===100?"var(--green)":totalPct>=70?"#3aaa70":totalPct>=40?"var(--amber)":totalPct>0?"var(--orange)":"var(--red)";
 
-    function rubroRow(r){
-      const col = r.p===100?"var(--green)": r.p>=70?"#3aaa70": r.p>=40?"var(--amber)": r.p>0?"var(--orange)":"var(--red)";
-      const labelBg = r.p===100?"rgba(46,200,122,.12)": r.p>0?"rgba(71,148,255,.08)":"rgba(224,85,85,.07)";
-      const pctLabel = r.p===100?"Completo": r.p===0?"Pendiente":`${r.p}%`;
-      return `<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:9px 12px;border-radius:7px;background:var(--bg3);border:1px solid var(--border);margin-bottom:6px">
-        <div>
-          <div style="font-size:12px;font-weight:500;color:var(--text)">${r.r}</div>
-          ${r.nota?`<div style="font-size:10px;color:var(--muted);margin-top:2px">${r.nota}</div>`:""}
-          ${r.p>0&&r.p<100?`<div style="margin-top:6px;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden">
-            <div style="width:${r.p}%;height:100%;background:${col};border-radius:2px;transition:width .5s"></div>
-          </div>`:""}
-        </div>
-        <div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;padding:3px 9px;border-radius:12px;background:${labelBg};color:${col};white-space:nowrap">${pctLabel}</div>
+    function pctCol(p){ return p===100?"var(--green)":p>=70?"#3aaa70":p>=40?"var(--amber)":p>0?"var(--orange)":"var(--red)"; }
+
+    const tableRows = p.obra.map(r=>{
+      const col = pctCol(r.p);
+      const bgStripe = r.p===100?"rgba(46,200,122,.05)":r.p===0?"rgba(224,85,85,.03)":"transparent";
+      return `<tr style="border-bottom:1px solid var(--border);background:${bgStripe}">
+        <td style="padding:9px 12px;font-size:12px;font-weight:500;color:var(--text);width:38%;vertical-align:middle">${r.r}</td>
+        <td style="padding:9px 10px;width:28%;vertical-align:middle">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="flex:1;height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;min-width:60px">
+              <div style="width:${r.p}%;height:100%;background:${col};border-radius:3px;transition:width .6s ease"></div>
+            </div>
+            <span style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:${col};width:36px;text-align:right;flex-shrink:0">${r.p}%</span>
+          </div>
+        </td>
+        <td style="padding:9px 12px;font-size:11px;color:var(--muted);vertical-align:middle;line-height:1.4">${r.nota||'—'}</td>
+      </tr>`;
+    }).join("");
+
+    o = `
+      <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:14px">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="background:var(--bg3);border-bottom:2px solid var(--border2)">
+              <th style="padding:9px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--dim);font-weight:600;text-transform:uppercase">RUBRO</th>
+              <th style="padding:9px 10px;text-align:left;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--dim);font-weight:600;text-transform:uppercase">AVANCE</th>
+              <th style="padding:9px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--dim);font-weight:600;text-transform:uppercase">OBSERVACIONES</th>
+            </tr>
+          </thead>
+          <tbody>${tableRows}</tbody>
+          <tfoot>
+            <tr style="background:var(--bg3);border-top:2px solid var(--border2)">
+              <td style="padding:10px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--dim);font-weight:600;text-transform:uppercase">TOTAL OBRA</td>
+              <td style="padding:10px 10px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="flex:1;height:8px;background:var(--bg2);border-radius:4px;overflow:hidden;min-width:60px">
+                    <div style="width:${totalPct}%;height:100%;background:${totalCol};border-radius:4px;transition:width .6s ease"></div>
+                  </div>
+                  <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:800;color:${totalCol};width:36px;text-align:right;flex-shrink:0">${totalPct}%</span>
+                </div>
+              </td>
+              <td style="padding:10px 12px;font-size:10px;color:var(--muted)">${rubrosValidos.filter(r=>r.p===100).length} de ${rubrosValidos.length} rubros completados · ${rubrosValidos.filter(r=>r.p>0&&r.p<100).length} en ejecución · ${rubrosValidos.filter(r=>r.p===0).length} pendientes</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>`;
-    }
-
-    let oHtml="";
-    if(done.length){
-      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:12px 0 6px">✓ Completados (${done.length})</div>`;
-      oHtml+=done.map(rubroRow).join("");
-    }
-    if(parcial.length){
-      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:14px 0 6px">◎ En ejecución (${parcial.length})</div>`;
-      oHtml+=parcial.map(rubroRow).join("");
-    }
-    if(pend.length){
-      oHtml+=`<div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:14px 0 6px">○ Pendientes (${pend.length})</div>`;
-      oHtml+=pend.map(rubroRow).join("");
-    }
-    o=oHtml;
   }
 
   // Panel 2: Modelos de respuesta del proyecto
