@@ -441,6 +441,269 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   border-bottom: 1px solid #eef2f7;
 }
 #pdf-report .pr-checklist-lbl { font-size: 12px; color: #0a1a35; }
+
+/* ── ACTUALIZACIÓN JULIO 2026 · ESPADA CORTA + PRONÓSTICO ── */
+.plan-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.plan-kpi{background:linear-gradient(145deg,var(--bg2),rgba(71,148,255,.06));border:1px solid rgba(71,148,255,.16);border-radius:10px;padding:15px}
+.plan-kpi strong{font-family:'DM Serif Display',serif;font-size:28px;display:block;line-height:1;color:#fff}
+.plan-kpi span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.plan-board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan-col{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;min-height:220px}
+.plan-col-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.plan-col-title{font-family:'DM Serif Display',serif;font-size:18px}
+.plan-task{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:11px 12px;margin-bottom:9px}
+.plan-task.high{border-left-color:var(--orange)}
+.plan-task.done{border-left-color:var(--green);opacity:.78}
+.plan-task-title{font-size:12px;font-weight:600;line-height:1.35}
+.plan-task-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.plan-task-note{font-size:10px;color:var(--muted);line-height:1.45;margin-top:6px}
+.plan-owner-legend{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 18px;padding:12px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:9px}
+.owner-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.owner-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:18px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600}
+.owner-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.owner-mariano{background:rgba(156,224,128,.14);color:#9ce080;border:1px solid rgba(156,224,128,.28)}
+.owner-margarita{background:rgba(111,196,235,.14);color:#6fc4eb;border:1px solid rgba(111,196,235,.28)}
+.owner-combinado{background:rgba(50,170,154,.16);color:#53d0bd;border:1px solid rgba(50,170,154,.3)}
+.plan-task.owner-mariano-task{border-left-color:#9ce080;background:linear-gradient(90deg,rgba(156,224,128,.08),var(--bg3) 42%)}
+.plan-task.owner-margarita-task{border-left-color:#6fc4eb;background:linear-gradient(90deg,rgba(111,196,235,.08),var(--bg3) 42%)}
+.plan-task.owner-combinado-task{border-left-color:#32aa9a;background:linear-gradient(90deg,rgba(50,170,154,.10),var(--bg3) 42%)}
+.sword-ref{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.8px}
+
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.risk-card{background:var(--bg2);border:1px solid rgba(224,85,85,.18);border-radius:11px;padding:15px;position:relative;overflow:hidden}
+.risk-card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--amber)}
+.risk-card.critical:before{background:var(--red)}
+.risk-card.watch:before{background:var(--blue)}
+.risk-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.risk-project{font-family:'DM Serif Display',serif;font-size:18px;flex:1}
+.risk-item{padding:8px 0;border-top:1px solid var(--border)}
+.risk-item:first-of-type{border-top:none}
+.risk-title{font-size:12px;font-weight:600}
+.risk-action{font-size:10px;color:var(--muted);line-height:1.45;margin-top:3px}
+.update-strip{background:linear-gradient(90deg,rgba(71,148,255,.13),rgba(46,200,122,.06));border:1px solid rgba(71,148,255,.22);border-radius:9px;padding:10px 14px;margin-bottom:18px;font-size:11px;color:var(--muted)}
+.update-strip strong{color:var(--text)}
+@media(max-width:900px){.plan-board{grid-template-columns:1fr 1fr}.plan-summary{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.plan-board,.risk-grid{grid-template-columns:1fr}.bottom-nav{overflow-x:auto}.bnav-btn{min-width:78px}.topbar-date{display:none}}
+
+/* ── NAVEGACIÓN EJECUTIVA + HEROES + SEMÁFORO ── */
+.topbar{height:64px}
+.ttab{height:64px;padding:0 14px}
+.command-center{display:flex;align-items:center;gap:10px;margin-left:14px;padding-left:14px;border-left:1px solid var(--border)}
+.command-label{display:flex;flex-direction:column;gap:1px;white-space:nowrap}
+.command-label strong{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.4px;color:var(--text);text-transform:uppercase}
+.command-label span{font-family:'DM Mono',monospace;font-size:8px;color:var(--dim)}
+.traffic-light{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:20px;padding:5px 8px}
+.traffic-dot{width:9px;height:9px;border-radius:50%;box-shadow:0 0 10px currentColor}
+.traffic-dot.green{background:var(--green);color:var(--green)}
+.traffic-dot.amber{background:var(--amber);color:var(--amber)}
+.traffic-dot.red{background:var(--red);color:var(--red)}
+.traffic-count{font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);margin-right:3px}
+.hero-command{position:relative;min-height:220px;border-radius:16px;overflow:hidden;margin-bottom:20px;border:1px solid rgba(71,148,255,.22);background:linear-gradient(135deg,#0a1a35 0%,#132a4e 55%,#0f1c30 100%);display:flex;align-items:center;padding:28px 34px}
+.hero-command:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 78% 48%,rgba(71,148,255,.18),transparent 32%),linear-gradient(90deg,rgba(10,18,32,.15),rgba(10,18,32,.65));pointer-events:none}
+.hero-copy{position:relative;z-index:2;max-width:480px}
+.hero-kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2.4px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.hero-title{font-family:'DM Serif Display',serif;font-size:38px;line-height:1;color:#fff;margin-bottom:10px}
+.hero-sub{font-size:13px;line-height:1.55;color:#a7bad5;max-width:430px}
+.hero-art{position:absolute;right:18px;bottom:-8px;width:330px;height:220px;z-index:1;opacity:.94}
+.hero-pronostico{background:linear-gradient(135deg,#111827 0%,#263247 55%,#172033 100%);border-color:rgba(240,180,41,.24)}
+.hero-pronostico .hero-kicker{color:var(--amber)}
+.hero-pronostico:after{background:radial-gradient(circle at 77% 42%,rgba(240,180,41,.12),transparent 30%),linear-gradient(90deg,rgba(10,18,32,.08),rgba(10,18,32,.55))}
+.postventa-clientes{margin-top:28px;padding-top:22px;border-top:1px solid var(--border)}
+
+/* ── ACCESO CHAT POSTVENTAS ── */
+.pv-chat-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#0d203d 0%,#142d52 58%,#10213a 100%);border:1px solid rgba(71,148,255,.34);border-radius:14px;padding:22px 24px;margin-bottom:22px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:0 14px 38px rgba(0,0,0,.16)}
+.pv-chat-card:before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;right:-70px;top:-110px;background:radial-gradient(circle,rgba(71,148,255,.24),transparent 67%);pointer-events:none}
+.pv-chat-main{position:relative;z-index:1;display:flex;align-items:flex-start;gap:15px}
+.pv-chat-icon{width:46px;height:46px;border-radius:13px;background:var(--blue-l);border:1px solid rgba(71,148,255,.34);display:flex;align-items:center;justify-content:center;font-size:23px;flex-shrink:0}
+.pv-chat-kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+.pv-chat-title{font-family:'DM Serif Display',serif;font-size:24px;color:#fff;line-height:1.05;margin-bottom:6px}
+.pv-chat-text{font-size:12px;color:#a7bad5;line-height:1.55;max-width:620px}
+.pv-chat-actions{position:relative;z-index:1;display:flex;flex-direction:column;align-items:stretch;gap:8px;min-width:205px}
+.pv-chat-btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--blue);color:#07101d;border:1px solid var(--blue);border-radius:8px;padding:11px 16px;font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;transition:transform .15s,filter .15s}
+.pv-chat-btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.pv-chat-note{font-family:'DM Mono',monospace;font-size:8px;line-height:1.45;color:var(--muted);text-align:center}
+.pv-chat-prompts{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.pv-chat-prompt{font-family:'DM Mono',monospace;font-size:8px;color:#9eb6d6;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);padding:4px 8px;border-radius:14px}
+@media(max-width:720px){.pv-chat-card{grid-template-columns:1fr;padding:18px}.pv-chat-actions{min-width:0}.pv-chat-main{gap:11px}.pv-chat-title{font-size:21px}}
+
+@media(max-width:1120px){.command-label{display:none}.traffic-count{display:none}.topbar-date{display:none}.ttab{padding:0 11px;font-size:9px}}
+@media(max-width:780px){.hero-command{min-height:260px;padding:24px}.hero-art{right:-80px;opacity:.45}.hero-title{font-size:31px}.command-center{display:none}.topbar{height:56px}.ttab{height:56px}}
+
+
+/* ── GANTT DE AVANCE DE OBRA ─────────────────────────────── */
+.obra-gantt-card{overflow:hidden;padding:0;margin-bottom:16px}
+.obra-gantt-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-bottom:1px solid var(--border);cursor:pointer}
+.obra-gantt-summary{display:flex;gap:12px;flex-wrap:wrap;padding:10px 18px;background:rgba(255,255,255,.018);border-bottom:1px solid var(--border)}
+.gantt-scroll{overflow-x:auto;padding:14px 18px 18px}
+.gantt-table{min-width:760px}
+.gantt-axis,.gantt-row{display:grid;grid-template-columns:245px minmax(390px,1fr) 56px;gap:12px;align-items:center}
+.gantt-axis{margin-bottom:8px}
+.gantt-axis-track{position:relative;height:24px;border-bottom:1px solid var(--border)}
+.gantt-tick{position:absolute;bottom:-5px;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:8px;color:var(--dim)}
+.gantt-tick::before{content:"";position:absolute;left:50%;bottom:13px;height:8px;border-left:1px solid var(--border)}
+.gantt-row{min-height:44px;border-bottom:1px solid var(--border)}
+.gantt-row:last-child{border-bottom:none}
+.gantt-name{font-size:12px;font-weight:500;color:var(--text);line-height:1.3}
+.gantt-note{font-size:9px;color:var(--muted);margin-top:3px;line-height:1.35}
+.gantt-track{height:16px;border-radius:4px;position:relative;overflow:hidden;background:repeating-linear-gradient(to right,var(--bg3) 0,var(--bg3) calc(25% - 1px),rgba(255,255,255,.09) calc(25% - 1px),rgba(255,255,255,.09) 25%)}
+.gantt-fill{height:100%;border-radius:4px;min-width:0;position:relative;transition:width .45s ease}
+.gantt-fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.16))}
+.gantt-zero{position:absolute;left:0;top:0;width:3px;height:100%;background:var(--dim);border-radius:2px}
+.gantt-pct{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;text-align:right}
+.gantt-legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 14px;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)}
+.gantt-legend span{display:inline-flex;align-items:center;gap:5px}
+.gantt-dot{width:8px;height:8px;border-radius:2px;display:inline-block}
+@media(max-width:600px){.gantt-axis,.gantt-row{grid-template-columns:190px 360px 48px}.gantt-table{min-width:640px}}
+
+
+/* ── INFORMES A4 POR SECCION ─────────────────────────────── */
+.report-btn{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:9px;border:1px solid rgba(71,148,255,.55);background:linear-gradient(135deg,rgba(71,148,255,.22),rgba(26,86,204,.24));color:#dceaff;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.1px;text-transform:uppercase;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.18);transition:transform .15s ease,border-color .15s ease,background .15s ease;white-space:nowrap}
+.report-btn:hover{transform:translateY(-1px);border-color:var(--blue);background:linear-gradient(135deg,rgba(71,148,255,.34),rgba(26,86,204,.34))}
+.report-btn .report-icon{font-size:14px;line-height:1}
+.report-action-row{display:flex;justify-content:flex-end;margin:0 0 16px}
+#section-report{display:none;background:#fff;color:#132238;font-family:'DM Sans',sans-serif;line-height:1.45}
+#section-report .sr-page{background:#fff;max-width:1120px;margin:0 auto}
+#section-report .sr-header{background:linear-gradient(135deg,#0a1a35,#0f2348);color:#fff;padding:20px 26px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:4px solid #4794ff}
+#section-report .sr-brand{font-family:'DM Serif Display',serif;font-size:24px}
+#section-report .sr-kicker{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9fc5ff;margin-top:3px}
+#section-report .sr-title{font-family:'DM Serif Display',serif;font-size:24px;text-align:right}
+#section-report .sr-date{font-family:'DM Mono',monospace;font-size:8px;color:#9fc5ff;text-align:right;margin-top:4px}
+#section-report .sr-body{padding:18px 24px 22px}
+#section-report .sr-footer{padding:9px 24px;border-top:1px solid #dce5ef;background:#f3f6fa;display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.8px;color:#718199}
+#section-report .section-hdr{margin:4px 0 12px}
+#section-report .section-hdr h2{color:#0a1a35}
+#section-report .section-hdr span{color:#60758f}
+#section-report .card,#section-report .gestion-card,#section-report .gantt-project,#section-report .plan-col,#section-report .risk-card{background:#fff!important;color:#132238!important;border-color:#d9e3ee!important;box-shadow:none!important;page-break-inside:avoid}
+#section-report .gantt-project{margin-bottom:12px}
+#section-report .gantt-track,#section-report .obra-bar-bg,#section-report .mini-bar-wrap{background:#e8eef5!important}
+#section-report .hero-command{min-height:auto!important;margin:0 0 14px!important;border:1px solid #d7e2ee!important;background:#eef4fb!important;color:#132238!important;page-break-inside:avoid}
+#section-report .hero-title,#section-report .hero-sub,#section-report .hero-kicker{color:#132238!important}
+#section-report .hero-art{max-height:145px}
+#section-report .update-strip,#section-report .plan-summary,#section-report .plan-owner-legend{page-break-inside:avoid}
+#section-report .search-wrap,#section-report .chips,#section-report .report-action-row,#section-report .report-btn,#section-report button,#section-report input{display:none!important}
+#section-report .page{display:block!important;padding:0!important;animation:none!important}
+#section-report .badge{border:1px solid rgba(0,0,0,.08)}
+@media(max-width:760px){.section-hdr{align-items:flex-start;flex-wrap:wrap}.report-btn{width:100%;justify-content:center;margin-left:0}.report-action-row .report-btn{width:auto;margin-left:auto}}
+@media print{
+  body.print-section > *:not(#section-report){display:none!important}
+  body.print-section #section-report{display:block!important}
+  body.print-section #pdf-report{display:none!important}
+  body.print-section{background:#fff!important}
+  @page{size:A4 landscape;margin:9mm}
+  #section-report{font-size:10px!important}
+  #section-report .sr-page{max-width:none!important}
+  #section-report .sr-body{padding:12px 15px 16px}
+  #section-report .sr-header{padding:14px 18px}
+  #section-report .sr-title,#section-report .sr-brand{font-size:19px}
+  #section-report .gantt-project,#section-report .plan-col,#section-report .risk-card{break-inside:avoid-page}
+}
+
+
+
+/* ── V7 · JERARQUÍA VISUAL EJECUTIVA ───────────────────── */
+.topbar{padding:0 18px;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.24)}
+.brand{font-size:20px;font-weight:700;letter-spacing:.2px;margin-right:18px;text-shadow:0 2px 14px rgba(71,148,255,.16)}
+.brand-dot{width:10px;height:10px;box-shadow:0 0 14px rgba(71,148,255,.75)}
+.topbar-tabs{gap:7px;align-items:center;padding:8px 0}
+.ttab{
+  height:44px;
+  padding:0 13px;
+  gap:7px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+  color:#93a9c7;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(255,255,255,.075);
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.ttab:hover{color:#fff;background:rgba(71,148,255,.09);border-color:rgba(71,148,255,.32);transform:translateY(-1px)}
+.ttab.active{
+  color:#fff;
+  background:linear-gradient(135deg,rgba(71,148,255,.95),rgba(31,104,222,.92));
+  border-color:rgba(121,178,255,.85);
+  box-shadow:0 7px 18px rgba(32,104,220,.28),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.ttab-icon{font-size:14px;font-weight:700;line-height:1;opacity:.92;filter:drop-shadow(0 1px 3px rgba(0,0,0,.25))}
+.ttab.active .ttab-icon{opacity:1}
+.command-center{margin-left:4px;padding-left:10px}
+.traffic-light{box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 5px 16px rgba(0,0,0,.16)}
+
+.section-hdr{align-items:center;gap:10px;margin-top:12px;margin-bottom:18px;padding:0 0 11px;border-bottom:1px solid rgba(71,148,255,.12)}
+.section-hdr:before{content:'';width:5px;height:28px;border-radius:4px;background:linear-gradient(180deg,var(--blue),#245fc0);box-shadow:0 0 14px rgba(71,148,255,.28);flex-shrink:0}
+.section-hdr h2{font-size:25px;font-weight:700;letter-spacing:.1px;text-shadow:0 2px 14px rgba(0,0,0,.22)}
+.section-hdr span{font-size:9px;font-weight:600;letter-spacing:1.8px;color:#829bbd}
+
+.card,.stat-card,.proj-card,.risk-card,.obra-gantt-card{box-shadow:0 8px 24px rgba(0,0,0,.12);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover,.stat-card:hover,.risk-card:hover{transform:translateY(-2px);border-color:rgba(71,148,255,.26);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.proj-card:hover{transform:translateY(-2px);border-color:rgba(71,148,255,.45);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.stat-label,.card-title{font-weight:700;color:#8fa8ca}
+.stat-num{font-weight:700;text-shadow:0 2px 18px rgba(0,0,0,.18)}
+.proj-name,.hito-name,.obra-name,.strat-proj,.cliente-name{font-weight:700}
+.chip{font-weight:700;letter-spacing:.85px}
+.report-btn{font-weight:700;box-shadow:0 7px 18px rgba(71,148,255,.16)}
+
+@media(max-width:1260px){.ttab{padding:0 10px;font-size:10px;gap:5px}.ttab-icon{font-size:12px}.brand{margin-right:10px}.topbar{padding:0 12px}}
+@media(max-width:920px){.ttab span:not(.ttab-icon){display:none}.ttab{width:40px;padding:0;justify-content:center}.ttab-icon{font-size:15px}.topbar-tabs{gap:5px}}
+@media(max-width:600px){.topbar{height:58px}.topbar-tabs{padding:6px 0}.ttab{height:40px}.section-hdr h2{font-size:22px}.section-hdr:before{height:24px}}
+
+
+/* ── RESTANTE GENERAL · CAMINO A ESCRITURA ─────────────── */
+.roadmap-intro{display:grid;grid-template-columns:1.4fr .6fr;gap:16px;margin-bottom:20px}
+.roadmap-hero{background:linear-gradient(135deg,rgba(71,148,255,.16),rgba(46,200,122,.07));border:1px solid rgba(71,148,255,.28);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.roadmap-hero:after{content:'⌂';position:absolute;right:24px;top:4px;font-size:100px;color:rgba(255,255,255,.035);font-family:'DM Serif Display',serif}
+.roadmap-hero h3{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:7px}
+.roadmap-hero p{color:var(--muted);line-height:1.6;max-width:760px}
+.roadmap-legend{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:17px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.roadmap-legend-row{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted)}
+.roadmap-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.roadmap-dot.gestion{background:var(--blue)}.roadmap-dot.obra{background:var(--amber)}.roadmap-dot.cierre{background:var(--green)}
+.roadmap-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.roadmap-toolbar .search-wrap{margin:0;flex:1;min-width:240px}
+.roadmap-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.roadmap-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.roadmap-card:hover{border-color:var(--border2);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.roadmap-head{padding:15px 17px;display:flex;align-items:center;gap:13px;cursor:pointer;user-select:none}
+.roadmap-proj-mark{width:42px;height:42px;border-radius:11px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:var(--blue);border:1px solid rgba(71,148,255,.18)}
+.roadmap-head-main{flex:1;min-width:0}.roadmap-name{font-weight:700;font-size:14px}.roadmap-meta{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:3px}
+.roadmap-kpis{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.roadmap-mini{font-family:'DM Mono',monospace;font-size:8px;padding:4px 7px;border-radius:10px;background:var(--bg3);color:var(--muted)}
+.roadmap-chevron{font-size:18px;color:var(--dim);transition:transform .2s}.roadmap-card.open .roadmap-chevron{transform:rotate(180deg);color:var(--blue)}
+.roadmap-body{display:none;border-top:1px solid var(--border);padding:20px 17px 18px;overflow-x:auto}.roadmap-card.open .roadmap-body{display:block;animation:fadeIn .22s ease}
+.road-track{display:flex;align-items:stretch;min-width:max-content;padding:10px 4px 16px;position:relative}
+.road-track:before{content:'';position:absolute;left:36px;right:36px;top:39px;height:3px;background:linear-gradient(90deg,var(--blue),var(--amber),var(--green));opacity:.35;border-radius:3px}
+.road-step{width:168px;position:relative;padding:0 8px;text-align:center;z-index:1}
+.road-node{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;border:3px solid var(--bg2);box-shadow:0 0 0 2px rgba(255,255,255,.07)}
+.road-step.gestion .road-node{background:var(--blue-l);color:var(--blue)}.road-step.obra .road-node{background:var(--amber-l);color:var(--amber)}.road-step.cierre .road-node{background:var(--green-l);color:var(--green)}
+.road-step-title{font-size:11px;font-weight:700;line-height:1.3;min-height:30px}.road-step-note{font-size:9px;color:var(--muted);line-height:1.35;margin-top:4px;max-width:155px}
+.road-step-progress{height:4px;background:var(--bg3);border-radius:3px;margin:8px auto 0;overflow:hidden;width:100px}.road-step-progress span{display:block;height:100%;background:currentColor;border-radius:3px}
+.road-goal .road-node{background:linear-gradient(135deg,#2ec87a,#4794ff);color:#fff;box-shadow:0 0 0 5px rgba(46,200,122,.09),0 8px 20px rgba(46,200,122,.2)}
+.road-empty{padding:20px;color:var(--muted);text-align:center}
+@media(max-width:900px){.roadmap-intro{grid-template-columns:1fr}.roadmap-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.roadmap-body{overflow:visible}.road-track{display:block;min-width:0;padding-left:12px}.road-track:before{left:39px;top:20px;bottom:30px;width:3px;height:auto;background:linear-gradient(var(--blue),var(--amber),var(--green))}.road-step{width:auto;min-height:90px;text-align:left;padding-left:82px}.road-node{position:absolute;left:0;top:0}.road-step-title{min-height:0;padding-top:8px}.road-step-note{max-width:none}.road-step-progress{margin:8px 0 0}.roadmap-kpis{display:none}}
+
+
+/* ── RESTANTE GENERAL · WORK IN PROGRESS ── */
+.wip-stage{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;border:1px solid rgba(240,180,41,.28);border-radius:20px;background:radial-gradient(circle at 50% 28%,rgba(71,148,255,.15),transparent 36%),linear-gradient(145deg,#101d31,#0a1220 72%);padding:56px 28px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.wip-grid{position:absolute;inset:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,black,transparent 86%)}
+.wip-stage>*:not(.wip-grid){position:relative;z-index:1}
+.wip-route{width:min(760px,92%);display:flex;align-items:center;justify-content:center;margin-bottom:34px}
+.wip-line{height:3px;flex:1;background:repeating-linear-gradient(90deg,var(--amber) 0 14px,transparent 14px 24px);filter:drop-shadow(0 0 6px rgba(240,180,41,.35))}
+.wip-point{font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.4px;padding:7px 10px;border-radius:999px;white-space:nowrap}
+.wip-point.start{background:var(--blue-l);color:var(--blue);border:1px solid rgba(71,148,255,.35)}
+.wip-point.goal{background:var(--green-l);color:var(--green);border:1px solid rgba(46,200,122,.35)}
+.wip-cone{font-size:34px;margin:0 14px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.3))}
+.wip-badge{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2.4px;color:var(--amber);border:1px solid rgba(240,180,41,.4);background:var(--amber-l);padding:7px 13px;border-radius:999px;margin-bottom:16px}
+.wip-title{font-family:'DM Serif Display',serif;font-size:clamp(42px,7vw,86px);line-height:.95;color:#fff;letter-spacing:-1.5px;text-shadow:0 10px 30px rgba(0,0,0,.36)}
+.wip-copy{max-width:760px;margin:22px auto 0;font-size:16px;line-height:1.75;color:#b8c8df}
+.wip-preview{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:28px}
+.wip-preview span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:8px 12px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px}
+.wip-note{margin-top:30px;color:var(--text);font-size:13px;font-weight:600;background:rgba(71,148,255,.08);border-left:3px solid var(--blue);padding:12px 16px;border-radius:6px}
+@media(max-width:600px){.wip-stage{min-height:520px;padding:42px 18px}.wip-route{width:100%}.wip-point{font-size:7px;padding:6px 8px}.wip-cone{font-size:26px;margin:0 8px}.wip-copy{font-size:14px}.wip-title{font-size:44px}}
+
 </style>
 </head>
 <body>
@@ -449,14 +712,24 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <div class="topbar">
   <div class="brand"><span class="brand-dot"></span>Grupo Roma</div>
   <div class="topbar-tabs">
-    <button class="ttab active" onclick="showPage('home',this)">Resumen</button>
-    <button class="ttab" onclick="showPage('gestion',this)">Gestión</button>
-    <button class="ttab" onclick="showPage('obra',this)">Obra</button>
-    <button class="ttab" onclick="showPage('postventa',this)">Postventa</button>
-    <button class="ttab" onclick="showPage('estrategia',this)">Estrategia</button>
-    <button class="ttab" onclick="showPage('clientes',this)">Clientes</button>
+    <button class="ttab active" data-page="home" onclick="showPage('home',this)"><span class="ttab-icon">◉</span><span>Resumen</span></button>
+    <button class="ttab" data-page="gestion" onclick="showPage('gestion',this)"><span class="ttab-icon">▤</span><span>Gestión</span></button>
+    <button class="ttab" data-page="obra" onclick="showPage('obra',this)"><span class="ttab-icon">▰</span><span>Obra</span></button>
+    <button class="ttab" data-page="postventa" onclick="showPage('postventa',this)"><span class="ttab-icon">◇</span><span>Postventas</span></button>
+    <button class="ttab" data-page="espada" onclick="showPage('espada',this)"><span class="ttab-icon">⚔</span><span>Espada corta</span></button>
+    <button class="ttab" data-page="pronostico" onclick="showPage('pronostico',this)"><span class="ttab-icon">ϟ</span><span>Pronóstico</span></button>
+    <button class="ttab" data-page="estrategia" onclick="showPage('estrategia',this)"><span class="ttab-icon">◆</span><span>Estrategia</span></button>
+    <button class="ttab" data-page="restante" onclick="showPage('restante',this)"><span class="ttab-icon">➜</span><span>Restante general</span></button>
   </div>
-  <div class="topbar-date">29·04·2026</div>
+  <div class="command-center" title="Semáforo ejecutivo general">
+    <div class="command-label"><strong>Centro de comando</strong><span>Estado global</span></div>
+    <div class="traffic-light">
+      <span class="traffic-dot green"></span><span class="traffic-count">4</span>
+      <span class="traffic-dot amber"></span><span class="traffic-count">2</span>
+      <span class="traffic-dot red"></span><span class="traffic-count">5</span>
+    </div>
+  </div>
+  <div class="topbar-date">13·07·2026</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -531,7 +804,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
      PAGE: GESTIÓN
 ════════════════════════════════════════════════════════════ -->
 <div class="page" id="page-gestion">
-  <div class="section-hdr"><h2>Gestión</h2><span>Hitos por proyecto · Panel 25·03·2026</span></div>
+  <div class="section-hdr"><h2>Gestión</h2><span>Hitos por proyecto · Panel 25·03·2026</span><button class="report-btn" onclick="exportSectionReport('gestion','Informe de Gestión')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
     <input class="search-input" type="text" placeholder="Buscar proyecto, expediente, hito..." oninput="filterGestion(this.value)">
@@ -550,7 +823,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
      PAGE: OBRA
 ════════════════════════════════════════════════════════════ -->
 <div class="page" id="page-obra">
-  <div class="section-hdr"><h2>Estado de obra</h2><span>Avance por rubro · Ago–Nov 2025</span></div>
+  <div class="section-hdr"><h2>Estado de obra</h2><span>Avance por rubro · Julio 2026</span><button class="report-btn" onclick="exportSectionReport('obra','Informe de Estado de Obra')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
   <div class="chips">
     <button class="chip active" onclick="setObraFilter('all',this)">Todos</button>
     <button class="chip" onclick="setObraFilter('100',this)">100% completo</button>
@@ -565,6 +838,27 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 ════════════════════════════════════════════════════════════ -->
 <div class="page" id="page-postventa">
   <div class="section-hdr"><h2>Postventa</h2><span>Modelos de respuesta · Usar y adaptar</span></div>
+
+  <div class="pv-chat-card" aria-label="Acceso al Chat de Postventas">
+    <div class="pv-chat-main">
+      <div class="pv-chat-icon">✦</div>
+      <div>
+        <div class="pv-chat-kicker">Asistente conectado a ChatGPT</div>
+        <div class="pv-chat-title">Chat de Postventas</div>
+        <div class="pv-chat-text">Abrí el proyecto especializado para consultar procedimientos, modelos de respuesta, posesiones, visados, agrimensura y documentación de los barrios.</div>
+        <div class="pv-chat-prompts">
+          <span class="pv-chat-prompt">¿Cómo responder este reclamo?</span>
+          <span class="pv-chat-prompt">Proceso de posesión CEPE</span>
+          <span class="pv-chat-prompt">Estado de un cliente</span>
+        </div>
+      </div>
+    </div>
+    <div class="pv-chat-actions">
+      <a class="pv-chat-btn" href="https://chatgpt.com/g/g-p-6a1074e96de48191ad06f0431f9a00df-act-chat-pv/project" target="_blank" rel="noopener noreferrer"><span>↗</span> Abrir chat</a>
+      <div class="pv-chat-note">Se abre en una pestaña nueva. Requiere acceso al proyecto de Grupo Roma.</div>
+    </div>
+  </div>
+
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
     <input class="search-input" type="text" placeholder="Buscar situación, proyecto, palabra clave..." oninput="filterModelos(this.value)">
@@ -597,6 +891,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
   <div id="modelos-list"></div>
+  <section class="postventa-clientes" id="postventa-clientes">
+    <div class="section-hdr"><h2>Clientes sensibles</h2><span>Registro integrado de postventa</span></div>
+    <div class="chips clientes-chips">
+      <button class="chip active" onclick="setClienteFilter('all',this)">Todos</button>
+      <button class="chip" onclick="setClienteFilter('critico',this)">🔴 Crítico</button>
+      <button class="chip" onclick="setClienteFilter('tension',this)">🟡 Tensión</button>
+    </div>
+    <div id="clientes-list"></div>
+  </section>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -607,17 +910,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <div id="estrategia-list"></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     PAGE: CLIENTES
-════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-clientes">
-  <div class="section-hdr"><h2>Clientes sensibles</h2><span>Registro de postventa</span></div>
-  <div class="chips">
-    <button class="chip active" onclick="setClienteFilter('all',this)">Todos</button>
-    <button class="chip" onclick="setClienteFilter('critico',this)">🔴 Crítico</button>
-    <button class="chip" onclick="setClienteFilter('tension',this)">🟡 Tensión</button>
-  </div>
-  <div id="clientes-list"></div>
+<!-- PAGE: RESTANTE GENERAL -->
+<div class="page" id="page-restante">
+  <div class="section-hdr"><h2>Restante general</h2><span>Roadmap hacia la escritura</span></div>
+  <section class="wip-stage" aria-label="Sección en desarrollo">
+    <div class="wip-grid"></div>
+    <div class="wip-route" aria-hidden="true">
+      <span class="wip-point start">ESTADO ACTUAL</span>
+      <span class="wip-line"></span>
+      <span class="wip-cone">🚧</span>
+      <span class="wip-line"></span>
+      <span class="wip-point goal">ESCRITURA</span>
+    </div>
+    <div class="wip-badge">SECCIÓN EN DESARROLLO</div>
+    <div class="wip-title">WORK IN PROGRESS</div>
+    <p class="wip-copy">Estamos construyendo el recorrido visual de cada proyecto, integrando gestión, obras, recepciones, Catastro y los hitos necesarios para alcanzar la escritura.</p>
+    <div class="wip-preview">
+      <span>Gestión pendiente</span><span>Obras pendientes</span><span>Dependencias</span><span>Ruta crítica</span><span>Meta final</span>
+    </div>
+    <div class="wip-note">Próximamente iremos definiendo esta herramienta juntos, proyecto por proyecto.</div>
+  </section>
 </div>
 
 <!-- DETAIL OVERLAY -->
@@ -645,14 +957,16 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 <!-- INFORME PDF (oculto, solo se activa al imprimir) -->
 <div id="pdf-report" style="display:none"></div>
+<div id="section-report"></div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <button class="bnav-btn active" id="bn-home" onclick="showPage('home',this,true)"><span class="bnav-icon">◉</span>Resumen</button>
   <button class="bnav-btn" id="bn-gestion" onclick="showPage('gestion',this,true)"><span class="bnav-icon">◎</span>Gestión</button>
   <button class="bnav-btn" id="bn-obra" onclick="showPage('obra',this,true)"><span class="bnav-icon">⬜</span>Obra</button>
-  <button class="bnav-btn" id="bn-postventa" onclick="showPage('postventa',this,true)"><span class="bnav-icon">◈</span>Postventa</button>
+  <button class="bnav-btn" id="bn-postventa" onclick="showPage('postventa',this,true)"><span class="bnav-icon">◈</span>Postventas</button>
   <button class="bnav-btn" id="bn-estrategia" onclick="showPage('estrategia',this,true)"><span class="bnav-icon">◆</span>Estrategia</button>
+  <button class="bnav-btn" id="bn-restante" onclick="showPage('restante',this,true)"><span class="bnav-icon">➜</span>Restante</button>
 </div>
 
 <script>
@@ -679,15 +993,15 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Donación Calles y Esp. Verdes",est:"proc",exp:"",ini:"",fin:"",obs:"Actas de aceptación completadas"},
    ],
    obra:[
-     {r:"Calzadas",p:100,nota:""},
-     {r:"Red de Agua",p:100,nota:""},
-     {r:"Alumbrado Público",p:100,nota:""},
-     {r:"Plazas",p:100,nota:""},
-     {r:"Señalización",p:100,nota:""},
-     {r:"Obras Pluviales",p:100,nota:""},
-     {r:"Forestación",p:100,nota:""},
-     {r:"Red Eléctrica",p:95,nota:"Cierre final"},
-     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
+     {"r": "Red Eléctrica", "p": 95, "nota": "Cierre final"},
+     {"r": "Calzadas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Red de Agua", "p": 100, "nota": "Ejecutada"},
+     {"r": "Red de Cloacas", "p": 0, "nota": "Pendiente"},
+     {"r": "Alumbrado", "p": 100, "nota": "Ejecutado"},
+     {"r": "Plazas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Señalización", "p": 100, "nota": "Ejecutada"},
+     {"r": "Obras Pluviales", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Forestación", "p": 100, "nota": "Ejecutada"},
    ]},
 
   {id:"TA",nombre:"Tierra de Autores",loc:"Pueblo Esther",ha:7,lotes:183,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Escriturado",
@@ -703,16 +1017,16 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Donación Calles y Esp. Verdes",est:"done",exp:"",ini:"",fin:"",obs:""},
    ],
    obra:[
-     {r:"Calzadas",p:100,nota:"Finalizados individualmente"},
-     {r:"Red de Agua",p:100,nota:""},
-     {r:"Red de Cloacas",p:100,nota:""},
-     {r:"Alumbrado Público",p:100,nota:""},
-     {r:"Red Eléctrica",p:100,nota:""},
-     {r:"Plazas y Señalización",p:100,nota:""},
-     {r:"Obras Pluviales",p:100,nota:""},
-     {r:"Forestación",p:100,nota:""},
-     {r:"Red de Gas",p:100,nota:""},
-     {r:"Puente",p:100,nota:""}
+     {"r": "Calzadas", "p": 100, "nota": "Ejecutado y recibido"},
+     {"r": "Red de Agua", "p": 100, "nota": "Ejecutada y recibida"},
+     {"r": "Red de Cloacas", "p": 100, "nota": "Ejecutada y recibida"},
+     {"r": "Alumbrado", "p": 100, "nota": "Ejecutado y recibido"},
+     {"r": "Red Eléctrica", "p": 100, "nota": "Ejecutada y recibida"},
+     {"r": "Plazas y Señalización", "p": 100, "nota": "Finalizados individualmente"},
+     {"r": "Obras Pluviales", "p": 100, "nota": "Finalizadas individualmente"},
+     {"r": "Forestación", "p": 100, "nota": "Revisar recepción; no se otorgó definitivamente"},
+     {"r": "Red de Gas", "p": 100, "nota": "Ejecutada y recibida"},
+     {"r": "Puente", "p": 100, "nota": "Ejecutado y recibido"},
    ]},
 
   {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avanceGestion:100,avanceObra:97,urgente:true,entrega:"Jun 2026",
@@ -729,16 +1043,16 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Conv. de Responsabilidad Empresarial",est:"done",exp:"",ini:"",fin:"",obs:"✅ Completado"},
    ],
    obra:[
-     {r:"Pavimentación Av. de los Incas (1400ml)",p:100,nota:"Ejecutado"},
-     {r:"Red de Agua",p:100,nota:"Ejecutado"},
-     {r:"Alumbrado Público",p:100,nota:"Ejecutado"},
-     {r:"Obras Pluviales",p:100,nota:"Ejecutadas"},
-     {r:"Señalización",p:100,nota:"Ejecutada"},
-     {r:"Calzadas",p:100,nota:"Ejecutada"},
-     {r:"Plazas",p:100,nota:"Ejecutada"},
-     {r:"Red Eléctrica Interna",p:100,nota:"Ejecutada — falta inspección EPE y resolución Santa Fe"},
-     {r:"Planta de Agua",p:100,nota:"Ejecutada"},
-     {r:"Red Eléctrica Externa",p:0,nota:"Espera aprobación EPE Santa Fe"},
+     {"r": "Pavimentación Av. de los Incas (1400 ml)", "p": 100, "nota": "Ejecutada"},
+     {"r": "Red de Agua", "p": 100, "nota": "Ejecutada"},
+     {"r": "Alumbrado Público", "p": 100, "nota": "Ejecutado"},
+     {"r": "Obras Pluviales", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Señalización", "p": 100, "nota": "Ejecutada"},
+     {"r": "Calzadas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Plazas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Red Eléctrica Interna", "p": 100, "nota": "Ejecutada; falta inspección EPE y resolución en Santa Fe"},
+     {"r": "Red Eléctrica Externa", "p": 0, "nota": "Espera aprobación de EPE Santa Fe"},
+     {"r": "Planta de Agua", "p": 100, "nota": "Ejecutada"},
    ]},
 
   {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avanceGestion:91,avanceObra:98,urgente:true,entrega:"Jun 2026",
@@ -754,18 +1068,18 @@ const PROJS = [
      {etapa:"Cierre",nombre:"Conv. de Responsabilidad Empresarial",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
    ],
    obra:[
-     {r:"Planta Provisoria Agua",p:100,nota:"Ejecutada"},
-     {r:"Pluviales Internos",p:100,nota:"Ejecutados"},
-     {r:"Nivelación de terreno",p:100,nota:"Ejecutado"},
-     {r:"Pórtico de Ingreso",p:100,nota:"Ejecutado"},
-     {r:"Calzadas",p:100,nota:"Ejecutadas"},
-     {r:"Cordones Cuneta",p:100,nota:"Ejecutados"},
-     {r:"Red Eléctrica",p:100,nota:"Ejecutada"},
-     {r:"Colocación de Juegos",p:100,nota:"Etapa final"},
-     {r:"Obras Pluviales Ext. (aporte a comuna)",p:80,nota:"En ejecución avanzada — a Salvat"},
-     {r:"Señalización",p:50,nota:"En proceso"},
-     {r:"Conexión Agua Externa",p:0,nota:"Convenio Ibarlucea pendiente"},
-     {r:"Iluminación Pórtico",p:0,nota:"Verificar"},
+     {"r": "Planta Provisoria Agua", "p": 100, "nota": "Ejecutada"},
+     {"r": "Pluviales Internos", "p": 100, "nota": "Ejecutados"},
+     {"r": "Nivelación de terreno", "p": 100, "nota": "Ejecutada"},
+     {"r": "Pórtico de ingreso", "p": 100, "nota": "Ejecutado"},
+     {"r": "Calzadas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Cordones cuneta", "p": 100, "nota": "Ejecutados"},
+     {"r": "Red Eléctrica", "p": 100, "nota": "Ejecutada"},
+     {"r": "Colocación de Juegos", "p": 100, "nota": "Etapa final"},
+     {"r": "Obras Pluviales Ext. aporte a comuna", "p": 80, "nota": "En ejecución avanzada - Salvat"},
+     {"r": "Señalización", "p": 50, "nota": "En proceso"},
+     {"r": "Conexión Agua Externa", "p": 0, "nota": "Convenio Ibarlucea"},
+     {"r": "Iluminación pórtico", "p": 0, "nota": "Verificar"},
    ]},
 
   {id:"VI",nombre:"Vitta",loc:"General Lagos",ha:12.7,lotes:203,avanceGestion:99,avanceObra:100,urgente:false,entrega:"Dic 2028",
@@ -781,17 +1095,17 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Prefactibilidad, proyecto, convenio y factibilidad completados. Visado mensura ✅"},
    ],
    obra:[
-     {r:"Red de Agua",p:100,nota:"Ejecutada (ajustes de detalles)"},
-     {r:"Calzadas",p:100,nota:"Ejecutadas (ajustes de detalles)"},
-     {r:"Red Cloacal Interna",p:100,nota:"Ejecutada"},
-     {r:"Forestación",p:100,nota:"Revisión de ejemplares a corregir"},
-     {r:"Cerco Perimetral",p:5,nota:"En proceso de ejecución"},
-     {r:"Pluviales",p:10,nota:"Pendiente"},
-     {r:"Estación Elevadora",p:0,nota:"Pendiente"},
-     {r:"Conexión Cloacal Ext.",p:0,nota:"Pendiente"},
-     {r:"Obra Eléctrica",p:0,nota:"Pendiente"},
-     {r:"Pórtico",p:0,nota:"Ajustando proyecto para inicio de obra"},
-     {r:"Adoquinado Kennedy",p:0,nota:"Revisar convenio urbanístico"},
+     {"r": "Red de Agua", "p": 100, "nota": "Ejecutada (ajustes de detalles)"},
+     {"r": "Calzadas", "p": 100, "nota": "Ejecutadas (ajustes de detalles)"},
+     {"r": "Red Cloacal Interna", "p": 100, "nota": "Ejecutada"},
+     {"r": "Forestación", "p": 100, "nota": "Revisión de ejemplares a corregir"},
+     {"r": "Estación Elevadora", "p": 0, "nota": "Pendiente"},
+     {"r": "Conexión Cloacal Ext.", "p": 0, "nota": "Pendiente"},
+     {"r": "Obra Eléctrica", "p": 0, "nota": "Pendiente"},
+     {"r": "Pluviales", "p": 10, "nota": "Pendiente"},
+     {"r": "Pórtico", "p": 0, "nota": "Ajustando proyecto para inicio de obra"},
+     {"r": "Obra complementaria restante", "p": 0, "nota": "Revisar convenio urbanístico"},
+     {"r": "Cerco perimetral", "p": 20, "nota": "En proceso de ejecución"},
    ]},
 
   {id:"CEPE",nombre:"CEPE",loc:"Pueblo Esther",ha:28.3,lotes:417,avanceGestion:100,avanceObra:80,urgente:true,entrega:"Dic 2026",
@@ -860,19 +1174,19 @@ const PROJS = [
      {area:"Gestión",prio:"alta",titulo:"3ª vía — Roma: 20 casas sin proceso municipal",detalle:"Objetivo: permitir a Roma construir 20 casas como dueño (área mayor) sin pasar por obras particulares de la muni. Posterior regularización. Acciones: reunión Pablo + Martín + Luciano · Alinear comunicación con obras particulares · Si hay aval político, ajustar procedimiento y discurso para postventa y clientes."},
    ],
    obra:[
-     {r:"Red de Agua (Interna)",p:100,nota:"Realizando inspecciones"},
-     {r:"Red Cloacal (Interna)",p:100,nota:"Realizando inspecciones + hormigonando tapa boca de inspección"},
-     {r:"Calzadas",p:95,nota:"Realizando inspección"},
-     {r:"Red Eléctrica Interna",p:90,nota:"Ejecución bases columnas media tensión + finalización red baja tensión (1/04/2026)"},
-     {r:"Convenio CLESAPE",p:75,nota:"Trafo entregado, falta entregar caños de agua y terminar de pagar el canon"},
-     {r:"Forestación",p:70,nota:"Replantar ejemplares (revisar cantidad con obras)"},
-     {r:"Estación Impulsora",p:30,nota:"Ajustar planificación y acopio de materiales"},
-     {r:"Red Eléctrica Externa",p:0,nota:"En proceso de entrega de materiales convenio CLESAPE + Reconectador"},
-     {r:"Red Agua (Impulsión Ext.)",p:0,nota:"Gestión pendiente"},
-     {r:"Red Cloaca (Impulsión Ext.)",p:0,nota:"Compra y cambio de caños — Gestión pendiente"},
-     {r:"Red de Gas Externa",p:100,nota:"Ejecutada y entregada a Litoral Gas"},
-     {r:"Red de Gas Interna",p:0,nota:"Se ejecuta posterior a finalización de otras obras"},
-     {r:"Demolición casa okupa",p:100,nota:"Resolución legal judicial cerrada"},
+     {"r": "Red de Agua (Interna)", "p": 100, "nota": "Próximo a inspeccionar con CLESAPE"},
+     {"r": "Red Cloacal (Interna)", "p": 100, "nota": "Realizando inspecciones y hormigonando tapa de boca de inspección"},
+     {"r": "Calzadas", "p": 100, "nota": "Próximo a inspeccionar por Municipalidad"},
+     {"r": "Red Eléctrica interna", "p": 90, "nota": "Bases para columnas restantes de media tensión y finalización de red de baja tensión"},
+     {"r": "Estructura para transformadores", "p": 70, "nota": "En proceso de instalación de equipos y accesorios"},
+     {"r": "Convenio CLESAPE", "p": 75, "nota": "Trafo entregado; falta entregar caños de agua y terminar de pagar el canon"},
+     {"r": "Estación Impulsora", "p": 30, "nota": "Ajustar planificación y acopio de materiales"},
+     {"r": "Red Agua (Impulsión Ext.)", "p": 0, "nota": "Verificación en proceso con Municipalidad y en campo"},
+     {"r": "Forestación", "p": 70, "nota": "Replantar ejemplares; revisar cantidad con Obras"},
+     {"r": "Red Cloaca (Impulsión Ext.)", "p": 0, "nota": "Compra y cambio de caños; verificación pendiente con Municipalidad"},
+     {"r": "Red de Gas Externa", "p": 100, "nota": "Ejecutada y entregada a Litoral Gas"},
+     {"r": "Red de Gas Interna", "p": 0, "nota": "Se ejecuta después de finalizar otras obras"},
+     {"r": "Demolición de casa ocupa", "p": 100, "nota": "Resolución legal judicial cerrada"},
    ]},
 
   {id:"FOR",nombre:"Foresta",loc:"Ybarlucea (Ibarlucea)",ha:1.46,lotes:19,avanceGestion:60,avanceObra:34,urgente:false,entrega:"Por definir",
@@ -906,17 +1220,20 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación Cooperativa Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Prefactibilidad ✅ · Proyecto ✅ · Convenio: ⚡URGENTE · Factibilidad y acta: pendientes"},
    ],
    obra:[
-     {r:"Red de Agua",p:100,nota:"Ejecutada"},
-     {r:"Red de Cloacas",p:100,nota:"Ejecutada"},
-     {r:"Impulsión Cloaca",p:100,nota:"Obra complementaria OK"},
-     {r:"Calzadas Internas",p:100,nota:"Ejecutadas"},
-     {r:"Alumbrado Público",p:100,nota:"Ejecutado"},
-     {r:"Obras Pluviales",p:40,nota:"En ejecución"},
-     {r:"Red Eléctrica Interna",p:0,nota:"Espera firma Cooperativa"},
-     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"},
-     {r:"Av. Islas Malvinas y Venezuela",p:0,nota:"Depende de adenda comuna"},
-     {r:"Señalización",p:0,nota:"Pendiente"},
-     {r:"Plazas",p:0,nota:"Pendiente"}
+     {"r": "Red de Agua", "p": 100, "nota": "Ejecutada"},
+     {"r": "Red de Cloacas", "p": 100, "nota": "Ejecutada"},
+     {"r": "Impulsión Cloaca", "p": 100, "nota": "Obra complementaria OK"},
+     {"r": "Calzadas Internas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Alumbrado Público", "p": 100, "nota": "Ejecutado"},
+     {"r": "Obras Pluviales", "p": 40, "nota": "Falta cámara de regulación y alcantarilla; provisoriamente canal"},
+     {"r": "Asfalto calle principal", "p": 0, "nota": "Rubro interno"},
+     {"r": "Red Eléctrica interna", "p": 0, "nota": "Espera firma Cooperativa"},
+     {"r": "Red Eléctrica Externa", "p": 0, "nota": "Conexión más reconectador"},
+     {"r": "Obra Complementaria paquete estructural Islas Malvinas 150 m", "p": 0, "nota": "Depende de adenda comunal"},
+     {"r": "Obra Complementaria asfalto calle Islas Malvinas", "p": 0, "nota": "Depende de adenda comunal"},
+     {"r": "Obra Complementaria asfalto calle Venezuela", "p": 0, "nota": "Depende de adenda comunal"},
+     {"r": "Señalización", "p": 0, "nota": "Pendiente; acordar tipología con Comuna"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"EN2",nombre:"El Naranjo 2",loc:"Ybarlucea",ha:18.2,lotes:336,avanceGestion:64,avanceObra:76,urgente:false,entrega:"Dic 2028",
@@ -932,16 +1249,17 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación Cooperativa Eléctrica",est:"proc",exp:"",ini:"",fin:"",obs:"Prefactibilidad ✅ — proyecto, convenio y factibilidad: pendientes"},
    ],
    obra:[
-     {r:"Calzadas",p:100,nota:"Ejecutadas"},
-     {r:"Cordones Cuneta",p:100,nota:""},
-     {r:"Red de Agua",p:90,nota:"Ejecutada"},
-     {r:"Pórtico de Ingreso",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica",p:0,nota:"Pendiente — falta proyecto"},
-     {r:"Alumbrado Público",p:0,nota:"Pendiente"},
-     {r:"Cloacas",p:0,nota:"Pendiente"},
-     {r:"Pluviales",p:0,nota:"Pendiente"},
-     {r:"Señalización",p:0,nota:"Pendiente"},
-     {r:"Plazas",p:0,nota:"Pendiente"}
+     {"r": "Paquete estructural Calzadas", "p": 100, "nota": "Ejecutadas"},
+     {"r": "Cordones cuneta", "p": 95, "nota": "Ejecutados"},
+     {"r": "Pluviales", "p": 15, "nota": "Pendiente; depende de la emisión del Certificado Hídrico 2"},
+     {"r": "Red de Agua", "p": 90, "nota": "Ejecutada"},
+     {"r": "Obras Pluviales Ext. aporte con comuna", "p": 70, "nota": "Obra en conjunto"},
+     {"r": "Pórtico de ingreso", "p": 0, "nota": "En planificación"},
+     {"r": "Red Eléctrica", "p": 0, "nota": "Pendiente; proyecto eléctrico en proceso"},
+     {"r": "Alumbrado Público", "p": 0, "nota": "Pendiente; depende del proyecto eléctrico"},
+     {"r": "Cloacas", "p": 0, "nota": "Pendiente; información interna, no comunicar aún a clientes"},
+     {"r": "Señalización", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"VR",nombre:"Vitta Río",loc:"General Lagos",ha:17.4,lotes:196,avanceGestion:52,avanceObra:37,urgente:false,entrega:"Jun 2031",
@@ -956,14 +1274,16 @@ const PROJS = [
      {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"",fin:"",obs:"✅ Prefactibilidad, proyecto, convenio y factibilidad completados. Visado mensura ✅"},
    ],
    obra:[
-     {r:"Calzadas",p:5,nota:"Inicio de trazado"},
-     {r:"Obras Pluviales",p:5,nota:"Inicio de ejecución"},
-     {r:"Red de Agua",p:0,nota:"Convenio macro pendiente"},
-     {r:"Red de Cloacas",p:0,nota:"Convenio macro pendiente"},
-     {r:"Estación Elevadora",p:0,nota:"Pendiente — acuerdo con Life"},
-     {r:"Alumbrado",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica Interna",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"}
+     {"r": "Calzadas", "p": 5, "nota": "Inicio de trazado"},
+     {"r": "Obras Pluviales", "p": 5, "nota": "Inicio de ejecución"},
+     {"r": "Red de Agua", "p": 0, "nota": "Convenio macro"},
+     {"r": "Red de Cloacas", "p": 0, "nota": "Convenio macro"},
+     {"r": "Estación elevadora", "p": 0, "nota": "Pendiente de acuerdo con Life"},
+     {"r": "Alumbrado", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
+     {"r": "Red Eléctrica interna EPE", "p": 0, "nota": "Canon EPE abonado"},
+     {"r": "Red Eléctrica Externa", "p": 0, "nota": "Posterior a la ejecución de la obra interna"},
+     {"r": "Forestación", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avanceGestion:18,avanceObra:67,urgente:true,entrega:"Jun 2033",
@@ -980,16 +1300,16 @@ const PROJS = [
      {etapa:"Urbanismo",nombre:"Cambio de Zona",est:"proc",exp:"",ini:"",fin:"",obs:"UC ✅, Ord. N°1271/24 ✅ (09/08/24). CH1 aprobado: urgente"},
    ],
    obra:[
-     {r:"Calzadas",p:0,nota:"Pendiente"},
-     {r:"Red de Agua",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica Interna",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica Externa",p:0,nota:"Pendiente"},
-     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
-     {r:"Planta Compacta Cloacal",p:0,nota:"Pendiente"},
-     {r:"Red de Gas",p:0,nota:"Pendiente"},
-     {r:"Obras Pluviales",p:0,nota:"Pendiente"},
-     {r:"Alumbrado Público",p:0,nota:"Pendiente"},
-     {r:"Plazas",p:0,nota:"Pendiente"}
+     {"r": "Calzadas", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Agua", "p": 0, "nota": "Pendiente"},
+     {"r": "Red Eléctrica interna", "p": 0, "nota": "Pendiente"},
+     {"r": "Red Eléctrica Externa", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Cloacas", "p": 0, "nota": "Pendiente"},
+     {"r": "Planta Compacta Cloacal", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Gas", "p": 0, "nota": "Pendiente"},
+     {"r": "Obras Pluviales", "p": 0, "nota": "Pendiente"},
+     {"r": "Alumbrado Público", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"CZ",nombre:"CEZA",loc:"Zavalla",ha:23,lotes:380,avanceGestion:61,avanceObra:30,urgente:false,entrega:"Dic 2030",
@@ -1005,17 +1325,18 @@ const PROJS = [
      {etapa:"Gas",nombre:"Factibilidad Corrimiento Caño Gas — Pacífico Otero",est:"done",exp:"",ini:"",fin:"",obs:"✅ Aprobado por Litoral Gas"},
    ],
    obra:[
-     {r:"Calzadas",p:10,nota:"600m calle Sarmiento ejecutados"},
-     {r:"Red de Agua",p:0,nota:"Pendiente"},
-     {r:"Red de Cloacas",p:0,nota:"Pendiente"},
-     {r:"Alumbrado",p:0,nota:"Pendiente"},
-     {r:"Red Eléctrica",p:0,nota:"Pendiente"},
-     {r:"Plazas y Señalización",p:0,nota:""},
-     {r:"Obras Pluviales",p:0,nota:""},
-     {r:"Obra Comp. de Agua",p:0,nota:"Acordar con Cooperativa"},
-     {r:"Obra Comp. de Cloaca",p:0,nota:""},
-     {r:"Forestación",p:0,nota:""},
-     {r:"Red de Gas",p:0,nota:""}
+     {"r": "Calzadas", "p": 10, "nota": "600 m de calle Sarmiento"},
+     {"r": "Red de Agua", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Cloacas", "p": 0, "nota": "Pendiente"},
+     {"r": "Alumbrado", "p": 0, "nota": "Pendiente"},
+     {"r": "Red Eléctrica", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas y Señalización", "p": 0, "nota": "Pendiente"},
+     {"r": "Obras Pluviales", "p": 0, "nota": "Pendiente"},
+     {"r": "Obra Complementaria de Agua", "p": 0, "nota": "Acordar con Cooperativa"},
+     {"r": "Obra Complementaria de Cloaca", "p": 0, "nota": "Pendiente"},
+     {"r": "Forestación", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Gas", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"CDE",nombre:"Clos del Este",loc:"Roldán",ha:66,lotes:880,avanceGestion:4,avanceObra:0,urgente:false,entrega:"Dic 2034",
@@ -1029,18 +1350,19 @@ const PROJS = [
      {etapa:"Cierre",nombre:"CUR",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
    ],
    obra:[
-     {r:"Mojonamiento",p:0,nota:"Espera acuerdo Municipal"},
-     {r:"Calzadas",p:0,nota:"Pendiente"},
-     {r:"Red de Agua",p:0,nota:""},
-     {r:"Red de Cloacas",p:0,nota:""},
-     {r:"Alumbrado",p:0,nota:""},
-     {r:"Red Eléctrica",p:0,nota:""},
-     {r:"Plazas y Señalización",p:0,nota:""},
-     {r:"Obras Pluviales",p:0,nota:""},
-     {r:"Planta de Agua",p:0,nota:""},
-     {r:"Planta Impulsora Cloacal",p:0,nota:""},
-     {r:"Forestación",p:0,nota:""},
-     {r:"Red de Gas",p:0,nota:""}
+     {"r": "Mojonamiento", "p": 0, "nota": "Espera acuerdo municipal"},
+     {"r": "Calzadas", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Agua", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Cloacas", "p": 0, "nota": "Pendiente"},
+     {"r": "Alumbrado", "p": 0, "nota": "Pendiente"},
+     {"r": "Red Eléctrica", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas y Señalización", "p": 0, "nota": "Pendiente"},
+     {"r": "Obras Pluviales", "p": 0, "nota": "Pendiente"},
+     {"r": "Planta de Agua", "p": 0, "nota": "Pendiente"},
+     {"r": "Planta Impulsora Cloacal", "p": 0, "nota": "Pendiente"},
+     {"r": "Forestación", "p": 0, "nota": "Pendiente"},
+     {"r": "Plazas", "p": 0, "nota": "Pendiente"},
+     {"r": "Red de Gas", "p": 0, "nota": "Pendiente"},
    ]},
 
   {id:"VN",nombre:"Vitta Norte",loc:"Ybarlucea",ha:"",lotes:"",avanceGestion:4,avanceObra:0,urgente:true,entrega:"Jun 2036",
@@ -2893,47 +3215,44 @@ function buildObra(list){
   const el=document.getElementById("obra-list");
   const withObra=list.filter(p=>p.obra&&p.obra.length>0);
 
-  el.innerHTML=withObra.map(p=>{
-    // Calcular avance promedio
-    const rubros=p.obra.filter(r=>r.p!==null&&r.p!==undefined);
-    const avg=rubros.length?Math.round(rubros.reduce((s,r)=>s+r.p,0)/rubros.length):0;
-    const done100=p.obra.filter(r=>r.p===100).length;
-    const enEjec=p.obra.filter(r=>r.p>0&&r.p<100).length;
-    const pend=p.obra.filter(r=>r.p===0||r.p===null).length;
+  const legend=`<div class="gantt-legend">
+    <span><i class="gantt-dot" style="background:var(--dim)"></i>0% pendiente</span>
+    <span><i class="gantt-dot" style="background:var(--orange)"></i>1–39%</span>
+    <span><i class="gantt-dot" style="background:var(--amber)"></i>40–69%</span>
+    <span><i class="gantt-dot" style="background:var(--blue)"></i>70–99%</span>
+    <span><i class="gantt-dot" style="background:var(--green)"></i>100% completo</span>
+  </div>`;
 
-    const rows=p.obra.map(r=>{
-      const col=r.p===100?"var(--green)":r.p>=70?"#3aaa70":r.p>=40?"var(--amber)":r.p>0?"var(--orange)":"var(--dim)";
-      const lbl=r.p===100?"✓":r.p===0?"—":`${r.p}%`;
-      const barW=r.p||0;
-      return `<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
-        <div>
-          <div style="font-size:12px;color:var(--text)">${r.r}</div>
-          ${r.nota&&r.nota!=="Pendiente"&&r.nota!=="Ejecutada"&&r.nota!=="Ejecutadas"&&r.nota!=="Ejecutados"&&r.nota!=="Ejecutado"?
-            `<div style="font-size:10px;color:var(--muted)">${r.nota}</div>`:""}
-          ${r.p>0&&r.p<100?`<div style="margin-top:4px;height:2px;background:var(--bg);border-radius:1px;overflow:hidden;width:120px">
-            <div style="width:${barW}%;height:100%;background:${col}"></div></div>`:""}
+  el.innerHTML=legend+withObra.map(p=>{
+    const rubros=p.obra.filter(r=>r.p!==null&&r.p!==undefined);
+    const avg=rubros.length?Math.round(rubros.reduce((s,r)=>s+Number(r.p||0),0)/rubros.length):0;
+    const done100=rubros.filter(r=>r.p===100).length;
+    const enEjec=rubros.filter(r=>r.p>0&&r.p<100).length;
+    const pend=rubros.filter(r=>r.p===0).length;
+    const avgCol=avg===100?"var(--green)":avg>=70?"var(--blue)":avg>=40?"var(--amber)":avg>0?"var(--orange)":"var(--dim)";
+
+    const rows=rubros.map(r=>{
+      const pct=Math.max(0,Math.min(100,Number(r.p)||0));
+      const col=pct===100?"var(--green)":pct>=70?"var(--blue)":pct>=40?"var(--amber)":pct>0?"var(--orange)":"var(--dim)";
+      return `<div class="gantt-row">
+        <div><div class="gantt-name">${r.r}</div>${r.nota?`<div class="gantt-note">${r.nota}</div>`:""}</div>
+        <div class="gantt-track" title="${r.r}: ${pct}%">
+          ${pct===0?`<span class="gantt-zero"></span>`:`<div class="gantt-fill" style="width:${pct}%;background:${col}"></div>`}
         </div>
-        <div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:600;color:${col};white-space:nowrap;min-width:36px;text-align:right">${lbl}</div>
+        <div class="gantt-pct" style="color:${col}">${pct}%</div>
       </div>`;
     }).join("");
 
-    return `<div class="card" style="margin-bottom:12px;cursor:pointer" onclick="openDetail('${p.id}')">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div>
-          <div style="font-size:14px;font-weight:600;color:#fff">${p.nombre}</div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px">${p.loc}</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-family:'DM Serif Display',serif;font-size:20px;color:${avg===100?"var(--green)":avg>50?"var(--blue)":avg>20?"var(--amber)":"var(--orange)"}">${avg}%</div>
-          <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">promedio</div>
-        </div>
+    return `<div class="card obra-gantt-card">
+      <div class="obra-gantt-head" onclick="openDetail('${p.id}')">
+        <div><div style="font-size:15px;font-weight:600;color:#fff">${p.nombre}</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:3px">${p.loc} · ${rubros.length} rubros</div></div>
+        <div style="text-align:right"><div style="font-family:'DM Serif Display',serif;font-size:24px;color:${avgCol}">${avg}%</div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">avance promedio</div></div>
       </div>
-      <div style="display:flex;gap:10px;margin-bottom:10px">
-        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--green)">✓ ${done100}</span>
-        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--blue)">◎ ${enEjec}</span>
-        <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--dim)">○ ${pend}</span>
-      </div>
-      ${rows}
+      <div class="obra-gantt-summary"><span style="color:var(--green);font-family:'DM Mono',monospace;font-size:9px">✓ ${done100} completos</span><span style="color:var(--blue);font-family:'DM Mono',monospace;font-size:9px">◎ ${enEjec} en ejecución</span><span style="color:var(--dim);font-family:'DM Mono',monospace;font-size:9px">○ ${pend} pendientes</span></div>
+      <div class="gantt-scroll"><div class="gantt-table">
+        <div class="gantt-axis"><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Rubro / observación</div><div class="gantt-axis-track">${[0,25,50,75,100].map(v=>`<span class="gantt-tick" style="left:${v}%">${v}%</span>`).join("")}</div><div></div></div>
+        ${rows}
+      </div></div>
     </div>`;
   }).join("");
 }
@@ -3065,7 +3384,7 @@ function filterModelos(q){
 }
 
 function setClienteFilter(f,btn){
-  document.querySelectorAll("#page-clientes .chip").forEach(c=>c.classList.remove("active"));
+  document.querySelectorAll("#postventa-clientes .chip").forEach(c=>c.classList.remove("active"));
   btn.classList.add("active");
   const list=f==="all"?CLIENTES:CLIENTES.filter(c=>c.est===f);
   buildClientes(list);
@@ -3308,6 +3627,374 @@ function exportInformePDF(){
   // ── Imprimir ──────────────────────────────────────────────
   setTimeout(()=>{ window.print(); }, 120);
 }
+
+
+// ══════════════════════════════════════════════════════════════
+// ACTUALIZACIÓN INTEGRAL · JULIO 2026
+// Fuentes internas: estados EN1, EN2, CEPE, Clos del Este,
+// Espada Corta y Pronóstico Extendido.
+// ══════════════════════════════════════════════════════════════
+(function aplicarActualizacionJulio2026(){
+  const byId=id=>PROJS.find(p=>p.id===id);
+
+  // ── EL NARANJO 1 ───────────────────────────────────────────
+  const en=byId('EN');
+  if(en){
+    Object.assign(en,{nombre:'El Naranjo 1',loc:'Ibarlucea',avanceGestion:96,avanceObra:96,urgente:true,entrega:'Posesión en gestión',
+      nota:'CH2 aprobado en junio de 2026. Pendiente autorización de vuelco ante DPV, categorización ambiental y acuerdo comunal para posesiones y permisos de vivienda.'});
+    en.hitos=[
+      {etapa:'Admisibilidad',nombre:'Uso Conforme',est:'done',exp:'Res. 2059/2021 · Exp. 286bis/2016',ini:'20/12/19',fin:'30/11/21',obs:'Emitido por la Comuna de Ibarlucea.'},
+      {etapa:'Urbanismo',nombre:'Mensura visada por Comuna',est:'done',ini:'20/03/22',fin:'30/07/24',obs:'Visado comunal obtenido.'},
+      {etapa:'Convenio',nombre:'Convenio Urbanístico',est:'done',ini:'20/12/19',fin:'12/05/25',obs:'Firmado por VRA Consulting S.A.S.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 1',est:'done',exp:'01907-0016058-1',ini:'22/09/22',fin:'14/08/24',obs:'Aprobado por Secretaría de Recursos Hídricos.'},
+      {etapa:'Hídrico',nombre:'Separación administrativa EN1 / EN2',est:'done',ini:'02/01/26',fin:'02/01/26',obs:'Hito que permitió continuar EN1 por una vía independiente.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 2',est:'done',exp:'01907-0016058-1',ini:'01/02/25',fin:'23/06/26',obs:'Estudios hidrológicos e hidráulicos aprobados. La continuidad requiere autorización de vuelco de DPV.'},
+      {etapa:'Vial',nombre:'Autorización de vuelco DPV',est:'urgent',exp:'01907-0016058-1',ini:'17/06/26',fin:'',obs:'Condición para completar la aprobación definitiva de Etapas I y II y emitir certificados.'},
+      {etapa:'Ambiental',nombre:'Categorización Ambiental',est:'proc',exp:'02102-0014860-4',ini:'09/04/25',fin:'',obs:'Anexar CH2. Pendientes ordenanza de aceptación de espacio verde y mensura con la donación restante.'},
+      {etapa:'Posesión',nombre:'Acuerdo comunal para posesiones',est:'urgent',ini:'24/06/26',fin:'',obs:'Nota presentada para evaluar posesiones provisorias y permisos de construcción.'},
+      {etapa:'Servicios',nombre:'Bajadas domiciliarias de energía',est:'proc',exp:'Cooperativa Ibarlucea',ini:'',fin:'',obs:'Definir procedimiento, tablero y condiciones operativas.'}
+    ];
+    en.obra=[
+      {r:'Planta Provisoria de Agua',p:100,nota:'Ejecutada'},
+      {r:'Pluviales Internos',p:100,nota:'Ejecutados'},
+      {r:'Nivelación de terreno',p:100,nota:'Ejecutada'},
+      {r:'Pórtico de Ingreso',p:100,nota:'Ejecutado'},
+      {r:'Calzadas',p:100,nota:'Ejecutadas'},
+      {r:'Cordones Cuneta',p:100,nota:'Ejecutados'},
+      {r:'Red Eléctrica',p:100,nota:'Ejecutada'},
+      {r:'Colocación de Juegos',p:100,nota:'Etapa final informada'},
+      {r:'Obras Pluviales Externas',p:80,nota:'Aporte comunal · ejecución avanzada hacia Salvat'},
+      {r:'Señalización',p:50,nota:'En proceso'}
+    ];
+  }
+
+  // ── EL NARANJO 2 ───────────────────────────────────────────
+  const en2=byId('EN2');
+  if(en2){
+    Object.assign(en2,{loc:'Ibarlucea',avanceGestion:68,avanceObra:62,urgente:true,entrega:'Sujeto a CH2',
+      nota:'CH2 en proceso (Exp. 01802-0000329). Re-presentación del 20/03/2026 con visto bueno preliminar; se elaboran nuevos detalles constructivos.'});
+    en2.hitos=[
+      {etapa:'Admisibilidad',nombre:'Uso Conforme',est:'done',exp:'Res. 2202/2023 · Exp. 248/2021',ini:'18/06/21',fin:'28/04/23',obs:'Emitido por la Comuna.'},
+      {etapa:'Urbanismo',nombre:'Mensura visada',est:'done',ini:'',fin:'30/07/24',obs:'Última actualización informada.'},
+      {etapa:'Convenio',nombre:'Convenio Urbanístico',est:'done',ini:'18/06/21',fin:'12/05/25',obs:'Emitido.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 1',est:'done',ini:'22/09/22',fin:'14/08/24',obs:'Emitido por Secretaría de Recursos Hídricos.'},
+      {etapa:'Hídrico',nombre:'Separación administrativa EN1 / EN2',est:'done',ini:'02/01/26',fin:'02/01/26',obs:'EN2 continúa por un camino técnico propio.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 2',est:'urgent',exp:'01802-0000329',ini:'01/02/25',fin:'',obs:'Re-presentado el 20/03/2026. Visto bueno preliminar; pendientes detalles constructivos y aprobación definitiva.'},
+      {etapa:'Ambiental',nombre:'Categorización Ambiental',est:'prog',ini:'',fin:'',obs:'Se tramitará por Ventanilla Única una vez emitido el CH2.'},
+      {etapa:'Eléctrico',nombre:'Proyecto eléctrico',est:'proc',exp:'Cooperativa Ibarlucea',ini:'',fin:'',obs:'Contratado y en producción. Luego: colegiación, aprobación, convenio y canon.'},
+      {etapa:'Obra',nombre:'Obras hídricas bajo simplificación',est:'proc',ini:'',fin:'',obs:'Objetivo: avanzar coordinadamente con Ambiente bajo el nuevo régimen de simplificación.'}
+    ];
+    en2.obra=[
+      {r:'Paquete estructural de calzadas',p:100,nota:'Ejecutado'},
+      {r:'Cordones cuneta',p:95,nota:'Ejecutados'},
+      {r:'Red de Agua',p:90,nota:'Ejecutada'},
+      {r:'Obras Pluviales Externas',p:70,nota:'Obra conjunta con la Comuna'},
+      {r:'Pluviales Internos',p:15,nota:'Condicionados a la emisión del CH2'},
+      {r:'Pórtico de Ingreso',p:0,nota:'En planificación'},
+      {r:'Proyecto y obra eléctrica',p:10,nota:'Proyecto contratado; ejecución posterior a aprobación y convenio'}
+    ];
+  }
+
+  // ── COMUNIDAD EVOLUTIVA ────────────────────────────────────
+  const cepe=byId('CEPE');
+  if(cepe){
+    Object.assign(cepe,{avanceGestion:100,avanceObra:80,urgente:true,entrega:'Posesión progresiva',
+      nota:'Aprobaciones provinciales principales obtenidas y suspensión levantada. Prioridades: cierre CLESAPE, impulsiones, estación cloacal, TGI, obra complementaria y esquema de posesiones.'});
+    cepe.hitos=[
+      {etapa:'Admisibilidad',nombre:'Uso Conforme',est:'done',ini:'',fin:'27/11/19',obs:'Emitido por la Comuna.'},
+      {etapa:'Urbanismo',nombre:'Cambio de Uso de Suelo',est:'done',exp:'Ordenanza 92/2019',ini:'',fin:'27/11/19',obs:'Aprobado.'},
+      {etapa:'Convenio',nombre:'Convenio Urbanístico',est:'done',exp:'Ordenanza 91/2019',ini:'',fin:'26/11/19',obs:'Aprobado.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 1',est:'done',exp:'01909-0000288-9',ini:'14/12/20',fin:'06/01/22',obs:'Aprobado.'},
+      {etapa:'Hídrico',nombre:'Certificado Hídrico 2',est:'done',exp:'01909-0000288-9',ini:'23/05/22',fin:'28/03/25',obs:'Aprobado.'},
+      {etapa:'Ambiental',nombre:'Categorización Ambiental',est:'done',exp:'EX-2022-00154694-GSF-DDDZS#MMA',ini:'',fin:'13/05/25',obs:'Viabilidad ambiental obtenida.'},
+      {etapa:'Ambiental',nombre:'Estudio de Impacto Ambiental',est:'done',exp:'02102-0015190-7',ini:'',fin:'02/10/25',obs:'Aprobado; habilitó reanudación completa de las obras.'},
+      {etapa:'Cierre',nombre:'Certificado Único de Radicación',est:'done',exp:'0035/25',ini:'',fin:'28/10/25',obs:'Validación administrativa provincial.'},
+      {etapa:'Ambiental',nombre:'Levantamiento formal de suspensión',est:'done',exp:'2022-00154694-GSF-DDDZS#MMA',ini:'',fin:'10/11/25',obs:'Continuidad de obras autorizada bajo condiciones del EIA.'},
+      {etapa:'Servicios',nombre:'Cierre e inspecciones CLESAPE',est:'urgent',ini:'',fin:'',obs:'Ordenar aprobaciones, entregar elementos y completar inspecciones de agua y electricidad.'},
+      {etapa:'Tributario',nombre:'Acuerdo TGI',est:'urgent',ini:'',fin:'',obs:'Resolver exención, deuda reclamada y esquema tributario para habilitar posesiones.'},
+      {etapa:'Convenio',nombre:'Obra complementaria restante',est:'urgent',ini:'',fin:'',obs:'Entregados 8.812 m² de 14.800 m². Saldo: 5.988 m² de adoquines Holanda 8 gris.'},
+      {etapa:'Posesión',nombre:'Proceso de posesión y visados',est:'proc',ini:'',fin:'',obs:'Código de Convivencia, agrimensura y visado interno implementados. Avance inicial de clientes.'},
+      {etapa:'Cierre',nombre:'Cruces FFCC agua y cloaca',est:'urgent',exp:'FFCC-AGUA-2023-006 / FFCC-CLO-2023-005',ini:'',fin:'',obs:'Proyectos aprobados; controlar permisos, canon y vigencia con apoderado.'}
+    ];
+    cepe.obra=[
+      {r:'Red de Agua Interna',p:100,nota:'Próxima a inspección con CLESAPE'},
+      {r:'Red Cloacal Interna',p:100,nota:'Inspecciones y terminaciones en bocas'},
+      {r:'Calzadas',p:100,nota:'Próximas a inspección municipal'},
+      {r:'Red Eléctrica Interna',p:90,nota:'Bases MT restantes y finalización de BT'},
+      {r:'Estructura para Transformadores',p:70,nota:'Instalación de equipos y accesorios'},
+      {r:'Convenio CLESAPE',p:75,nota:'Trafo entregado; faltan caños de agua y saldo de canon'},
+      {r:'Estación Impulsora Cloacal',p:30,nota:'Ajustar planificación y acopio'},
+      {r:'Impulsión Externa de Agua',p:0,nota:'Verificación con Municipalidad en campo'},
+      {r:'Forestación',p:70,nota:'Replantar ejemplares'},
+      {r:'Impulsión Externa Cloacal',p:0,nota:'Compra/cambio de caños y verificación municipal'},
+      {r:'Red de Gas Externa',p:100,nota:'Ejecutada y entregada a Litoral Gas'},
+      {r:'Red de Gas Interna',p:0,nota:'Posterior a finalización de otras obras'},
+      {r:'Demolición vivienda ocupada',p:100,nota:'Resolución judicial cerrada'}
+    ];
+  }
+
+  // ── CLOS DEL ESTE ──────────────────────────────────────────
+  const cde=byId('CDE');
+  if(cde){
+    Object.assign(cde,{avanceGestion:10,avanceObra:0,urgente:true,entrega:'Sujeto a nueva ordenanza',
+      nota:'El nuevo Plan de Ordenamiento Territorial se encuentra en tratamiento. El anteproyecto incorpora el predio como RU1, futuro urbanizable. Falta sanción de la ordenanza y reconocimiento expreso del uso barrio cerrado.'});
+    cde.hitos=[
+      {etapa:'Político',nombre:'Presentación del nuevo Plan de Ordenamiento',est:'proc',ini:'',fin:'07/07/26',obs:'Presentado al Concejo; debe revisarse y aprobarse mediante ordenanza. Sin fecha estimada.'},
+      {etapa:'Urbanismo',nombre:'Incorporación del predio a RU1',est:'proc',ini:'',fin:'',obs:'Anteproyecto: área futura a ser urbanizable. Mejora el escenario respecto de la clasificación rural previa.'},
+      {etapa:'Urbanismo',nombre:'Reconocimiento de uso Barrio Cerrado',est:'urgent',ini:'',fin:'',obs:'Debe incorporarse expresamente porque no está permitido por la ordenanza anterior.'},
+      {etapa:'Vial',nombre:'Conectividad Avenida Diaguitas',est:'done',ini:'',fin:'',obs:'Se sostiene como eje principal sobre la medianera oeste.'},
+      {etapa:'Vial',nombre:'Calle transversal interna',est:'done',ini:'',fin:'',obs:'Se redefine: no se ejecutaría por tratarse de un barrio cerrado.'},
+      {etapa:'Convenio',nombre:'Convenio Urbanístico',est:'prog',ini:'',fin:'',obs:'Posterior a la ordenanza. Incorporar obligaciones, infraestructura y marco de ejecución.'},
+      {etapa:'Tributario',nombre:'Exención de TGI hasta escrituración',est:'prog',ini:'',fin:'',obs:'Plantear como contraprestación por nuevas infraestructuras aportadas a la localidad.'},
+      {etapa:'Admisibilidad',nombre:'Uso Conforme / aprobación del proyecto',est:'urgent',exp:'Expte. 1617',ini:'07/12/23',fin:'',obs:'Reencauzar una vez aprobado el nuevo marco urbano, evitando una nueva excepción de interés urbanístico.'}
+    ];
+  }
+
+  // ── NUEVAS SECCIONES ───────────────────────────────────────
+  const tabs=document.querySelector('.topbar-tabs');
+  if(tabs && !document.querySelector('[data-page="espada"]')){
+    const b1=document.createElement('button'); b1.className='ttab'; b1.dataset.page='espada'; b1.textContent='Espada corta'; b1.onclick=function(){showPage('espada',this)};
+    const b2=document.createElement('button'); b2.className='ttab'; b2.dataset.page='pronostico'; b2.textContent='Pronóstico'; b2.onclick=function(){showPage('pronostico',this)};
+    tabs.appendChild(b1); tabs.appendChild(b2);
+  }
+
+  const PLAN=[
+    {mes:'Mes 1 · Destrabar',items:[
+      ['EN1','Obtener autorización de vuelco / cierre CH2 por Vialidad','high','Coordinar continuidad entre Recursos Hídricos y DPV.','margarita'],
+      ['EN1 + CM2','Visar mensura con compensación de espacio verde','high','Cerrar esquema de donación y aceptación para Ambiente.','margarita'],
+      ['EN2','Agilizar documentación técnica con Pablo Bellitieri','high','Completar detalles constructivos del CH2.','margarita'],
+      ['Campo Madero','Obtener resolución EPE Darrocha','high','Escalar aprobación del proyecto eléctrico.','combinado'],
+      ['CEPE','Cerrar canje CLESAPE e inspección de agua','high','Ordenar documentos y aprobaciones faltantes.','mariano'],
+      ['Vitta Río','Obtener observaciones de mensura y representar','','Alinear Comuna y equipo técnico.','mariano']
+    ]},
+    {mes:'Mes 2 · Formalizar',items:[
+      ['EN1','Categorización ambiental','high','Anexar CH2 y completar espacio verde.','margarita'],
+      ['EN1','Ordenar proceso de posesión','high','Destrabar coordinación Pablo–Jorge.','mariano'],
+      ['EN1','Procedimiento de bajadas domiciliarias','','Definir tablero, documentación y circuito con Cooperativa.','mariano'],
+      ['Vitta Río','CH2: visado comunal y presentación a Secretaría','high','Cerrar circuito documental.','margarita'],
+      ['CEPE','Entrega de columnas y ordenamiento administrativo','','Trazabilidad de materiales y aprobaciones.','mariano'],
+      ['Orígenes','Rearmar convenio eléctrico','high','Nuevo esquema con Cooperativa y definición de operatividad.','margarita']
+    ]},
+    {mes:'Mes 3 · Consolidar',items:[
+      ['CEPE','Definir responsable de visados y capacitación','done','Estructura operativa lista; mantener seguimiento.','combinado'],
+      ['CEPE','Desarrollar propuesta de locales comerciales','','Definir indicadores y modelo comercial.','mariano'],
+      ['CEPE','Alianza con corralón de materiales y pinturas','','Beneficios para clientes y activación del barrio.','mariano'],
+      ['CEPE','Alianza con constructora mediante canje','','Evaluar canje por lotes y locales.','mariano'],
+      ['Legales','Seguimiento de respuesta a intimación comunal','high','Control con Guido y documentación respaldatoria.','combinado'],
+      ['Gestión','Unificación de CAD para Obras','','Estandarizar base técnica.','margarita'],
+      ['Gestión','Actualizar paneles e informe semanal','done','Rutina de información y seguimiento ejecutivo.','combinado'],
+      ['Dirección','Pronóstico extendido y nube de problemas','','Revisión preventiva con CEO.','mariano'],
+      ['Equipo','Capacitación y educación','','Instancia compartida de formación.','combinado']
+    ]}
+  ];
+
+  const RIESGOS=[
+    {proj:'CEPE',level:'critical',items:[
+      ['Lotes de 200 a 270 m²','Resolver encuadre administrativo y legal; definir criterio de postventa.'],
+      ['Cambio de masterplan','Alinear formalmente con Municipalidad antes de nuevas acciones.'],
+      ['Actas de posesión','Prever instrumento, condiciones y secuencia de firma.'],
+      ['TGI para posesión','Dar seguimiento político y legal al acuerdo.'],
+      ['Permisos de cruces FFCC','Controlar vigencia y gestión con Jonatan.']
+    ]},
+    {proj:'Campo Madero',level:'critical',items:[
+      ['Aprobación eléctrica EPE','Conseguir contacto de máxima decisión que permita destrabar el expediente.']
+    ]},
+    {proj:'El Naranjo + CM2',level:'critical',items:[
+      ['Mensura y compensación de espacio verde','Cerrar visado de mensura y donación compensatoria en CM2.'],
+      ['Acta de aceptación de espacio verde','Obtener instrumento comunal para continuar Ambiente.']
+    ]},
+    {proj:'Orígenes',level:'critical',items:[
+      ['Riesgo de caída del convenio','Reentablar conversación con Intendente y Cooperativa.'],
+      ['Nueva contratación','Comunicar formalmente al presidente de la Cooperativa.']
+    ]},
+    {proj:'Vitta',level:'watch',items:[
+      ['Fondos para CAT','Prever aproximadamente USD 12.000 para la categorización ambiental.']
+    ]},
+    {proj:'Vitta Río',level:'critical',items:[
+      ['Masterplan no reconocido','La Comuna no reconoce el esquema con lotes de 300 m². Alinear criterio con Ferri.']
+    ]}
+  ];
+
+  const pageEsp=document.createElement('div');
+  pageEsp.className='page'; pageEsp.id='page-espada';
+  pageEsp.innerHTML=`<div class="hero-command hero-espada">
+      <div class="hero-copy"><div class="hero-kicker">Plan ejecutivo · 90 días</div><div class="hero-title">Espada corta</div><div class="hero-sub">Resolver primero lo decisivo. Un plan concentrado en movimientos de alto impacto, control semanal y ejecución disciplinada.</div></div>
+      <svg class="hero-art" viewBox="0 0 360 240" aria-label="Samurái con espada larga y espada corta" role="img">
+        <defs><linearGradient id="samG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9fc5ff"/><stop offset="1" stop-color="#315f9d"/></linearGradient></defs>
+        <circle cx="235" cy="60" r="29" fill="url(#samG)" opacity=".85"/>
+        <path d="M206 43 Q235 18 264 43 L255 50 Q235 37 215 50Z" fill="#0a1220"/>
+        <path d="M217 82 Q235 94 253 82 L280 145 258 214 214 214 190 145Z" fill="#152a48" stroke="#6f9ed8" stroke-width="2"/>
+        <path d="M204 104 L266 104 M198 126 L273 126 M194 149 L279 149" stroke="#6f9ed8" stroke-width="5" opacity=".6"/>
+        <path d="M212 97 L171 142" stroke="#9fc5ff" stroke-width="10" stroke-linecap="round"/>
+        <path d="M258 98 L295 139" stroke="#9fc5ff" stroke-width="10" stroke-linecap="round"/>
+        <path d="M164 145 L62 30" stroke="#dbeaff" stroke-width="5"/><path d="M57 25 L69 34" stroke="#6fc4eb" stroke-width="9"/>
+        <text x="44" y="20" fill="#6fc4eb" class="sword-ref">MARGARITA · ESPADA LARGA</text>
+        <path d="M286 151 L334 95" stroke="#dbeaff" stroke-width="5"/><path d="M329 91 L339 101" stroke="#9ce080" stroke-width="9"/>
+        <text x="250" y="83" fill="#9ce080" class="sword-ref">MARIANO · ESPADA CORTA</text>
+        <path d="M212 214 L195 236 M258 214 L274 236" stroke="#6f9ed8" stroke-width="13" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="report-action-row"><button class="report-btn" onclick="exportSectionReport('espada','Informe Espada Corta · 90 días')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
+    <div class="update-strip"><strong>Objetivo:</strong> concentrar gestión en pocos movimientos de alto impacto, con responsables, secuencia y seguimiento semanal.</div>
+    <div class="plan-owner-legend">
+      <span class="owner-label">Referencia por responsable</span>
+      <span class="owner-chip owner-mariano"><span class="owner-dot" style="background:#9ce080"></span>Mariano · espada corta</span>
+      <span class="owner-chip owner-margarita"><span class="owner-dot" style="background:#6fc4eb"></span>Margarita · espada larga</span>
+      <span class="owner-chip owner-combinado"><span class="owner-dot" style="background:#32aa9a"></span>Participación combinada</span>
+    </div>
+    <div class="plan-summary">
+      <div class="plan-kpi"><strong>${PLAN.reduce((a,m)=>a+m.items.length,0)}</strong><span>acciones priorizadas</span></div>
+      <div class="plan-kpi"><strong>${PLAN.flatMap(m=>m.items).filter(x=>x[2]==='high').length}</strong><span>acciones críticas</span></div>
+      <div class="plan-kpi"><strong>7</strong><span>proyectos / frentes</span></div>
+      <div class="plan-kpi"><strong>Semanal</strong><span>ritmo de control</span></div>
+    </div>
+    <div class="plan-board">${PLAN.map(m=>`<div class="plan-col"><div class="plan-col-h"><div class="plan-col-title">${m.mes}</div><span class="badge b-proc">${m.items.length} acciones</span></div>${m.items.map(i=>`<div class="plan-task ${i[2]||''} owner-${i[4]}-task"><div class="plan-task-title">${i[0]} · ${i[1]}</div><div class="plan-task-note">${i[3]}</div><div class="plan-task-meta"><span class="badge ${i[2]==='high'?'b-urgent':i[2]==='done'?'b-done':'b-proc'}">${i[2]==='high'?'Prioridad alta':i[2]==='done'?'Implementado':'En agenda'}</span><span class="owner-chip owner-${i[4]}">${i[4]==='mariano'?'Mariano':i[4]==='margarita'?'Margarita':'Mariano + Margarita'}</span></div></div>`).join('')}</div>`).join('')}</div>`;
+  document.querySelector('.overlay').before(pageEsp);
+
+  const pagePr=document.createElement('div');
+  pagePr.className='page'; pagePr.id='page-pronostico';
+  pagePr.innerHTML=`<div class="hero-command hero-pronostico">
+      <div class="hero-copy"><div class="hero-kicker">Lectura preventiva</div><div class="hero-title">Pronóstico extendido</div><div class="hero-sub">La nube de problemas cercanos: señales tempranas que pueden afectar aprobaciones, posesiones, convenios o caja si no se actúa antes de la tormenta.</div></div>
+      <svg class="hero-art" viewBox="0 0 360 240" aria-label="Nube de tormenta con rayo" role="img">
+        <defs><linearGradient id="cloudG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d6deea"/><stop offset="1" stop-color="#6f7f98"/></linearGradient></defs>
+        <path d="M78 137c-25 0-43-17-43-39 0-20 15-36 36-39 7-28 31-47 61-47 24 0 45 12 56 31 10-10 24-16 40-16 30 0 54 22 57 50 22 2 40 20 40 42 0 24-21 44-47 44H78z" fill="url(#cloudG)" stroke="#eef3fa" stroke-width="4"/>
+        <path d="M177 150 L141 206 L176 194 L159 235 L226 169 L190 181 L210 150Z" fill="#f0b429" stroke="#fff0b8" stroke-width="3"/>
+        <circle cx="109" cy="177" r="5" fill="#91a4bf"/><circle cx="269" cy="185" r="7" fill="#91a4bf"/><circle cx="294" cy="161" r="4" fill="#91a4bf"/>
+      </svg>
+    </div>
+    <div class="report-action-row"><button class="report-btn" onclick="exportSectionReport('pronostico','Informe de Pronóstico Extendido')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
+    <div class="update-strip"><strong>Lectura preventiva:</strong> riesgos que todavía no son una crisis operativa, pero pueden afectar posesiones, aprobaciones, convenios o caja si no se atienden anticipadamente.</div>
+    <div class="risk-grid">${RIESGOS.map(r=>`<div class="risk-card ${r.level}"><div class="risk-head"><div class="risk-project">${r.proj}</div><span class="badge ${r.level==='critical'?'b-block':'b-proc'}">${r.level==='critical'?'Atención alta':'En observación'}</span></div>${r.items.map(i=>`<div class="risk-item"><div class="risk-title">${i[0]}</div><div class="risk-action">${i[1]}</div></div>`).join('')}</div>`).join('')}</div>`;
+  document.querySelector('.overlay').before(pagePr);
+
+  // Botones móviles adicionales
+  const bn=document.querySelector('.bottom-nav');
+  if(bn){
+    const e=document.createElement('button'); e.className='bnav-btn'; e.id='bn-espada'; e.onclick=function(){showPage('espada',this,true)}; e.innerHTML='<span class="bnav-icon">⚔</span>Plan';
+    const p=document.createElement('button'); p.className='bnav-btn'; p.id='bn-pronostico'; p.onclick=function(){showPage('pronostico',this,true)}; p.innerHTML='<span class="bnav-icon">☁</span>Riesgos';
+    const strategyBtn=document.getElementById('bn-estrategia');
+    bn.appendChild(e); bn.appendChild(p);
+    if(strategyBtn) bn.appendChild(strategyBtn);
+  }
+
+  // Extender sincronización de navegación móvil
+  const oldShowPage=showPage;
+  showPage=function(id,btn,fromBottomNav=false){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const pg=document.getElementById('page-'+id); if(pg) pg.classList.add('active');
+    document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));
+    const top=[...document.querySelectorAll('.ttab')].find(t=>t.dataset.page===id || t.getAttribute('onclick')?.includes(`'${id}'`));
+    if(top) top.classList.add('active');
+    document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+    const mobile=document.getElementById('bn-'+id); if(mobile) mobile.classList.add('active');
+    window.scrollTo(0,0);
+  };
+
+  // Fecha y resumen de portada
+  const dateEl=document.querySelector('.topbar-date'); if(dateEl) dateEl.textContent='13·07·2026';
+  const stats=document.querySelectorAll('#page-home .stat-card');
+  if(stats.length>=4){
+    stats[0].querySelector('.stat-num').textContent=PROJS.length;
+    stats[0].querySelector('.stat-sub').textContent='Cartera integral de desarrollos';
+    stats[1].querySelector('.stat-num').textContent=PROJS.filter(p=>p.urgente).length;
+    stats[1].querySelector('.stat-sub').textContent='Focos de gestión prioritaria';
+    stats[2].querySelector('.stat-label').textContent='Actualizaciones julio';
+    stats[2].querySelector('.stat-num').textContent='4';
+    stats[2].querySelector('.stat-sub').textContent='EN1 · EN2 · CEPE · Clos';
+    stats[3].querySelector('.stat-label').textContent='Plan ejecutivo';
+    stats[3].querySelector('.stat-num').textContent='3';
+    stats[3].querySelector('.stat-sub').textContent='meses · Espada corta';
+  }
+
+  // Sustituir novedades de portada por hechos actuales
+  const novHdr=[...document.querySelectorAll('#page-home .section-hdr')].find(h=>h.textContent.includes('Novedades'));
+  if(novHdr){
+    const wrap=novHdr.parentElement;
+    novHdr.querySelector('span').textContent='Julio 2026';
+    const list=wrap.querySelector('div[style*="flex-direction:column"]');
+    if(list) list.innerHTML=`
+      <div class="card" style="border-color:rgba(46,200,122,.3);display:flex;align-items:flex-start;gap:12px"><span class="badge b-done">✓ EN1</span><div><strong>El Naranjo 1</strong> — CH2 aprobado. Próximo paso: autorización de vuelco de DPV y categorización ambiental.</div></div>
+      <div class="card" style="border-color:rgba(71,148,255,.3);display:flex;align-items:flex-start;gap:12px"><span class="badge b-proc">⟳ EN2</span><div><strong>El Naranjo 2</strong> — CH2 re-presentado; en elaboración de detalles constructivos con visto bueno preliminar.</div></div>
+      <div class="card" style="border-color:rgba(240,180,41,.3);display:flex;align-items:flex-start;gap:12px"><span class="badge b-new">⚑ CEPE</span><div><strong>Comunidad Evolutiva</strong> — foco en CLESAPE, TGI, impulsiones y proceso progresivo de posesiones.</div></div>
+      <div class="card" style="border-color:rgba(255,124,64,.35);display:flex;align-items:flex-start;gap:12px"><span class="badge b-urgent">⚡ CDE</span><div><strong>Clos del Este</strong> — incorporado como RU1 futuro urbanizable en el anteproyecto del nuevo plan urbano; ordenanza aún en tratamiento.</div></div>`;
+  }
+
+  // Recalcular vistas con datos actualizados
+  buildProjGrid(PROJS);
+  buildGestion(PROJS);
+  buildObra(PROJS);
+  buildRestanteGeneral();
+})();
+
+
+
+
+// ── RESTANTE GENERAL: ruta integrada hasta escritura ─────────
+let roadmapStateFilter='all';
+function flattenPendingGestion(project){
+  const source=(typeof GESTION_DATA!=='undefined' && GESTION_DATA[project.id]) || project.hitos || [];
+  const rows=[];
+  const walk=(arr)=>{(arr||[]).forEach(h=>{if(!h)return; const st=h.est||'proc'; if(st!=='done' && st!=='na') rows.push({name:h.nombre||h.etapa||'Gestión pendiente',status:st,note:h.exp?('Exp. '+h.exp):(h.obs||''),type:'gestion'}); if(h.sub) walk(h.sub);});};
+  walk(source);
+  const seen=new Set();
+  return rows.filter(x=>{const k=x.name.toLowerCase(); if(seen.has(k))return false; seen.add(k); return true;}).slice(0,8);
+}
+function pendingWorks(project){
+  return (project.obra||[]).filter(o=>Number(o.p||0)<100).map(o=>({name:o.r,p:Number(o.p||0),note:o.nota||'',type:'obra'})).sort((a,b)=>b.p-a.p).slice(0,10);
+}
+function roadmapData(project){
+  const gestion=flattenPendingGestion(project);
+  const obra=pendingWorks(project);
+  const allText=gestion.map(x=>x.name.toLowerCase()).join(' ');
+  const cierre=[];
+  const add=(name,note)=>{if(!allText.includes(name.toLowerCase().split(' ')[0])) cierre.push({name,note,type:'cierre'});};
+  if(obra.length) cierre.push({name:'Recepciones y finales de obra',note:'Inspecciones, conformes y recepción por los organismos intervinientes.',type:'cierre'});
+  add('Visado final de mensura','Consolidación del plano definitivo ante los organismos correspondientes.');
+  add('Inscripción en Catastro','Alta y desglose de las parcelas resultantes.');
+  add('Donaciones y cierre de convenio','Calles, espacios verdes y obligaciones urbanísticas, cuando corresponda.');
+  cierre.push({name:'Escritura',note:'Meta final: condiciones administrativas, técnicas y registrales cumplidas.',type:'cierre',goal:true});
+  return {gestion,obra,cierre,remaining:gestion.length+obra.length,critical:gestion.some(x=>x.status==='urgent'||x.status==='block')||project.urgente,near:(gestion.length+obra.length)<=4};
+}
+function roadStepHTML(item,index){
+  const pct=item.type==='obra'?Math.max(0,Math.min(100,item.p||0)):0;
+  const icon=item.goal?'META':item.type==='gestion'?'G'+(index+1):item.type==='obra'?(pct+'%'):'✓';
+  return `<div class="road-step ${item.type} ${item.goal?'road-goal':''}"><div class="road-node">${icon}</div><div class="road-step-title">${item.name}</div><div class="road-step-note">${item.note||''}</div>${item.type==='obra'?`<div class="road-step-progress" style="color:${pct>=75?'var(--green)':pct>=30?'var(--amber)':'var(--red)'}"><span style="width:${pct}%"></span></div>`:''}</div>`;
+}
+function buildRestanteGeneral(){
+  const grid=document.getElementById('roadmap-grid'); if(!grid)return;
+  grid.innerHTML=PROJS.map((p,idx)=>{const d=roadmapData(p); const steps=[...d.gestion,...d.obra,...d.cierre]; return `<article class="roadmap-card ${idx===0?'open':''}" data-name="${(p.nombre+' '+p.loc).toLowerCase()}" data-critical="${d.critical}" data-near="${d.near}" onclick="toggleRoadmap(event,this)"><div class="roadmap-head"><div class="roadmap-proj-mark">${p.id}</div><div class="roadmap-head-main"><div class="roadmap-name">${p.nombre}</div><div class="roadmap-meta">${p.loc} · ${p.entrega||'Fecha a definir'}</div></div><div class="roadmap-kpis"><span class="roadmap-mini">${d.gestion.length} gestión</span><span class="roadmap-mini">${d.obra.length} obras</span><span class="badge ${d.critical?'b-urgent':d.near?'b-done':'b-proc'}">${d.critical?'Foco crítico':d.near?'Cerca de meta':'En camino'}</span></div><span class="roadmap-chevron">⌄</span></div><div class="roadmap-body"><div class="road-track">${steps.map((x,i)=>roadStepHTML(x,i)).join('')}</div></div></article>`;}).join('');
+}
+function toggleRoadmap(event,card){if(event.target.closest('button,a,input'))return; card.classList.toggle('open');}
+function filterRoadmaps(q){q=(q||'').toLowerCase(); document.querySelectorAll('.roadmap-card').forEach(c=>c.style.display=(!q||c.dataset.name.includes(q))?'':'none');}
+function filterRoadmapState(state,btn){roadmapStateFilter=state; btn.parentElement.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.roadmap-card').forEach(c=>{const ok=state==='all'||(state==='critical'&&c.dataset.critical==='true')||(state==='near'&&c.dataset.near==='true');c.style.display=ok?'':'none';});}
+
+// ── Exportación A4 / PDF de secciones completas ─────────────
+function exportSectionReport(pageId, reportTitle){
+  const source=document.getElementById('page-'+pageId);
+  const target=document.getElementById('section-report');
+  if(!source || !target){ alert('No se pudo preparar el informe.'); return; }
+
+  const clone=source.cloneNode(true);
+  clone.classList.add('active');
+  clone.querySelectorAll('.search-wrap,.chips,.report-btn,.report-action-row,button,input').forEach(el=>el.remove());
+
+  const now=new Date();
+  const fecha=now.toLocaleDateString('es-AR',{day:'2-digit',month:'long',year:'numeric'});
+  target.innerHTML=`<div class="sr-page">
+    <div class="sr-header">
+      <div><div class="sr-brand">Grupo Roma</div><div class="sr-kicker">Centro de comando · Informe interno</div></div>
+      <div><div class="sr-title">${reportTitle}</div><div class="sr-date">Actualizado: ${fecha}</div></div>
+    </div>
+    <div class="sr-body"></div>
+    <div class="sr-footer"><span>GRUPO ROMA · DOCUMENTO INTERNO</span><span>Formato A4 · Guardar como PDF desde el diálogo de impresión</span></div>
+  </div>`;
+  target.querySelector('.sr-body').appendChild(clone);
+  document.body.classList.add('print-section');
+  const cleanup=()=>{document.body.classList.remove('print-section'); window.removeEventListener('afterprint',cleanup);};
+  window.addEventListener('afterprint',cleanup);
+  setTimeout(()=>window.print(),120);
+}
+
 </script>
 </body>
 </html>
