@@ -11,14 +11,14 @@
      Azul marino profundo (header brochures) + Azul eléctrico (CTAs)
      Blanco puro para texto sobre marino. Grises fríos neutros.
   ─────────────────────────────────────────────────────────── */
-  --bg:      #0a1220;       /* azul marino profundo — fondo principal */
-  --bg2:     #0f1c30;       /* marino medio — cards */
-  --bg3:     #162338;       /* marino claro — inputs, bg3 */
+  --bg:      #172b46;       /* azul marino profundo — fondo principal */
+  --bg2:     #203a5a;       /* marino medio — cards */
+  --bg3:     #294665;       /* marino claro — inputs, bg3 */
   --border:  rgba(255,255,255,0.09);
   --border2: rgba(71,148,255,0.35);  /* borde activo azul Roma */
   --text:    #f0f4ff;       /* blanco azulado — texto principal */
-  --muted:   #7a94b8;       /* azul grisáceo — texto secundario */
-  --dim:     #3a5070;       /* azul oscuro — texto terciario */
+  --muted:   #a9bdd7;       /* azul grisáceo — texto secundario */
+  --dim:     #6f8eaf;       /* azul oscuro — texto terciario */
   --green:   #2ec87a;       /* verde éxito */
   --green-l: rgba(46,200,122,0.13);
   --amber:   #f0b429;       /* amarillo advertencia */
@@ -137,6 +137,48 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .obra-bar-bg{width:80px;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
 .obra-bar-fill{height:100%;border-radius:3px}
 .obra-pct{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;width:30px;text-align:right}
+
+
+/* ── CENTRO DE PRODUCCIÓN / OBRA V12 ─────────────────────── */
+.production-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;padding:14px 16px;background:linear-gradient(135deg,rgba(71,148,255,.13),rgba(15,28,48,.92));border:1px solid rgba(71,148,255,.24);border-radius:12px}
+.production-toolbar-title{font-family:'DM Serif Display',serif;font-size:20px;color:#fff}
+.production-toolbar-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.production-source{font-family:'DM Mono',monospace;font-size:9px;color:var(--blue);padding:6px 10px;border-radius:20px;background:var(--blue-l);white-space:nowrap}
+.prod-card{padding:0;overflow:hidden;margin-bottom:18px;border-color:rgba(71,148,255,.18)}
+.prod-head{display:grid;grid-template-columns:minmax(230px,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:linear-gradient(135deg,rgba(71,148,255,.08),rgba(15,28,48,.15));border-bottom:1px solid var(--border);cursor:pointer}
+.prod-title{font-size:17px;font-weight:700;color:#fff}
+.prod-meta{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:4px;letter-spacing:.5px}
+.prod-kpis{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.prod-kpi{text-align:center;min-width:66px}
+.prod-kpi strong{display:block;font-family:'DM Serif Display',serif;font-size:22px;line-height:1}
+.prod-kpi span{display:block;font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.7px}
+.prod-table-wrap{overflow-x:auto}
+.prod-table{min-width:1180px;width:100%;border-collapse:collapse}
+.prod-table th{position:sticky;top:0;z-index:1;background:#132239;color:var(--muted);font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:1px solid rgba(71,148,255,.2)}
+.prod-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.prod-table tr:last-child td{border-bottom:none}
+.prod-table tbody tr:hover{background:rgba(71,148,255,.035)}
+.prod-rubro{font-size:12px;font-weight:600;color:var(--text);line-height:1.35;max-width:260px}
+.prod-progress-cell{min-width:250px}
+.prod-progress-line{display:flex;align-items:center;gap:10px}
+.prod-track{height:10px;flex:1;background:var(--bg3);border-radius:8px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}
+.prod-fill{height:100%;border-radius:8px;min-width:0;transition:width .7s ease}
+.prod-pct{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;min-width:38px;text-align:right}
+.prod-note{font-size:11px;line-height:1.45;color:var(--muted);max-width:330px}
+.prod-alert{display:inline-flex;align-items:flex-start;gap:6px}
+.prod-placeholder{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:6px;background:rgba(255,255,255,.035);border:1px dashed rgba(255,255,255,.12);font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);white-space:nowrap}
+.prod-critical{padding:16px 18px 18px;background:rgba(224,85,85,.035);border-top:1px solid rgba(224,85,85,.16)}
+.prod-critical-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.prod-critical-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);font-weight:600}
+.prod-critical-count{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)}
+.prod-critical-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.prod-critical-card{border:1px solid rgba(224,85,85,.24);background:rgba(224,85,85,.065);border-radius:9px;padding:12px}
+.prod-critical-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:5px}
+.prod-critical-note{font-size:10px;line-height:1.45;color:var(--muted)}
+.prod-critical-badge{display:inline-flex;margin-top:8px;padding:3px 7px;border-radius:12px;background:var(--red-l);color:var(--red);font-family:'DM Mono',monospace;font-size:8px}
+.prod-empty-critical{font-size:11px;color:var(--green);padding:8px 0}
+@media(max-width:900px){.prod-critical-grid{grid-template-columns:1fr 1fr}.prod-head{grid-template-columns:1fr}.prod-kpis{justify-content:flex-start}}
+@media(max-width:600px){.production-toolbar{align-items:flex-start;flex-direction:column}.prod-critical-grid{grid-template-columns:1fr}.prod-head{padding:15px}.prod-title{font-size:15px}}
 
 /* ── MODELOS DE RESPUESTA ── */
 .modelo-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden}
@@ -774,6 +816,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @media(max-width:960px){.ceo-daily-hero{grid-template-columns:1fr}.ceo-daily-hero:after{right:10px}.ceo-actions-grid{grid-template-columns:1fr}.ceo-action-card.level-red{grid-column:span 1}}
 @media(max-width:600px){.ceo-daily-hero{padding:17px}.ceo-daily-copy h3{font-size:23px}.ceo-daily-panel{grid-template-columns:1fr 1fr}.ceo-card-top{flex-wrap:wrap}.ceo-critical-badge{margin-left:53px}.ceo-card-footer{align-items:flex-start;flex-direction:column}.ceo-review-btn{width:100%}}
 
+
+/* ── V13 · CONTRASTE, ALERTAS Y NAVEGACIÓN ─────────────── */
+body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);background-attachment:fixed}
+.topbar{background:linear-gradient(135deg,#17355a 0%,#204a75 58%,#173b63 100%);border-bottom-color:rgba(116,178,255,.34)}
+.card,.stat-card,.proj-card,.obra-gantt-card,.production-project,.risk-card{background:linear-gradient(155deg,rgba(37,66,98,.98),rgba(29,54,84,.98));border-color:rgba(150,190,235,.15)}
+.search-input,.modelo-card,.detail-close{background:#294867}
+.ttab.ceo-tab{border-color:rgba(255,190,70,.42);color:#ffd77e;background:linear-gradient(135deg,rgba(240,180,41,.13),rgba(255,124,64,.08));box-shadow:0 0 14px rgba(240,180,41,.16),inset 0 1px 0 rgba(255,255,255,.08);animation:ceoTabGlow 2.8s ease-in-out infinite}
+.ttab.ceo-tab:hover,.ttab.ceo-tab.active{color:#fff;border-color:rgba(255,211,119,.82);background:linear-gradient(135deg,#d89120,#f0b429);box-shadow:0 0 12px rgba(240,180,41,.5),0 0 30px rgba(240,180,41,.22),0 8px 22px rgba(0,0,0,.2)}
+@keyframes ceoTabGlow{0%,100%{box-shadow:0 0 9px rgba(240,180,41,.11)}50%{box-shadow:0 0 18px rgba(240,180,41,.34)}}
+.risk-card.legal{grid-column:1/-1;border:1px solid rgba(240,180,41,.65);border-left:6px solid var(--amber);background:linear-gradient(135deg,rgba(240,180,41,.16),rgba(38,67,99,.98) 38%,rgba(29,54,84,.98));box-shadow:0 0 14px rgba(240,180,41,.2),0 0 34px rgba(240,180,41,.09),0 12px 30px rgba(0,0,0,.18);animation:legalRiskGlow 3s ease-in-out infinite}
+.risk-card.legal .risk-project{color:#ffe6a8}.risk-card.legal .risk-title{font-size:14px;color:#fff}.risk-card.legal .risk-item{border-color:rgba(240,180,41,.24);background:rgba(240,180,41,.06)}
+@keyframes legalRiskGlow{0%,100%{box-shadow:0 0 12px rgba(240,180,41,.15),0 12px 30px rgba(0,0,0,.18)}50%{box-shadow:0 0 23px rgba(240,180,41,.36),0 12px 30px rgba(0,0,0,.2)}}
+
 </style>
 </head>
 <body>
@@ -785,11 +840,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <button class="ttab active" data-page="home" onclick="showPage('home',this)"><span class="ttab-icon">◉</span><span>Resumen</span></button>
     <button class="ttab" data-page="gestion" onclick="showPage('gestion',this)"><span class="ttab-icon">▤</span><span>Gestión</span></button>
     <button class="ttab" data-page="obra" onclick="showPage('obra',this)"><span class="ttab-icon">▰</span><span>Obra</span></button>
-    <button class="ttab" data-page="postventa" onclick="showPage('postventa',this)"><span class="ttab-icon">◇</span><span>Postventas</span></button>
-    <button class="ttab" data-page="espada" onclick="showPage('espada',this)"><span class="ttab-icon">⚔</span><span>Espada corta</span></button>
+    <button class="ttab" data-page="espada" onclick="showPage('espada',this)"><span class="ttab-icon">⚔</span><span>Espada corta gestión</span></button>
     <button class="ttab" data-page="pronostico" onclick="showPage('pronostico',this)"><span class="ttab-icon">ϟ</span><span>Pronóstico</span></button>
-    <button class="ttab" data-page="estrategia" onclick="showPage('estrategia',this)"><span class="ttab-icon">✦</span><span>Acciones CEO</span></button>
+    <button class="ttab ceo-tab" data-page="estrategia" onclick="showPage('estrategia',this)"><span class="ttab-icon">✦</span><span>Acciones CEO</span></button>
     <button class="ttab" data-page="restante" onclick="showPage('restante',this)"><span class="ttab-icon">⌘</span><span>Empresa transversal</span></button>
+    <button class="ttab" data-page="postventa" onclick="showPage('postventa',this)"><span class="ttab-icon">◇</span><span>Postventas</span></button>
   </div>
   <div class="command-center" title="Semáforo ejecutivo general">
     <div class="command-label"><strong>Centro de comando</strong><span>Estado global</span></div>
@@ -893,7 +948,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
      PAGE: OBRA
 ════════════════════════════════════════════════════════════ -->
 <div class="page" id="page-obra">
-  <div class="section-hdr"><h2>Estado de obra</h2><span>Avance por rubro · Julio 2026</span><button class="report-btn" onclick="exportSectionReport('obra','Informe de Estado de Obra')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
+  <div class="section-hdr"><h2>Centro de Producción</h2><span>Obras · avance, alertas y ejecución</span><button class="report-btn" onclick="exportSectionReport('obra','Informe de Centro de Producción')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
+  <div class="production-toolbar">
+    <div><div class="production-toolbar-title">Tablero ejecutivo de obras</div><div class="production-toolbar-sub">Los rubros conservan su denominación original. Pago y proveedor quedan preparados para completar.</div></div>
+    <div class="production-source">FUENTE · PLANILLA DE OBRAS</div>
+  </div>
   <div class="chips">
     <button class="chip active" onclick="setObraFilter('all',this)">Todos</button>
     <button class="chip" onclick="setObraFilter('100',this)">100% completo</button>
@@ -1048,9 +1107,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <button class="bnav-btn active" id="bn-home" onclick="showPage('home',this,true)"><span class="bnav-icon">◉</span>Resumen</button>
   <button class="bnav-btn" id="bn-gestion" onclick="showPage('gestion',this,true)"><span class="bnav-icon">◎</span>Gestión</button>
   <button class="bnav-btn" id="bn-obra" onclick="showPage('obra',this,true)"><span class="bnav-icon">⬜</span>Obra</button>
-  <button class="bnav-btn" id="bn-postventa" onclick="showPage('postventa',this,true)"><span class="bnav-icon">◈</span>Postventas</button>
   <button class="bnav-btn" id="bn-estrategia" onclick="showPage('estrategia',this,true)"><span class="bnav-icon">✦</span>CEO</button>
   <button class="bnav-btn" id="bn-restante" onclick="showPage('restante',this,true)"><span class="bnav-icon">⌘</span>Empresa</button>
+  <button class="bnav-btn" id="bn-postventa" onclick="showPage('postventa',this,true)"><span class="bnav-icon">◈</span>Postventas</button>
 </div>
 
 <script>
@@ -1339,7 +1398,7 @@ const PROJS = [
      {"r": "Red de Agua", "p": 90, "nota": "Ejecutada"},
      {"r": "Obras Pluviales Ext. aporte con comuna", "p": 70, "nota": "Obra en conjunto"},
      {"r": "Pórtico de ingreso", "p": 0, "nota": "En planificación"},
-     {"r": "Red Eléctrica", "p": 0, "nota": "Pendiente; proyecto eléctrico en proceso"},
+     {"r": "Obra Eléctrica", "p": 0, "nota": "Pendiente; proyecto eléctrico en proceso"},
      {"r": "Alumbrado Público", "p": 0, "nota": "Pendiente; depende del proyecto eléctrico"},
      {"r": "Cloacas", "p": 0, "nota": "Pendiente; información interna, no comunicar aún a clientes"},
      {"r": "Señalización", "p": 0, "nota": "Pendiente"},
@@ -3299,45 +3358,62 @@ function buildObra(list){
   const el=document.getElementById("obra-list");
   const withObra=list.filter(p=>p.obra&&p.obra.length>0);
 
-  const legend=`<div class="gantt-legend">
-    <span><i class="gantt-dot" style="background:var(--dim)"></i>0% pendiente</span>
-    <span><i class="gantt-dot" style="background:var(--orange)"></i>1–39%</span>
-    <span><i class="gantt-dot" style="background:var(--amber)"></i>40–69%</span>
-    <span><i class="gantt-dot" style="background:var(--blue)"></i>70–99%</span>
-    <span><i class="gantt-dot" style="background:var(--green)"></i>100% completo</span>
-  </div>`;
+  const colorForPct=pct=>pct===100?"var(--green)":pct>=70?"var(--blue)":pct>=40?"var(--amber)":pct>0?"var(--orange)":"var(--dim)";
+  const alertInfo=(r)=>{
+    const t=(r.nota||"").toLowerCase();
+    if(/urgente|bloque|paraliz|ca[ií]da|venc/.test(t)) return {icon:"●",label:"Crítico",score:5};
+    if(/depende|espera|aprobaci[oó]n|convenio|canon|permiso|acuerdo/.test(t)) return {icon:"▲",label:"Dependencia",score:4};
+    if(/falta|pendiente|verificar|revisar|ajustar/.test(t)) return {icon:"!",label:"Atención",score:3};
+    if(/inspecci[oó]n|recepci[oó]n|pr[oó]ximo/.test(t)) return {icon:"◎",label:"Próximo hito",score:2};
+    if(Number(r.p)===0) return {icon:"○",label:"Sin iniciar",score:1};
+    return {icon:"",label:"",score:0};
+  };
 
-  el.innerHTML=legend+withObra.map(p=>{
+  el.innerHTML=withObra.map(p=>{
     const rubros=p.obra.filter(r=>r.p!==null&&r.p!==undefined);
     const avg=rubros.length?Math.round(rubros.reduce((s,r)=>s+Number(r.p||0),0)/rubros.length):0;
-    const done100=rubros.filter(r=>r.p===100).length;
-    const enEjec=rubros.filter(r=>r.p>0&&r.p<100).length;
-    const pend=rubros.filter(r=>r.p===0).length;
-    const avgCol=avg===100?"var(--green)":avg>=70?"var(--blue)":avg>=40?"var(--amber)":avg>0?"var(--orange)":"var(--dim)";
+    const done100=rubros.filter(r=>Number(r.p)===100).length;
+    const enEjec=rubros.filter(r=>Number(r.p)>0&&Number(r.p)<100).length;
+    const pend=rubros.filter(r=>Number(r.p)===0).length;
+    const avgCol=colorForPct(avg);
 
     const rows=rubros.map(r=>{
       const pct=Math.max(0,Math.min(100,Number(r.p)||0));
-      const col=pct===100?"var(--green)":pct>=70?"var(--blue)":pct>=40?"var(--amber)":pct>0?"var(--orange)":"var(--dim)";
-      return `<div class="gantt-row">
-        <div><div class="gantt-name">${r.r}</div>${r.nota?`<div class="gantt-note">${r.nota}</div>`:""}</div>
-        <div class="gantt-track" title="${r.r}: ${pct}%">
-          ${pct===0?`<span class="gantt-zero"></span>`:`<div class="gantt-fill" style="width:${pct}%;background:${col}"></div>`}
-        </div>
-        <div class="gantt-pct" style="color:${col}">${pct}%</div>
-      </div>`;
+      const col=colorForPct(pct);
+      const alert=alertInfo(r);
+      const note=r.nota||"Sin observaciones cargadas.";
+      return `<tr>
+        <td><div class="prod-rubro">${r.r}</div></td>
+        <td class="prod-progress-cell"><div class="prod-progress-line"><div class="prod-track" title="${r.r}: ${pct}%"><div class="prod-fill" style="width:${pct}%;background:${col}"></div></div><div class="prod-pct" style="color:${col}">${pct}%</div></div></td>
+        <td><div class="prod-note">${alert.icon?`<span class="prod-alert"><b style="color:${alert.score>=4?'var(--red)':alert.score===3?'var(--amber)':'var(--blue)'}">${alert.icon}</b><span>${note}</span></span>`:note}</div></td>
+        <td><span class="prod-placeholder">$ A completar</span></td>
+        <td><span class="prod-placeholder">⌂ A completar</span></td>
+      </tr>`;
     }).join("");
 
-    return `<div class="card obra-gantt-card">
-      <div class="obra-gantt-head" onclick="openDetail('${p.id}')">
-        <div><div style="font-size:15px;font-weight:600;color:#fff">${p.nombre}</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:3px">${p.loc} · ${rubros.length} rubros</div></div>
-        <div style="text-align:right"><div style="font-family:'DM Serif Display',serif;font-size:24px;color:${avgCol}">${avg}%</div><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">avance promedio</div></div>
+    const critical=rubros.map(r=>({...r,_a:alertInfo(r)}))
+      .filter(r=>Number(r.p)<100 && r._a.score>=3)
+      .sort((a,b)=>b._a.score-a._a.score || Number(a.p)-Number(b.p))
+      .slice(0,6);
+
+    const criticalHtml=critical.length?`<div class="prod-critical-grid">${critical.map(r=>`<div class="prod-critical-card"><div class="prod-critical-name">${r.r}</div><div class="prod-critical-note">${r.nota||'Pendiente de definición operativa.'}</div><span class="prod-critical-badge">${r._a.label} · ${Number(r.p)||0}%</span></div>`).join("")}</div>`:`<div class="prod-empty-critical">✓ No se detectan rubros críticos en las observaciones actuales.</div>`;
+
+    return `<section class="card prod-card">
+      <div class="prod-head" onclick="openDetail('${p.id}')">
+        <div><div class="prod-title">${p.nombre}</div><div class="prod-meta">${p.loc} · ${rubros.length} rubros registrados · abrir ficha completa ↗</div></div>
+        <div class="prod-kpis">
+          <div class="prod-kpi"><strong style="color:${avgCol}">${avg}%</strong><span>avance medio</span></div>
+          <div class="prod-kpi"><strong style="color:var(--green)">${done100}</strong><span>completos</span></div>
+          <div class="prod-kpi"><strong style="color:var(--blue)">${enEjec}</strong><span>en ejecución</span></div>
+          <div class="prod-kpi"><strong style="color:var(--dim)">${pend}</strong><span>pendientes</span></div>
+        </div>
       </div>
-      <div class="obra-gantt-summary"><span style="color:var(--green);font-family:'DM Mono',monospace;font-size:9px">✓ ${done100} completos</span><span style="color:var(--blue);font-family:'DM Mono',monospace;font-size:9px">◎ ${enEjec} en ejecución</span><span style="color:var(--dim);font-family:'DM Mono',monospace;font-size:9px">○ ${pend} pendientes</span></div>
-      <div class="gantt-scroll"><div class="gantt-table">
-        <div class="gantt-axis"><div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Rubro / observación</div><div class="gantt-axis-track">${[0,25,50,75,100].map(v=>`<span class="gantt-tick" style="left:${v}%">${v}%</span>`).join("")}</div><div></div></div>
-        ${rows}
-      </div></div>
-    </div>`;
+      <div class="prod-table-wrap"><table class="prod-table">
+        <thead><tr><th style="width:23%">Rubro de obra</th><th style="width:23%">Avance</th><th style="width:30%">Observaciones / notificaciones</th><th style="width:12%">Formato de pago</th><th style="width:12%">Proveedor ejecutor</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+      <div class="prod-critical"><div class="prod-critical-head"><div class="prod-critical-title">🚨 Rubros críticos</div><div class="prod-critical-count">${critical.length} alertas priorizadas</div></div>${criticalHtml}</div>
+    </section>`;
   }).join("");
 }
 buildObra(PROJS);
@@ -3889,13 +3965,17 @@ function exportInformePDF(){
       {etapa:'Obra',nombre:'Obras hídricas bajo simplificación',est:'proc',ini:'',fin:'',obs:'Objetivo: avanzar coordinadamente con Ambiente bajo el nuevo régimen de simplificación.'}
     ];
     en2.obra=[
-      {r:'Paquete estructural de calzadas',p:100,nota:'Ejecutado'},
+      {r:'Paquete estructural Calzadas',p:100,nota:'Ejecutadas'},
       {r:'Cordones cuneta',p:95,nota:'Ejecutados'},
+      {r:'Pluviales',p:15,nota:'Pendiente (depende de la emisión del Certificado hídrico 2)'},
       {r:'Red de Agua',p:90,nota:'Ejecutada'},
-      {r:'Obras Pluviales Externas',p:70,nota:'Obra conjunta con la Comuna'},
-      {r:'Pluviales Internos',p:15,nota:'Condicionados a la emisión del CH2'},
-      {r:'Pórtico de Ingreso',p:0,nota:'En planificación'},
-      {r:'Proyecto y obra eléctrica',p:10,nota:'Proyecto contratado; ejecución posterior a aprobación y convenio'}
+      {r:'Obras Pluviales Ext. aporte con comuna',p:70,nota:'Obra en conjunto'},
+      {r:'Pórtico de ingreso',p:0,nota:'En planificación'},
+      {r:'Obra Eléctrica',p:0,nota:'Pendiente (proyecto eléctrico en proceso)'},
+      {r:'Alumbrado Público',p:0,nota:'Pendiente (depende del proyecto eléctrico en proceso)'},
+      {r:'Cloacas',p:0,nota:'Pendiente (no se debe comunicar aún a los clientes)'},
+      {r:'Señalización',p:0,nota:'Pendiente'},
+      {r:'Plazas',p:0,nota:'Pendiente'}
     ];
   }
 
@@ -3957,7 +4037,7 @@ function exportInformePDF(){
   // ── NUEVAS SECCIONES ───────────────────────────────────────
   const tabs=document.querySelector('.topbar-tabs');
   if(tabs && !document.querySelector('[data-page="espada"]')){
-    const b1=document.createElement('button'); b1.className='ttab'; b1.dataset.page='espada'; b1.textContent='Espada corta'; b1.onclick=function(){showPage('espada',this)};
+    const b1=document.createElement('button'); b1.className='ttab'; b1.dataset.page='espada'; b1.textContent='Espada corta gestión'; b1.onclick=function(){showPage('espada',this)};
     const b2=document.createElement('button'); b2.className='ttab'; b2.dataset.page='pronostico'; b2.textContent='Pronóstico'; b2.onclick=function(){showPage('pronostico',this)};
     tabs.appendChild(b1); tabs.appendChild(b2);
   }
@@ -4016,13 +4096,16 @@ function exportInformePDF(){
     ]},
     {proj:'Vitta Río',level:'critical',items:[
       ['Masterplan no reconocido','La Comuna no reconoce el esquema con lotes de 300 m². Alinear criterio con Ferri.']
+    ]},
+    {proj:'Campo Madero 2 + Vitta Río',level:'legal',items:[
+      ['Plazos de compromiso legal con clientes','Revisar preventivamente los plazos asumidos con clientes y definir un abordaje coordinado con el área Legal.']
     ]}
   ];
 
   const pageEsp=document.createElement('div');
   pageEsp.className='page'; pageEsp.id='page-espada';
   pageEsp.innerHTML=`<div class="hero-command hero-espada">
-      <div class="hero-copy"><div class="hero-kicker">Plan ejecutivo · 90 días</div><div class="hero-title">Espada corta</div><div class="hero-sub">Resolver primero lo decisivo. Un plan concentrado en movimientos de alto impacto, control semanal y ejecución disciplinada.</div></div>
+      <div class="hero-copy"><div class="hero-kicker">Plan ejecutivo · 90 días</div><div class="hero-title">Espada corta gestión</div><div class="hero-sub">Resolver primero lo decisivo. Un plan concentrado en movimientos de alto impacto, control semanal y ejecución disciplinada.</div></div>
       <svg class="hero-art" viewBox="0 0 360 240" aria-label="Samurái con espada larga y espada corta" role="img">
         <defs><linearGradient id="samG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9fc5ff"/><stop offset="1" stop-color="#315f9d"/></linearGradient></defs>
         <circle cx="235" cy="60" r="29" fill="url(#samG)" opacity=".85"/>
@@ -4038,7 +4121,7 @@ function exportInformePDF(){
         <path d="M212 214 L195 236 M258 214 L274 236" stroke="#6f9ed8" stroke-width="13" stroke-linecap="round"/>
       </svg>
     </div>
-    <div class="report-action-row"><button class="report-btn" onclick="exportSectionReport('espada','Informe Espada Corta · 90 días')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
+    <div class="report-action-row"><button class="report-btn" onclick="exportSectionReport('espada','Informe Espada Corta Gestión · 90 días')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
     <div class="update-strip"><strong>Objetivo:</strong> concentrar gestión en pocos movimientos de alto impacto, con responsables, secuencia y seguimiento semanal.</div>
     <div class="plan-owner-legend">
       <span class="owner-label">Referencia por responsable</span>
@@ -4068,7 +4151,7 @@ function exportInformePDF(){
     </div>
     <div class="report-action-row"><button class="report-btn" onclick="exportSectionReport('pronostico','Informe de Pronóstico Extendido')"><span class="report-icon">⇩</span>Informe A4 / PDF</button></div>
     <div class="update-strip"><strong>Lectura preventiva:</strong> riesgos que todavía no son una crisis operativa, pero pueden afectar posesiones, aprobaciones, convenios o caja si no se atienden anticipadamente.</div>
-    <div class="risk-grid">${RIESGOS.map(r=>`<div class="risk-card ${r.level}"><div class="risk-head"><div class="risk-project">${r.proj}</div><span class="badge ${r.level==='critical'?'b-block':'b-proc'}">${r.level==='critical'?'Atención alta':'En observación'}</span></div>${r.items.map(i=>`<div class="risk-item"><div class="risk-title">${i[0]}</div><div class="risk-action">${i[1]}</div></div>`).join('')}</div>`).join('')}</div>`;
+    <div class="risk-grid">${RIESGOS.map(r=>`<div class="risk-card ${r.level}"><div class="risk-head"><div class="risk-project">${r.proj}</div><span class="badge ${r.level==='critical'?'b-block':r.level==='legal'?'b-new':'b-proc'}">${r.level==='critical'?'Atención alta':r.level==='legal'?'Previsión legal':'En observación'}</span></div>${r.items.map(i=>`<div class="risk-item"><div class="risk-title">${i[0]}</div><div class="risk-action">${i[1]}</div></div>`).join('')}</div>`).join('')}</div>`;
   document.querySelector('.overlay').before(pagePr);
 
   // Botones móviles adicionales
