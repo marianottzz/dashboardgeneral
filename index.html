@@ -829,6 +829,71 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
 .risk-card.legal .risk-project{color:#ffe6a8}.risk-card.legal .risk-title{font-size:14px;color:#fff}.risk-card.legal .risk-item{border-color:rgba(240,180,41,.24);background:rgba(240,180,41,.06)}
 @keyframes legalRiskGlow{0%,100%{box-shadow:0 0 12px rgba(240,180,41,.15),0 12px 30px rgba(0,0,0,.18)}50%{box-shadow:0 0 23px rgba(240,180,41,.36),0 12px 30px rgba(0,0,0,.2)}}
 
+
+/* ── V14 · ACCIONES CEO ORDENADAS Y LECTURA LIMPIA ─────── */
+.ttab.forecast-tab{border-color:rgba(116,178,255,.38);color:#b9dcff;background:linear-gradient(135deg,rgba(71,148,255,.13),rgba(93,116,255,.08));box-shadow:0 0 13px rgba(71,148,255,.15),inset 0 1px 0 rgba(255,255,255,.07);animation:forecastTabGlow 3s ease-in-out infinite}
+.ttab.forecast-tab:hover,.ttab.forecast-tab.active{color:#fff;border-color:rgba(160,210,255,.9);background:linear-gradient(135deg,#397fd4,#5a8fe8);box-shadow:0 0 14px rgba(71,148,255,.48),0 0 30px rgba(71,148,255,.2),0 8px 22px rgba(0,0,0,.2)}
+@keyframes forecastTabGlow{0%,100%{box-shadow:0 0 8px rgba(71,148,255,.1)}50%{box-shadow:0 0 18px rgba(71,148,255,.34)}}
+.ceo-actions-grid{display:block}
+.ceo-location-group{margin-bottom:28px}
+.ceo-location-banner{display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(31,66,104,.98),rgba(26,53,84,.98));border:1px solid rgba(143,190,238,.2);border-radius:14px;padding:15px 18px;margin-bottom:12px;box-shadow:0 10px 25px rgba(0,0,0,.13)}
+.ceo-location-bar{width:8px;align-self:stretch;min-height:56px;border-radius:8px;background:#6fb5ff;box-shadow:0 0 18px rgba(111,181,255,.36)}
+.ceo-location-kicker{font-family:'DM Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9cb5d1;margin-bottom:3px}
+.ceo-location-banner h3{font-family:'DM Serif Display',serif;font-size:27px;line-height:1;color:#fff;margin:0}
+.ceo-location-count{margin-left:auto;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b8cce3;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);padding:7px 10px;border-radius:999px}
+.group-pueblo .ceo-location-bar{background:#6fb5ff}.group-ybarlucea .ceo-location-bar{background:#67c8b2}.group-soldini .ceo-location-bar{background:#f0b429;box-shadow:0 0 18px rgba(240,180,41,.35)}
+.ceo-group-list{display:flex;flex-direction:column;gap:12px}
+.ceo-action-card,.ceo-action-card.level-red,.ceo-action-card.level-amber{grid-column:auto;border-left:0;border:1px solid rgba(150,190,235,.14);background:linear-gradient(155deg,rgba(36,64,96,.98),rgba(28,52,82,.98));box-shadow:0 10px 27px rgba(0,0,0,.15);padding:16px 18px}
+.ceo-action-card.level-red{border-color:rgba(240,180,41,.32)}
+.ceo-action-card:hover{border-color:rgba(116,178,255,.36)}
+.ceo-card-top{align-items:center;margin-bottom:12px}
+.ceo-place-icon{background:rgba(71,148,255,.12);color:#8dc2ff;border-color:rgba(71,148,255,.23)}
+.ceo-action-card.level-red .ceo-place-icon{background:rgba(240,180,41,.12);color:#ffd06a;border-color:rgba(240,180,41,.3)}
+.ceo-project,.ceo-action-card.level-red .ceo-project{font-size:18px;color:#fff}
+.ceo-interlocutor-inline{font-size:10px;color:#9fb2ca;margin-top:4px}
+.ceo-critical-badge,.ceo-action-card.level-red .ceo-critical-badge,.ceo-action-card.level-amber .ceo-critical-badge{display:inline-flex;align-items:center;gap:6px;font-size:8px;padding:6px 9px;animation:none;color:#e8eef8;background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.09)}
+.ceo-priority-dot{width:8px;height:8px;border-radius:50%;background:#6fb5ff;box-shadow:0 0 10px rgba(111,181,255,.45)}
+.ceo-action-card.level-red .ceo-priority-dot{background:#f0b429;box-shadow:0 0 12px rgba(240,180,41,.55)}
+.ceo-content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:12px}
+.ceo-simple-block{border-radius:10px;padding:13px 14px;background:rgba(11,28,48,.34);border:1px solid rgba(255,255,255,.07)}
+.ceo-simple-title{font-family:'DM Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.35px;text-transform:uppercase;color:#91bdf0;margin-bottom:8px}
+.ceo-do-block{border-top:3px solid #6fb5ff}
+.ceo-context-box{margin-top:0;border-top:3px solid #67c8b2}
+.ceo-action-item,.ceo-action-card.level-red .ceo-action-item{background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.065);border-radius:0;padding:8px 0;font-size:12px}
+.ceo-action-item:last-child{border-bottom:0}
+.ceo-action-index{background:rgba(71,148,255,.14);color:#9fcbff}
+.ceo-context-text{color:#c7d4e4}
+.ceo-dependency{background:rgba(240,180,41,.075);border-color:rgba(240,180,41,.24);color:#e9d09a}
+.ceo-result-line{display:flex;gap:10px;align-items:flex-start;margin-top:12px;padding:10px 12px;border-radius:8px;background:rgba(71,148,255,.075);border-left:3px solid #6fb5ff;font-size:11px;line-height:1.55;color:#d7e4f3}
+.ceo-result-line strong{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.9px;text-transform:uppercase;color:#8dc2ff;white-space:nowrap;margin-top:2px}
+@media(max-width:850px){.ceo-content-grid{grid-template-columns:1fr}.ceo-location-banner h3{font-size:23px}}
+
+
+
+/* ── V15 · ACCIONES CEO: LOCALIDADES DESTACADAS ───────────────
+   El rojo translúcido se aplica exclusivamente a los encabezados
+   de localidad para dirigir la atención al frente a resolver.
+────────────────────────────────────────────────────────────── */
+.ceo-location-banner{
+  background:linear-gradient(135deg,rgba(255,104,104,.22) 0%,rgba(224,85,85,.13) 58%,rgba(224,85,85,.08) 100%);
+  border-color:rgba(255,155,155,.34);
+  box-shadow:0 10px 25px rgba(0,0,0,.13),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.ceo-location-banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.025),transparent 42%);
+}
+.ceo-location-kicker{color:#ffc6c6}
+.ceo-location-banner h3{color:#fff7f7}
+.ceo-location-count{
+  color:#ffd5d5;
+  background:rgba(224,85,85,.10);
+  border-color:rgba(255,174,174,.22);
+}
+
 </style>
 </head>
 <body>
@@ -841,8 +906,8 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
     <button class="ttab" data-page="gestion" onclick="showPage('gestion',this)"><span class="ttab-icon">▤</span><span>Gestión</span></button>
     <button class="ttab" data-page="obra" onclick="showPage('obra',this)"><span class="ttab-icon">▰</span><span>Obra</span></button>
     <button class="ttab" data-page="espada" onclick="showPage('espada',this)"><span class="ttab-icon">⚔</span><span>Espada corta gestión</span></button>
-    <button class="ttab" data-page="pronostico" onclick="showPage('pronostico',this)"><span class="ttab-icon">ϟ</span><span>Pronóstico</span></button>
     <button class="ttab ceo-tab" data-page="estrategia" onclick="showPage('estrategia',this)"><span class="ttab-icon">✦</span><span>Acciones CEO</span></button>
+    <button class="ttab forecast-tab" data-page="pronostico" onclick="showPage('pronostico',this)"><span class="ttab-icon">ϟ</span><span>Pronóstico</span></button>
     <button class="ttab" data-page="restante" onclick="showPage('restante',this)"><span class="ttab-icon">⌘</span><span>Empresa transversal</span></button>
     <button class="ttab" data-page="postventa" onclick="showPage('postventa',this)"><span class="ttab-icon">◇</span><span>Postventas</span></button>
   </div>
@@ -3458,7 +3523,7 @@ const ACCIONES_CEO = [
   },
   {
     id:"ibarlucea-mason",
-    localidad:"Ibarlucea",
+    localidad:"Ybarlucea",
     proyecto:"Conversación con Jorge Masson",
     icono:"◈",
     nivel:"amber",
@@ -3525,32 +3590,30 @@ function renderAccionesCEO(){
   const today=ceoTodayKey();
   const actionCount=document.getElementById('ceo-action-count');
   if(actionCount) actionCount.textContent=ACCIONES_CEO.reduce((sum,front)=>sum+front.acciones.length,0);
-  el.innerHTML=ACCIONES_CEO.map(front=>{
-    const reviewed=reviews[front.id]===today;
-    return `<article class="ceo-action-card level-${front.nivel||'amber'} ${reviewed?'reviewed-today':''}">
-      <div class="ceo-card-top">
-        <div class="ceo-place-icon">${front.icono}</div>
-        <div class="ceo-card-heading">
-          <div class="ceo-location">${front.localidad}</div>
-          <div class="ceo-project">${front.proyecto}</div>
+
+  const order=['Pueblo Esther','Ybarlucea','Soldini'];
+  const grouped=order.map(localidad=>({localidad,items:ACCIONES_CEO.filter(front=>front.localidad===localidad)})).filter(group=>group.items.length);
+  const groupClass={'Pueblo Esther':'group-pueblo','Ybarlucea':'group-ybarlucea','Soldini':'group-soldini'};
+
+  el.innerHTML=grouped.map(group=>`<section class="ceo-location-group ${groupClass[group.localidad]||''}">
+    <div class="ceo-location-banner"><span class="ceo-location-bar"></span><div><div class="ceo-location-kicker">Frente de decisión</div><h3>${group.localidad}</h3></div><span class="ceo-location-count">${group.items.length} ${group.items.length===1?'tema':'temas'}</span></div>
+    <div class="ceo-group-list">${group.items.map(front=>{
+      const reviewed=reviews[front.id]===today;
+      return `<article class="ceo-action-card level-${front.nivel||'amber'} ${reviewed?'reviewed-today':''}">
+        <div class="ceo-card-top">
+          <div class="ceo-place-icon">${front.icono}</div>
+          <div class="ceo-card-heading"><div class="ceo-project">${front.proyecto}</div><div class="ceo-interlocutor-inline">${front.interlocutor}</div></div>
+          <span class="ceo-critical-badge"><span class="ceo-priority-dot"></span>${front.prioridad||'Crítico · diario'}</span>
         </div>
-        <div class="ceo-card-top-right">
-          <div class="ceo-semaphore" title="Nivel de prioridad"><span class="ceo-light red"></span><span class="ceo-light amber"></span><span class="ceo-light green"></span></div>
-          <span class="ceo-critical-badge">${front.prioridad||'Crítico · diario'}</span>
+        <div class="ceo-content-grid">
+          <div class="ceo-simple-block ceo-do-block"><div class="ceo-simple-title">Qué debe hacer el CEO</div><ol class="ceo-action-list">${front.acciones.map((accion,i)=>`<li class="ceo-action-item"><span class="ceo-action-index">${i+1}</span><span>${accion}</span></li>`).join('')}</ol></div>
+          <div class="ceo-simple-block ceo-context-box"><div class="ceo-simple-title">Contexto</div><div class="ceo-context-text">${front.contexto}</div>${front.dependencia?`<div class="ceo-dependency"><strong>Secuencia</strong><span>${front.dependencia}</span></div>`:''}</div>
         </div>
-      </div>
-      <div class="ceo-interlocutor"><strong>Interlocutor</strong><span>${front.interlocutor}</span></div>
-      <div class="ceo-actions-label">Accionables del CEO</div>
-      <ol class="ceo-action-list">${front.acciones.map((accion,i)=>`<li class="ceo-action-item"><span class="ceo-action-index">${i+1}</span><span>${accion}</span></li>`).join('')}</ol>
-      <div class="ceo-context-box"><div class="ceo-context-title">Contexto para la decisión</div><div class="ceo-context-text">${front.contexto}</div></div>
-      ${front.dependencia?`<div class="ceo-dependency"><strong>Secuencia / dependencia</strong><span>${front.dependencia}</span></div>`:''}
-      <div class="ceo-key-note"><strong>Resultado buscado:</strong> ${front.clave}</div>
-      <div class="ceo-card-footer">
-        <span class="ceo-review-state ${reviewed?'is-reviewed':''}">${reviewed?'✓ Revisado hoy':'Pendiente de revisión hoy'}</span>
-        <button class="ceo-review-btn" onclick="markCeoReviewed('${front.id}')">${reviewed?'Revisar nuevamente':'Marcar revisado hoy'}</button>
-      </div>
-    </article>`;
-  }).join('');
+        <div class="ceo-result-line"><strong>Resultado buscado</strong><span>${front.clave}</span></div>
+        <div class="ceo-card-footer"><span class="ceo-review-state ${reviewed?'is-reviewed':''}">${reviewed?'✓ Revisado hoy':'Pendiente de revisión hoy'}</span><button class="ceo-review-btn" onclick="markCeoReviewed('${front.id}')">${reviewed?'Revisar nuevamente':'Marcar revisado hoy'}</button></div>
+      </article>`;
+    }).join('')}</div>
+  </section>`).join('');
   updateCeoReviewSummary();
 }
 function markCeoReviewed(id){
