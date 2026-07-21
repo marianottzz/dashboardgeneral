@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grupo Roma · Panel Interno</title>
+<title>Grupo Roma · Panel Interno v18</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -894,6 +894,116 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
   border-color:rgba(255,174,174,.22);
 }
 
+
+/* ── RESUMEN EJECUTIVO + FICHA DE GESTIÓN ── */
+.summary-kpi-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.summary-kpi-grid .stat-card{min-height:118px;justify-content:space-between}
+.summary-kpi-grid .stat-num{font-size:30px}
+.gestion-intro{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(210px,.8fr);gap:12px;margin-bottom:14px}
+.gestion-intro-card{background:linear-gradient(145deg,rgba(71,148,255,.11),rgba(255,255,255,.025));border:1px solid rgba(71,148,255,.24);border-radius:10px;padding:13px 15px}
+.gestion-intro-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.gestion-intro-text{font-size:12px;line-height:1.55;color:var(--text)}
+.pii-list{display:flex;flex-direction:column;gap:5px}
+.pii-code{font-family:'DM Mono',monospace;font-size:10px;color:var(--text);background:rgba(255,255,255,.045);border:1px solid var(--border);padding:5px 7px;border-radius:5px;overflow-wrap:anywhere}
+@media(max-width:1180px){.summary-kpi-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.summary-kpi-grid{grid-template-columns:repeat(2,1fr)}.gestion-intro{grid-template-columns:1fr}}
+@media(max-width:430px){.summary-kpi-grid{grid-template-columns:1fr}}
+
+
+/* ── FORO INTERNO ─────────────────────────────────────────── */
+.forum-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(71,148,255,.18),rgba(22,35,56,.96) 48%,rgba(15,28,48,.98));border:1px solid rgba(112,174,255,.3);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 14px 34px rgba(0,0,0,.17)}
+.forum-hero:after{content:'💬';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:76px;opacity:.12;filter:saturate(.7)}
+.forum-kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#9ec8ff;margin-bottom:8px}
+.forum-title{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;margin-bottom:7px}
+.forum-description{font-size:13px;line-height:1.65;color:#c8d7ea;max-width:720px}
+.forum-shell{display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,1.35fr);gap:16px;align-items:start}
+.forum-compose,.forum-feed{background:var(--bg2);border:1px solid rgba(112,174,255,.22);border-radius:14px;padding:18px;box-shadow:0 10px 28px rgba(0,0,0,.14)}
+.forum-panel-title{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:4px}
+.forum-panel-sub{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.forum-label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#9eb4d1;margin:12px 0 6px}
+.forum-textarea,.forum-name{width:100%;border:1px solid rgba(137,181,239,.24);background:rgba(8,20,37,.56);color:var(--text);border-radius:9px;outline:none;font-family:'DM Sans',sans-serif;transition:.2s}
+.forum-textarea{min-height:150px;resize:vertical;padding:13px 14px;line-height:1.55}
+.forum-name{height:42px;padding:0 13px}
+.forum-textarea:focus,.forum-name:focus{border-color:rgba(71,148,255,.72);box-shadow:0 0 0 3px rgba(71,148,255,.11)}
+.forum-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.forum-counter{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim)}
+.forum-submit{border:1px solid rgba(71,148,255,.65);background:linear-gradient(135deg,#397fe1,#245db5);color:#fff;border-radius:9px;padding:10px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(25,91,185,.24);transition:.18s}
+.forum-submit:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.forum-submit:disabled{opacity:.5;cursor:wait;transform:none}
+.forum-mode{display:flex;align-items:center;gap:7px;margin-top:12px;padding:8px 10px;border-radius:8px;background:rgba(240,180,41,.08);border:1px solid rgba(240,180,41,.22);font-size:10px;color:#d8ba75;line-height:1.4}
+.forum-mode-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px rgba(240,180,41,.5);flex:none}
+.forum-feed-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}
+.forum-refresh{border:1px solid var(--border);background:rgba(255,255,255,.035);color:var(--muted);border-radius:7px;padding:6px 10px;font-family:'DM Mono',monospace;font-size:9px;cursor:pointer}
+.forum-refresh:hover{color:var(--text);border-color:var(--border2)}
+.forum-list{display:flex;flex-direction:column;gap:10px;max-height:560px;overflow:auto;padding-right:4px}
+.forum-comment{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:13px 14px}
+.forum-comment-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}
+.forum-comment-name{font-size:12px;font-weight:700;color:#fff}
+.forum-comment-date{font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);white-space:nowrap}
+.forum-comment-text{font-size:12px;line-height:1.6;color:#d7e1ef;white-space:pre-wrap;overflow-wrap:anywhere}
+.forum-empty{border:1px dashed rgba(255,255,255,.12);border-radius:10px;padding:36px 18px;text-align:center;color:var(--muted);font-size:12px;line-height:1.6}
+.forum-remote-card{background:var(--bg2);border:1px solid rgba(112,174,255,.22);border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.forum-frame{display:block;width:100%;min-height:730px;border:0;background:transparent}
+.forum-status{min-height:18px;margin-top:9px;font-size:10px;color:var(--muted)}
+.forum-status.error{color:#ff9a9a}.forum-status.ok{color:#69dca2}
+@media(max-width:900px){.forum-shell{grid-template-columns:1fr}.forum-list{max-height:none}.forum-frame{min-height:860px}}
+
+
+/* ── EMPRESA TRANSVERSAL · ÁREAS + POSTVENTAS ───────────── */
+.transversal-wip{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;margin-bottom:22px;padding:24px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(71,148,255,.15),rgba(20,45,82,.86) 52%,rgba(240,180,41,.08));border:1px solid rgba(71,148,255,.28);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+.transversal-wip:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.025),transparent);pointer-events:none}
+.transversal-wip-copy{position:relative;z-index:1;max-width:780px}
+.transversal-wip-title{font-family:'DM Serif Display',serif;font-size:clamp(34px,5vw,62px);line-height:.95;color:#fff;letter-spacing:-1px;text-shadow:0 10px 28px rgba(0,0,0,.25)}
+.transversal-wip-copy p{margin-top:14px;color:#b9c9df;font-size:13px;line-height:1.65}
+.transversal-wip-mark{position:relative;z-index:1;font-size:70px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.28));flex:none}
+.transversal-area-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:26px 0 13px}
+.transversal-area-head.compact{margin-top:30px}
+.transversal-area-head h3{font-family:'DM Serif Display',serif;font-size:24px;color:#fff;line-height:1.1}
+.transversal-area-head>span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:right}
+.transversal-eyebrow{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+.transversal-areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.trans-area-card{position:relative;overflow:hidden;background:linear-gradient(155deg,rgba(41,70,101,.92),rgba(25,48,76,.98));border:1px solid rgba(255,255,255,.09);border-top:3px solid var(--blue);border-radius:14px;padding:17px;box-shadow:0 10px 28px rgba(0,0,0,.14)}
+.trans-area-card:after{content:'';position:absolute;width:130px;height:130px;border-radius:50%;right:-58px;top:-72px;background:radial-gradient(circle,rgba(71,148,255,.15),transparent 68%);pointer-events:none}
+.trans-area-card.area-admin{border-top-color:#8aa8d6}.trans-area-card.area-compras{border-top-color:var(--amber)}.trans-area-card.area-ventas{border-top-color:var(--green)}
+.trans-area-top{position:relative;z-index:1;display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.trans-area-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(71,148,255,.12);border:1px solid rgba(71,148,255,.26);color:var(--blue);font-size:18px;flex:none}
+.area-compras .trans-area-icon{color:var(--amber);background:var(--amber-l);border-color:rgba(240,180,41,.28)}
+.area-ventas .trans-area-icon{color:var(--green);background:var(--green-l);border-color:rgba(46,200,122,.28)}
+.trans-area-kicker{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+.trans-area-card h4{font-size:15px;letter-spacing:.7px;color:#fff}
+.trans-area-slots{display:flex;flex-direction:column;gap:8px}
+.trans-slot{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:center;padding:10px 11px;border-radius:8px;background:rgba(255,255,255,.025);border:1px dashed rgba(255,255,255,.11)}
+.trans-slot strong{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:#d6e1f0}
+.trans-slot span{font-size:11px;color:var(--dim);font-style:italic}
+
+.transversal-drive-card{position:relative;overflow:hidden;margin:0 0 22px;padding:19px 21px;border-radius:14px;background:linear-gradient(135deg,rgba(71,148,255,.16),rgba(23,50,84,.96));border:1px solid rgba(71,148,255,.34);box-shadow:0 12px 30px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.transversal-drive-card:after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;right:-65px;top:-105px;background:radial-gradient(circle,rgba(71,148,255,.22),transparent 68%);pointer-events:none}
+.transversal-drive-main{position:relative;z-index:1;display:flex;align-items:flex-start;gap:13px;min-width:0}
+.transversal-drive-icon{width:43px;height:43px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(71,148,255,.16);border:1px solid rgba(71,148,255,.32);color:#8fc0ff;font-size:21px;flex:none}
+.transversal-drive-kicker{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#8fc0ff;margin-bottom:4px}
+.transversal-drive-title{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;line-height:1.15}
+.transversal-drive-text{font-size:11px;color:#afc0d8;line-height:1.55;margin-top:5px;max-width:680px}
+.transversal-drive-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:185px;padding:11px 16px;border-radius:9px;text-decoration:none;background:linear-gradient(135deg,#579fff,#2868c7);color:#fff;font-size:12px;font-weight:700;box-shadow:0 8px 22px rgba(39,104,199,.3);transition:transform .15s ease,filter .15s ease}
+.transversal-drive-btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.docs-approval-panel{display:flex;flex-direction:column;gap:16px;padding:3px 0 2px}
+.docs-approval-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#102746,#18365d);border:1px solid rgba(71,148,255,.28);border-radius:13px;padding:20px;display:flex;align-items:flex-start;gap:14px}
+.docs-approval-hero:after{content:'';position:absolute;width:190px;height:190px;border-radius:50%;right:-70px;top:-115px;background:radial-gradient(circle,rgba(71,148,255,.23),transparent 67%);pointer-events:none}
+.docs-approval-icon{position:relative;z-index:1;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(71,148,255,.16);border:1px solid rgba(71,148,255,.3);font-size:23px;flex:none}
+.docs-approval-copy{position:relative;z-index:1;min-width:0}
+.docs-approval-kicker{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#8fc0ff;margin-bottom:5px}
+.docs-approval-title{font-family:'DM Serif Display',serif;font-size:21px;color:#fff;line-height:1.15}
+.docs-approval-text{font-size:12px;color:var(--muted);line-height:1.6;margin-top:6px}
+.docs-approval-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.docs-approval-item{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:11px 12px}
+.docs-approval-item strong{display:block;font-size:11px;color:var(--text);margin-bottom:3px}
+.docs-approval-item span{font-size:10px;color:var(--muted);line-height:1.45}
+.docs-approval-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 18px;border-radius:10px;text-decoration:none;background:linear-gradient(135deg,#4794ff,#1a56cc);color:#fff;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(71,148,255,.28);transition:transform .15s ease,filter .15s ease}
+.docs-approval-btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.docs-approval-note{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border-radius:8px;background:rgba(240,180,41,.08);border:1px solid rgba(240,180,41,.2);font-size:10px;color:var(--amber);line-height:1.5}
+@media(max-width:720px){.transversal-drive-card{align-items:flex-start;flex-direction:column}.transversal-drive-btn{width:100%}.docs-approval-grid{grid-template-columns:1fr}.docs-approval-hero{padding:17px}}
+.transversal-postventa{margin-top:10px;padding-top:4px}
+@media(max-width:760px){.transversal-areas{grid-template-columns:1fr}.transversal-wip{padding:22px}.transversal-wip-mark{font-size:52px}.transversal-area-head{align-items:flex-start;flex-direction:column}.transversal-area-head>span{text-align:left}.trans-slot{grid-template-columns:1fr;gap:4px}}
+
 </style>
 </head>
 <body>
@@ -903,13 +1013,12 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
   <div class="brand"><span class="brand-dot"></span>Grupo Roma</div>
   <div class="topbar-tabs">
     <button class="ttab active" data-page="home" onclick="showPage('home',this)"><span class="ttab-icon">◉</span><span>Resumen</span></button>
-    <button class="ttab" data-page="gestion" onclick="showPage('gestion',this)"><span class="ttab-icon">▤</span><span>Gestión</span></button>
     <button class="ttab" data-page="obra" onclick="showPage('obra',this)"><span class="ttab-icon">▰</span><span>Obra</span></button>
     <button class="ttab" data-page="espada" onclick="showPage('espada',this)"><span class="ttab-icon">⚔</span><span>Espada corta gestión</span></button>
     <button class="ttab ceo-tab" data-page="estrategia" onclick="showPage('estrategia',this)"><span class="ttab-icon">✦</span><span>Acciones CEO</span></button>
     <button class="ttab forecast-tab" data-page="pronostico" onclick="showPage('pronostico',this)"><span class="ttab-icon">ϟ</span><span>Pronóstico</span></button>
     <button class="ttab" data-page="restante" onclick="showPage('restante',this)"><span class="ttab-icon">⌘</span><span>Empresa transversal</span></button>
-    <button class="ttab" data-page="postventa" onclick="showPage('postventa',this)"><span class="ttab-icon">◇</span><span>Postventas</span></button>
+    <button class="ttab" data-page="foro" onclick="showPage('foro',this)"><span class="ttab-icon">☵</span><span>Foro</span></button>
   </div>
   <div class="command-center" title="Semáforo ejecutivo general">
     <div class="command-label"><strong>Centro de comando</strong><span>Estado global</span></div>
@@ -919,7 +1028,7 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
       <span class="traffic-dot red"></span><span class="traffic-count">5</span>
     </div>
   </div>
-  <div class="topbar-date">15·07·2026</div>
+  <div class="topbar-date">20·07·2026</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -927,27 +1036,37 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
 ════════════════════════════════════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <!-- Stats -->
-  <div class="grid4" style="margin-bottom:20px">
+  <!-- Ficha resumen ejecutiva -->
+  <div class="summary-kpi-grid">
     <div class="stat-card">
       <div class="stat-label">Proyectos activos</div>
       <div class="stat-num" style="color:var(--text)">15</div>
-      <div class="stat-sub">Gestión + obra en curso</div>
+      <div class="stat-sub">Portfolio total en seguimiento</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Urgentes</div>
-      <div class="stat-num" style="color:var(--orange)">5</div>
-      <div class="stat-sub">CM · EN · CEPE · CM2 · VN</div>
+      <div class="stat-label">Proyectos con posesión</div>
+      <div class="stat-num" style="color:var(--blue)">2</div>
+      <div class="stat-sub">Procesos de posesión habilitados</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Novedades 25/03</div>
-      <div class="stat-num" style="color:var(--green)">4</div>
-      <div class="stat-sub">VR gas · CDE gas · CM eléctrico · CEPE</div>
+      <div class="stat-label">Proyectos escriturados</div>
+      <div class="stat-num" style="color:var(--green)">1</div>
+      <div class="stat-sub">Tierra de Autores</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Plazo promedio obra</div>
-      <div class="stat-num" style="color:var(--amber)">6.2</div>
-      <div class="stat-sub">años para permiso prov.</div>
+      <div class="stat-label">Urgentes a entregar</div>
+      <div class="stat-num" style="color:var(--orange)">3</div>
+      <div class="stat-sub">CEPE · EN · OR</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Años de empresa</div>
+      <div class="stat-num" style="color:var(--amber)">8</div>
+      <div class="stat-sub">Experiencia acumulada</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Localidades</div>
+      <div class="stat-num" style="color:var(--text)">6</div>
+      <div class="stat-sub">Presencia territorial activa</div>
     </div>
   </div>
 
@@ -1027,73 +1146,49 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
   <div id="obra-list"></div>
 </div>
 
+
 <!-- ═══════════════════════════════════════════════════════════
-     PAGE: POSTVENTA
+     PAGE: FORO INTERNO
 ════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-postventa">
-  <div class="section-hdr"><h2>Postventa</h2><span>Modelos de respuesta · Usar y adaptar</span></div>
+<div class="page" id="page-foro">
+  <div class="section-hdr"><h2>Foro</h2><span>Conversación interna · Consultas y propuestas</span></div>
 
-  <div class="pv-chat-card" aria-label="Acceso al Chat de Postventas">
-    <div class="pv-chat-main">
-      <div class="pv-chat-icon">✦</div>
-      <div>
-        <div class="pv-chat-kicker">Asistente conectado a ChatGPT</div>
-        <div class="pv-chat-title">Chat de Postventas</div>
-        <div class="pv-chat-text">Abrí el proyecto especializado para consultar procedimientos, modelos de respuesta, posesiones, visados, agrimensura y documentación de los barrios.</div>
-        <div class="pv-chat-prompts">
-          <span class="pv-chat-prompt">¿Cómo responder este reclamo?</span>
-          <span class="pv-chat-prompt">Proceso de posesión CEPE</span>
-          <span class="pv-chat-prompt">Estado de un cliente</span>
-        </div>
-      </div>
-    </div>
-    <div class="pv-chat-actions">
-      <a class="pv-chat-btn" href="https://chatgpt.com/g/g-p-6a1074e96de48191ad06f0431f9a00df-act-chat-pv/project" target="_blank" rel="noopener noreferrer"><span>↗</span> Abrir chat</a>
-      <div class="pv-chat-note">Se abre en una pestaña nueva. Requiere acceso al proyecto de Grupo Roma.</div>
-    </div>
-  </div>
-
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input class="search-input" type="text" placeholder="Buscar situación, proyecto, palabra clave..." oninput="filterModelos(this.value)">
-  </div>
-  <div class="chips" id="pv-chips">
-    <button class="chip active" onclick="setPVFilter('all',this)">Todos</button>
-    <button class="chip" onclick="setPVFilter('TODOS',this)">Generales</button>
-    <button class="chip" onclick="setPVFilter('CM',this)">Campo Madero</button>
-    <button class="chip" onclick="setPVFilter('EN',this)">El Naranjo</button>
-    <button class="chip" onclick="setPVFilter('VI',this)">Vitta</button>
-    <button class="chip" onclick="setPVFilter('CEPE',this)">CEPE</button>
-    <button class="chip" onclick="setPVFilter('OR',this)">Orígenes</button>
-    <button class="chip" onclick="setPVFilter('CDE',this)">Clos del Este</button>
-    <button class="chip" onclick="setPVFilter('VR',this)">Vitta Río</button>
-    <button class="chip" onclick="setPVFilter('CZ',this)">CEZA</button>
-  </div>
-  <!-- Glosario rápido -->
-  <div class="card" style="margin-bottom:20px;border-color:var(--border2)">
-    <div class="card-title">Palabras a NUNCA usar</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px">
-      <span class="badge b-block">Frustración</span>
-      <span class="badge b-block">Estafa</span>
-      <span class="badge b-block">Abandonado</span>
-      <span class="badge b-block">Está parado</span>
-      <span class="badge b-block">Trabado</span>
-      <span class="badge b-block">No depende de nosotros</span>
-      <span class="badge b-block">Incumplimiento</span>
-      <span class="badge b-block">Promesa incumplida</span>
-      <span class="badge b-block">Ya falta poco</span>
-    </div>
-  </div>
-  <div id="modelos-list"></div>
-  <section class="postventa-clientes" id="postventa-clientes">
-    <div class="section-hdr"><h2>Clientes sensibles</h2><span>Registro integrado de postventa</span></div>
-    <div class="chips clientes-chips">
-      <button class="chip active" onclick="setClienteFilter('all',this)">Todos</button>
-      <button class="chip" onclick="setClienteFilter('critico',this)">🔴 Crítico</button>
-      <button class="chip" onclick="setClienteFilter('tension',this)">🟡 Tensión</button>
-    </div>
-    <div id="clientes-list"></div>
+  <section class="forum-hero">
+    <div class="forum-kicker">Espacio colaborativo Grupo Roma</div>
+    <div class="forum-title">Foro interno</div>
+    <p class="forum-description">Espacio para dejar consultas, comentarios, propuestas de mejoras y observaciones para el equipo. Escribí el mensaje, dejá tu nombre al final y publicalo para que quede visible.</p>
   </section>
+
+  <!-- Modo compartido: se activa al configurar FORUM_WEBAPP_URL en el script -->
+  <div id="forum-remote" class="forum-remote-card" style="display:none">
+    <iframe id="forum-frame" class="forum-frame" title="Foro interno Grupo Roma" loading="lazy"></iframe>
+  </div>
+
+  <!-- Vista previa local: funciona inmediatamente en el dispositivo actual -->
+  <div id="forum-local" class="forum-shell">
+    <section class="forum-compose">
+      <div class="forum-panel-title">Dejar un mensaje</div>
+      <div class="forum-panel-sub">Compartí una consulta, una observación o una propuesta concreta para mejorar.</div>
+      <label class="forum-label" for="forum-message">Consulta, comentario o propuesta</label>
+      <textarea id="forum-message" class="forum-textarea" maxlength="1200" placeholder="Escribí aquí..."></textarea>
+      <label class="forum-label" for="forum-name">Tu nombre</label>
+      <input id="forum-name" class="forum-name" maxlength="70" placeholder="Nombre y apellido">
+      <div class="forum-actions">
+        <span class="forum-counter" id="forum-counter">0 / 1200</span>
+        <button class="forum-submit" id="forum-submit" onclick="publishLocalForumComment()">Publicar comentario</button>
+      </div>
+      <div class="forum-status" id="forum-status"></div>
+      <div class="forum-mode"><span class="forum-mode-dot"></span><span>Vista previa local activa. Para que los mensajes sean compartidos entre todos los dispositivos, vinculá la aplicación gratuita de Google Apps Script incluida con esta entrega.</span></div>
+    </section>
+
+    <section class="forum-feed">
+      <div class="forum-feed-head">
+        <div><div class="forum-panel-title">Observaciones publicadas</div><div class="forum-panel-sub" style="margin:2px 0 0">Los mensajes más recientes aparecen primero.</div></div>
+        <button class="forum-refresh" onclick="renderLocalForumComments()">↻ Actualizar</button>
+      </div>
+      <div class="forum-list" id="forum-list"></div>
+    </section>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -1120,24 +1215,108 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
 
 <!-- PAGE: EMPRESA TRANSVERSAL -->
 <div class="page" id="page-restante">
-  <div class="section-hdr"><h2>Empresa transversal</h2><span>Coordinación entre áreas · Work in progress</span></div>
-  <section class="wip-stage" aria-label="Sección en desarrollo">
-    <div class="wip-grid"></div>
-    <div class="wip-route" aria-hidden="true">
-      <span class="wip-point start">ÁREAS</span>
-      <span class="wip-line"></span>
-      <span class="wip-cone">🚧</span>
-      <span class="wip-line"></span>
-      <span class="wip-point goal">EMPRESA INTEGRADA</span>
+  <div class="section-hdr"><h2>Empresa transversal</h2><span>Coordinación por áreas · Work in progress</span></div>
+
+  <section class="transversal-wip" aria-label="Empresa transversal en desarrollo">
+    <div class="transversal-wip-copy">
+      <div class="wip-badge">SECCIÓN EN DESARROLLO</div>
+      <div class="transversal-wip-title">WORK IN PROGRESS</div>
+      <p>Espacio transversal para ordenar prioridades, pendientes, responsables y decisiones compartidas entre las áreas de Grupo Roma.</p>
     </div>
-    <div class="wip-badge">SECCIÓN EN DESARROLLO</div>
-    <div class="wip-title">WORK IN PROGRESS</div>
-    <p class="wip-copy">Estamos diseñando un espacio transversal para conectar decisiones, iniciativas y dependencias entre Gestión, Obra, Legales, Postventas y Dirección.</p>
-    <div class="wip-preview">
-      <span>Gestión</span><span>Obra</span><span>Legales</span><span>Postventas</span><span>Dirección</span>
-    </div>
-    <div class="wip-note">Próximamente construiremos este espacio juntos para ordenar acciones compartidas, responsables y prioridades entre áreas.</div>
+    <div class="transversal-wip-mark" aria-hidden="true">🚧</div>
   </section>
+
+  <a class="transversal-drive-card" href="https://drive.google.com/drive/folders/1QSUU7QtqAjUF45WLi40CZ_eFneVqeG4R?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Abrir Gestión - Aprobaciones por barrio en Google Drive">
+    <div class="transversal-drive-main">
+      <div class="transversal-drive-icon" aria-hidden="true">▣</div>
+      <div>
+        <div class="transversal-drive-kicker">Gestión documental transversal</div>
+        <div class="transversal-drive-title">Gestión · Aprobaciones por barrio</div>
+        <div class="transversal-drive-text">Acceso centralizado a las carpetas de documentación, aprobaciones, expedientes y antecedentes de gestión de los desarrollos.</div>
+      </div>
+    </div>
+    <span class="transversal-drive-btn">Abrir carpeta general <span aria-hidden="true">↗</span></span>
+  </a>
+
+  <div class="transversal-area-head">
+    <div>
+      <div class="transversal-eyebrow">Tablero por áreas</div>
+      <h3>Espacios para completar</h3>
+    </div>
+    <span>Contenido a construir junto al equipo</span>
+  </div>
+
+  <div class="transversal-areas">
+    <article class="trans-area-card area-obras">
+      <div class="trans-area-top"><span class="trans-area-icon">▰</span><div><div class="trans-area-kicker">Área</div><h4>OBRAS</h4></div></div>
+      <div class="trans-area-slots">
+        <div class="trans-slot"><strong>Prioridades</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Pendientes</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Próxima acción</strong><span>Espacio para completar</span></div>
+      </div>
+    </article>
+
+    <article class="trans-area-card area-admin">
+      <div class="trans-area-top"><span class="trans-area-icon">▤</span><div><div class="trans-area-kicker">Área</div><h4>ADMINISTRACIÓN</h4></div></div>
+      <div class="trans-area-slots">
+        <div class="trans-slot"><strong>Prioridades</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Pendientes</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Próxima acción</strong><span>Espacio para completar</span></div>
+      </div>
+    </article>
+
+    <article class="trans-area-card area-compras">
+      <div class="trans-area-top"><span class="trans-area-icon">◇</span><div><div class="trans-area-kicker">Área</div><h4>COMPRAS</h4></div></div>
+      <div class="trans-area-slots">
+        <div class="trans-slot"><strong>Prioridades</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Pendientes</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Próxima acción</strong><span>Espacio para completar</span></div>
+      </div>
+    </article>
+
+    <article class="trans-area-card area-ventas">
+      <div class="trans-area-top"><span class="trans-area-icon">↗</span><div><div class="trans-area-kicker">Área</div><h4>VENTAS</h4></div></div>
+      <div class="trans-area-slots">
+        <div class="trans-slot"><strong>Prioridades</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Pendientes</strong><span>Espacio para completar</span></div>
+        <div class="trans-slot"><strong>Próxima acción</strong><span>Espacio para completar</span></div>
+      </div>
+    </article>
+  </div>
+
+  <section class="transversal-postventa">
+    <div class="transversal-area-head compact">
+      <div>
+        <div class="transversal-eyebrow">Herramienta transversal</div>
+        <h3>Postventas</h3>
+      </div>
+      <span>Acceso al asistente especializado</span>
+    </div>
+
+    <div class="pv-chat-card" aria-label="Acceso al Chat de Postventas">
+      <div class="pv-chat-main">
+        <div class="pv-chat-icon">✦</div>
+        <div>
+          <div class="pv-chat-kicker">Asistente conectado a ChatGPT</div>
+          <div class="pv-chat-title">Chat de Postventas</div>
+          <div class="pv-chat-text">Consultá procedimientos, respuestas a clientes, posesiones, visados, agrimensura y documentación de los barrios desde el proyecto especializado de Postventas.</div>
+          <div class="pv-chat-prompts">
+            <span class="pv-chat-prompt">¿Cómo responder este reclamo?</span>
+            <span class="pv-chat-prompt">Proceso de posesión CEPE</span>
+            <span class="pv-chat-prompt">Documentación para construir</span>
+          </div>
+        </div>
+      </div>
+      <div class="pv-chat-actions">
+        <a class="pv-chat-btn" href="https://chatgpt.com/g/g-p-6a1074e96de48191ad06f0431f9a00df-act-chat-pv/project" target="_blank" rel="noopener noreferrer"><span>↗</span> Abrir chat</a>
+        <div class="pv-chat-note">Se abre en una pestaña nueva. Requiere acceso al proyecto de Grupo Roma.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenedores técnicos ocultos: mantienen compatibilidad con funciones heredadas -->
+  <div id="modelos-list" style="display:none"></div>
+  <div id="clientes-list" style="display:none"></div>
 </div>
 
 <!-- DETAIL OVERLAY -->
@@ -1170,11 +1349,10 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <button class="bnav-btn active" id="bn-home" onclick="showPage('home',this,true)"><span class="bnav-icon">◉</span>Resumen</button>
-  <button class="bnav-btn" id="bn-gestion" onclick="showPage('gestion',this,true)"><span class="bnav-icon">◎</span>Gestión</button>
   <button class="bnav-btn" id="bn-obra" onclick="showPage('obra',this,true)"><span class="bnav-icon">⬜</span>Obra</button>
   <button class="bnav-btn" id="bn-estrategia" onclick="showPage('estrategia',this,true)"><span class="bnav-icon">✦</span>CEO</button>
   <button class="bnav-btn" id="bn-restante" onclick="showPage('restante',this,true)"><span class="bnav-icon">⌘</span>Empresa</button>
-  <button class="bnav-btn" id="bn-postventa" onclick="showPage('postventa',this,true)"><span class="bnav-icon">◈</span>Postventas</button>
+  <button class="bnav-btn" id="bn-foro" onclick="showPage('foro',this,true)"><span class="bnav-icon">☵</span>Foro</button>
 </div>
 
 <script>
@@ -1183,7 +1361,7 @@ body{background:linear-gradient(160deg,#172b46 0%,#1b3553 45%,#152b46 100%);back
 // ══════════════════════════════════════════════════════════════
 const PROJS = [
   {id:"LM",nombre:"Los Muchachos",loc:"Piñero",ha:12,lotes:206,avanceGestion:85,avanceObra:100,urgente:false,entrega:"En cierre",
-   tags:["proceso","completo"],
+   tags:["proceso"],
    nota:"API: 16-10-00-345147/0002-0 y 0003-9. CH3 en proceso. Visado Mensura MAyCC en proceso. Cambio de zona ✅. Inscripción catastro en proceso.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"31/07/18",fin:"26/07/19",obs:"Plazo estadística: 12 meses"},
@@ -1194,7 +1372,7 @@ const PROJS = [
      {etapa:"Ambiental",nombre:"EIA",est:"done",exp:"EX-2022-00107100-GSF-DDDZS",ini:"19/05/22",fin:"20/02/25",obs:"Plazo estadística: 33 meses"},
      {etapa:"Eléctrico",nombre:"Aprobación EPE",est:"done",exp:"",ini:"31/05/18",fin:"",obs:"✅ Prefactibilidad, proyecto, convenio, factibilidad, acta fin e inspección y visado mensura completados"},
      {etapa:"Cierre",nombre:"Conv. Responsabilidad Empresarial",est:"done",exp:"",ini:"31/07/18",fin:"10/09/18",obs:"✅ Completado"},
-     {etapa:"Hídrico",nombre:"CH3",est:"proc",exp:"01801-00050463-2",ini:"15/06/23",fin:"",obs:"En proceso — CH2 ✅, proyecto mensura ✅, factibilidad ambiental ✅, final obra pluvial ✅. Docs internas en proceso"},
+     {etapa:"Hídrico",nombre:"CH3",est:"proc",exp:"01801-00050463-2",ini:"15/06/23",fin:"",obs:"En proceso — CH2 ✅, proyecto mensura ✅, factibilidad ambiental ✅, final obra pluvial ✅. Documentación interna completada ✅"},
      {etapa:"Cierre",nombre:"Visado Mensura MAyCC",est:"proc",exp:"",ini:"",fin:"",obs:"CH3 aprobado: en proceso. Final obra comunal ✅, EPE ✅. Mensura visada ✅"},
      {etapa:"Urbanismo",nombre:"Cambio de Zona",est:"done",exp:"",ini:"",fin:"",obs:"✅ Donación calles ✅, UC ✅, Ordenanza ✅, CH1 ✅, EIA ✅. FAC: programado. Visado MAyCC en proceso"},
      {etapa:"Cierre",nombre:"Inscripción Catastro",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso"},
@@ -1237,8 +1415,8 @@ const PROJS = [
      {"r": "Puente", "p": 100, "nota": "Ejecutado y recibido"},
    ]},
 
-  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avanceGestion:100,avanceObra:97,urgente:true,entrega:"Jun 2026",
-   tags:["urgente","proceso"],
+  {id:"CM",nombre:"Campo Madero",loc:"Ybarlucea",ha:12,lotes:191,avanceGestion:100,avanceObra:97,urgente:false,entrega:"Jun 2026",
+   tags:["proceso"],
    nota:"100% avance gestión para permiso prov. ⚡ URGENTE: aprobación proyecto eléctrico EPE (Expte 2/2025/16430). EIA ✅.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"16-01-00-337557/0009-7",ini:"21/12/18",fin:"10/09/19",obs:"Plazo estadística: 9 meses"},
@@ -1264,7 +1442,7 @@ const PROJS = [
    ]},
 
   {id:"EN",nombre:"El Naranjo",loc:"Ybarlucea",ha:5.2,lotes:93,avanceGestion:91,avanceObra:98,urgente:true,entrega:"Jun 2026",
-   tags:["urgente","proceso"],
+   tags:["urgente"],
    nota:"CH2 en proceso. CAT iniciado. 91% avance gestión. 100% obra interna lista.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"286bis/2016",ini:"20/12/19",fin:"30/11/21",obs:"Plazo estadística: 23 meses"},
@@ -1334,7 +1512,7 @@ const PROJS = [
      {color:"#e8e070",lbl:"Patr. CM1"},
      {color:"#a08878",lbl:"Patr. Eco P."},
    ]},
-   tags:["urgente","proceso"],
+   tags:["urgente"],
    nota:"100% avance gestión para permiso prov. DPV: convenio + acta de inicio en proceso. Eléctrica interna 90%. Trafo 5MVA entregado a CLESAPE. CH3, Visado Mensura y Cambio de Zona: programados.",
    hitos:[
      // ── ADMISIBILIDAD ──
@@ -1416,8 +1594,8 @@ const PROJS = [
      {r:"Desagües pluviales",p:5,nota:""},
    ]},
 
-  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:7.3,lotes:129,avanceGestion:100,avanceObra:73,urgente:false,entrega:"Jun 2026",
-   tags:["proceso","completo"],
+  {id:"OR",nombre:"Orígenes",loc:"Soldini",ha:7.3,lotes:129,avanceGestion:100,avanceObra:73,urgente:true,entrega:"Jun 2026",
+   tags:["urgente"],
    nota:"100% avance gestión para permiso prov. Cooperativa eléctrica en proceso — convenio urgente.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"done",exp:"",ini:"29/10/20",fin:"19/03/21",obs:"Plazo estadística: 5 meses"},
@@ -1494,8 +1672,8 @@ const PROJS = [
      {"r": "Forestación", "p": 0, "nota": "Pendiente"},
    ]},
 
-  {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avanceGestion:18,avanceObra:67,urgente:true,entrega:"Jun 2033",
-   tags:["urgente","proceso"],
+  {id:"CM2",nombre:"Campo Madero 2",loc:"Ybarlucea",ha:16.7,lotes:324,avanceGestion:18,avanceObra:67,urgente:false,entrega:"Jun 2033",
+   tags:["proceso"],
    nota:"18% avance gestión. ✅ Admisibilidad completada. ⚡ CH1 urgente (proyecto mensura 01/07/25). ⚡ Convenio Urbanístico urgente.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Admisibilidad de Proyecto",est:"done",exp:"00115-0015043-0",ini:"03/02/25",fin:"17/06/25",obs:"✅ Completado"},
@@ -1573,8 +1751,8 @@ const PROJS = [
      {"r": "Red de Gas", "p": 0, "nota": "Pendiente"},
    ]},
 
-  {id:"VN",nombre:"Vitta Norte",loc:"Ybarlucea",ha:"",lotes:"",avanceGestion:4,avanceObra:0,urgente:true,entrega:"Jun 2036",
-   tags:["urgente","proceso"],nota:"4% avance gestión. Uso Conforme urgente desde 15/03/24. CH1 en proceso. Casi todo programado.",
+  {id:"VN",nombre:"Vitta Norte",loc:"Ybarlucea",ha:"",lotes:"",avanceGestion:4,avanceObra:0,urgente:false,entrega:"Jun 2036",
+   tags:["proceso"],nota:"4% avance gestión. Uso Conforme urgente desde 15/03/24. CH1 en proceso. Casi todo programado.",
    hitos:[
      {etapa:"Admisibilidad",nombre:"Uso Conforme",est:"urgent",exp:"",ini:"15/03/24",fin:"",obs:"⚡ URGENTE — docs internas completadas, esperando aprobación"},
      {etapa:"Hídrico",nombre:"CH1",est:"proc",exp:"",ini:"",fin:"",obs:"En proceso — actualización UC: urgente. Proyecto mensura: programado"},
@@ -1585,6 +1763,28 @@ const PROJS = [
    hitos:[{etapa:"Admisibilidad",nombre:"Uso Conforme",est:"proc",exp:"",ini:"",fin:"",obs:""}],
    obra:[]},
 ];
+
+
+
+// ── METADATOS DE FICHA RESUMEN POR PROYECTO ─────────────────
+const PROJECT_META = {
+  LM:   {gestionResumen:"Cierre administrativo del desarrollo: CH3, visado ambiental de mensura, inscripción catastral y formalización final de donaciones."},
+  TA:   {gestionResumen:"Proyecto escriturado. Se conservan antecedentes y se realiza seguimiento de las recepciones finales que correspondan."},
+  CM:   {pii:["16-01-00-337557/0009-7"], gestionResumen:"Aprobación del proyecto eléctrico ante EPE, inspección de la infraestructura ejecutada y cierre de recepciones para habilitar el servicio."},
+  EN:   {pii:["16-01-00-337635/0002-5"], gestionResumen:"Permiso de vuelco ante Vialidad, categorización ambiental y acuerdo con la Comuna para instrumentar la posesión y las bajadas domiciliarias."},
+  VI:   {pii:["161700-348790/0008-0","16-17-00-348789/0000-2"], gestionResumen:"Categorización ambiental, convenio urbanístico, gestiones viales y planificación de las obras pendientes para continuar el cierre técnico."},
+  CEPE: {pii:["162500-348858/0091-6"], gestionResumen:"Cierre de convenios e inspecciones, final de obra, CH3, visado ambiental, resolución del TGI y consolidación del esquema de posesiones."},
+  FOR:  {gestionResumen:"Continuidad del CH2 y de las aprobaciones técnicas necesarias para completar la infraestructura y el cierre administrativo."},
+  OR:   {pii:["160700-339950/0028-7"], gestionResumen:"Definición del convenio eléctrico con la Cooperativa, canon y condiciones para contratar, ejecutar e inspeccionar la red eléctrica."},
+  EN2:  {pii:["16-01-00-337634/0002-6","16-01-00-337634/0001-7"], gestionResumen:"Aprobación del CH2 y sus detalles constructivos, categorización ambiental y avance del proyecto y convenio eléctrico."},
+  VR:   {gestionResumen:"Observaciones y visado comunal de mensura, presentación del CH2, categorización ambiental y consolidación de convenios de servicios."},
+  CM2:  {gestionResumen:"CH1, convenio urbanístico, nueva mensura con el espacio verde complementario para El Naranjo y desarrollo del proyecto eléctrico."},
+  CZ:   {pii:["160500-737634/0000-2"], gestionResumen:"Admisibilidad, CH1 y CH2, categorización ambiental y cierre de prefactibilidades para habilitar las etapas siguientes."},
+  CDE:  {pii:["151100-212100/0001-9"], gestionResumen:"Tratamiento del nuevo ordenamiento urbano, reconocimiento normativo del barrio cerrado y preparación del futuro convenio urbanístico."},
+  VN:   {gestionResumen:"Uso conforme, CH1 y documentación inicial para habilitar la secuencia de aprobaciones del proyecto."},
+  OR2:  {gestionResumen:"Inicio de las gestiones de admisibilidad, uso conforme y documentación base del proyecto."}
+};
+PROJS.forEach(p=>Object.assign(p, PROJECT_META[p.id]||{}));
 
 // ══════════════════════════════════════════════════════════════
 // DATOS DE GESTIÓN COMPLETA — 19 HITOS POR PROYECTO
@@ -1742,7 +1942,7 @@ const GESTION_DATA = {
     {nombre:"Proyecto mensura visada", est:"done"},
     {nombre:"Factibilidad ambiental", est:"done"},
     {nombre:"Final de obra pluvial", est:"done"},
-    {nombre:"Documentación interna", est:"proc"},
+    {nombre:"Documentación interna", est:"done"},
   ]},
   {nombre:"Visado Mensura MAyCC", est:"proc", sub:[
     {nombre:"CH3 Aprobado", est:"proc"},
@@ -2430,9 +2630,9 @@ const GESTION_DATA = {
       {nombre:"Litoral Gas", est:"na"},{nombre:"DPV", est:"done"},
     ]},
     {nombre:"Convenio urbanístico", est:"done"},
-    {nombre:"Pre-factibilidad de servicios", est:"prog", sub:[
-      {nombre:"Agua", est:"prog"},{nombre:"Cloaca", est:"prog"},{nombre:"RSU", est:"prog"},
-      {nombre:"Gas", est:"prog"},{nombre:"Electricidad", est:"prog"},{nombre:"Fibra óptica", est:"done"},
+    {nombre:"Pre-factibilidad de servicios", est:"done", sub:[
+      {nombre:"Agua", est:"done"},{nombre:"Cloaca", est:"done"},{nombre:"RSU", est:"done"},
+      {nombre:"Gas", est:"done"},{nombre:"Electricidad", est:"done"},{nombre:"Fibra óptica", est:"done"},
     ]},
     {nombre:"Documentación interna", est:"done"},
   ]},
@@ -2959,7 +3159,21 @@ function buildGestionTable(p){
     ${counts.na?`<span class="badge b-na">— ${counts.na} N/A</span>`:""}
   </div>`;
 
-  return resumen + g.map((h,i)=>hitoBlock(h, (i+1).toString().padStart(2,"0"))).join("");
+  const piiHtml=(p.pii||[]).length
+    ? `<div class="pii-list">${p.pii.map(code=>`<div class="pii-code">${code}</div>`).join("")}</div>`
+    : `<div class="gestion-intro-text" style="color:var(--muted)">Sin partida inmobiliaria cargada en esta versión.</div>`;
+  const intro=`<div class="gestion-intro">
+    <div class="gestion-intro-card">
+      <div class="gestion-intro-label">Qué se está gestionando</div>
+      <div class="gestion-intro-text">${p.gestionResumen||p.nota||"Seguimiento integral de los hitos técnicos y administrativos del proyecto."}</div>
+    </div>
+    <div class="gestion-intro-card">
+      <div class="gestion-intro-label">PII · Partida inmobiliaria</div>
+      ${piiHtml}
+    </div>
+  </div>`;
+
+  return intro + resumen + g.map((h,i)=>hitoBlock(h, (i+1).toString().padStart(2,"0"))).join("");
 }
 
 // ── BUILD HOME PROJECT GRID ──────────────────────────────────
@@ -3010,9 +3224,33 @@ function openDetail(id){
     "EN2":  "https://notebooklm.google.com/notebook/db6e06d5-e77c-402b-a3c9-97c550c85563",
     "EN":   "https://notebooklm.google.com/notebook/f79f9ea8-5025-4368-a26c-a020c3b69c9f",
     "OR":   "https://notebooklm.google.com/notebook/70dcf3ac-1bd9-4205-9195-3a43e33bad01",
+    "CM2":  "https://notebooklm.google.com/notebook/e3e7d771-47ae-45d0-b528-f2307ec37ed9",
+    "VI":   "https://notebooklm.google.com/notebook/2bb34c7f-5cd0-4979-9ddc-99f5343c28d8",
+    "CZ":   "https://notebooklm.google.com/notebook/ca6abd71-2e61-4bd5-9d18-b337a6ad961b",
+    "CDE":  "https://notebooklm.google.com/notebook/7f1f8b29-65d4-42c5-9386-317577b69912",
+    "VR":   "https://notebooklm.google.com/notebook/0b88333d-47b9-42a2-a0c8-f961915d7583"
   };
+  const DOCS_APPROVAL_LINKS={
+    "CM":   "https://drive.google.com/drive/folders/1LY81ICAAuvxk6YGOg_69Ryeax3fx3NE0?usp=sharing",
+    "CEPE": "https://drive.google.com/drive/folders/11VTtAqq8KzF3bvha61q6RZqjW3jtRB0U?usp=sharing",
+    "VI":   "https://drive.google.com/drive/folders/1lZ4e3Q3ncsThNt7VtoddhG3741MvAW8l?usp=sharing",
+    "VR":   "https://drive.google.com/drive/folders/1iJAhs8cr-3NUGV6wJ2DVPsBwL5F9A7t-?usp=sharing",
+    "EN":   "https://drive.google.com/drive/folders/1l_-3tu-1p49aAtzWXDFKhsfTldtcfvKn?usp=sharing",
+    "EN2":  "https://drive.google.com/drive/folders/1CCOKJYKNTxO8Iw0gyGR7rdYgbZyq3dgz?usp=sharing",
+    "CM2":  "https://drive.google.com/drive/folders/1kbRE3gK9goshX-fDxrRWxhnM3W1jYEtl?usp=sharing",
+    "OR":   "https://drive.google.com/drive/folders/1ph_lLEvnpfgmuRSTW9JpQE9fSmmnIWR3?usp=sharing",
+    "CZ":   "https://drive.google.com/drive/folders/13oCO9guThkLUjQ19RApFDy_WTPibUIqH?usp=sharing",
+    "CDE":  "https://drive.google.com/drive/folders/1CeqEud60ko9oJpn7LgK7qx7m53PWJdEL?usp=drive_link"
+  };
+  const hasDocsApprovals=!!(DOCS_APPROVAL_LINKS[id]);
   const hasChatIA=!!(CHAT_IA_LINKS[id]);
-  const tabs=["Gestión","Obra","Modelos","Pendientes",...(hasMasterplan?["Masterplan"]:[]),...(hasChatIA?["🤖 Chat IA"]:[])];
+  const tabs=[
+    "Gestión",
+    "Obra",
+    ...(hasMasterplan?["Masterplan"]:[]),
+    ...(hasDocsApprovals?["Docs y Aprobaciones"]:[]),
+    ...(hasChatIA?["🤖 Chat IA"]:[])
+  ];
   document.getElementById("detail-tabs").innerHTML=tabs.map((t,i)=>
     `<button class="dtab ${i===0?"active":""}" onclick="switchDTab(${i},this)">${t}</button>`
   ).join("");
@@ -3318,6 +3556,32 @@ function openDetail(id){
       </div>`;
   }
 
+  // Panel Docs y Aprobaciones — acceso directo a la carpeta Drive del proyecto
+  let docsApprovals = "";
+  if(hasDocsApprovals){
+    const docsUrl = DOCS_APPROVAL_LINKS[id];
+    docsApprovals = `
+      <div class="docs-approval-panel">
+        <div class="docs-approval-hero">
+          <div class="docs-approval-icon" aria-hidden="true">▣</div>
+          <div class="docs-approval-copy">
+            <div class="docs-approval-kicker">Carpeta documental del proyecto</div>
+            <div class="docs-approval-title">Docs y Aprobaciones · ${p.nombre}</div>
+            <div class="docs-approval-text">Accedé a la carpeta de Google Drive que reúne documentación técnica y administrativa, aprobaciones emitidas, expedientes, notas y antecedentes vinculados con ${p.nombre}.</div>
+          </div>
+        </div>
+        <div class="docs-approval-grid">
+          <div class="docs-approval-item"><strong>Documentación</strong><span>Antecedentes, notas y archivos de respaldo del proyecto.</span></div>
+          <div class="docs-approval-item"><strong>Aprobaciones</strong><span>Certificados, factibilidades, visados y actos administrativos.</span></div>
+          <div class="docs-approval-item"><strong>Seguimiento</strong><span>Material de consulta para revisar el estado de las gestiones.</span></div>
+        </div>
+        <a class="docs-approval-btn" href="${docsUrl}" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">▣</span> Abrir Docs y Aprobaciones · ${p.nombre} <span aria-hidden="true">↗</span>
+        </a>
+        <div class="docs-approval-note"><span aria-hidden="true">ℹ</span><span>La carpeta se abre en una pestaña nueva. La visualización y edición dependen de los permisos configurados en Google Drive.</span></div>
+      </div>`;
+  }
+
   // Panel Chat IA — proyectos con cuaderno NotebookLM
   let chatIA = "";
   if(hasChatIA){
@@ -3328,9 +3592,9 @@ function openDetail(id){
         <div style="width:100%;background:linear-gradient(135deg,#0f2348 0%,#162338 100%);border:1px solid rgba(71,148,255,0.25);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px">
           <div style="font-size:32px;line-height:1;flex-shrink:0">🤖</div>
           <div>
-            <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:4px">Asistente IA · CEPE</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:4px">Asistente IA · ${p.nombre}</div>
             <div style="font-size:12px;color:var(--muted);line-height:1.6">
-              Consultá el cuaderno inteligente de CEPE en NotebookLM. Podés hacer preguntas sobre el proyecto, los hitos, la gestión, el estado de obra y más — el asistente responde con base en los documentos del proyecto.
+              Consultá el cuaderno inteligente de ${p.nombre} en NotebookLM. Podés hacer preguntas sobre el proyecto, los hitos, la gestión, el estado de obra y más — el asistente responde con base en los documentos del proyecto.
             </div>
           </div>
         </div>
@@ -3357,7 +3621,7 @@ function openDetail(id){
            style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#4794ff,#1a56cc);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.3px;box-shadow:0 4px 20px rgba(71,148,255,0.35);transition:opacity .15s;width:100%;justify-content:center;max-width:360px"
            onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
           <span style="font-size:20px">🤖</span>
-          Abrir Chat IA · CEPE
+          Abrir Chat IA · ${p.nombre}
           <span style="font-size:16px;opacity:.7">↗</span>
         </a>
 
@@ -3365,19 +3629,20 @@ function openDetail(id){
         <div style="width:100%;background:var(--amber-l);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:8px">
           <span style="color:var(--amber);flex-shrink:0">💡</span>
           <div style="font-size:11px;color:var(--amber);line-height:1.5">
-            El asistente accede solo a los documentos cargados en el cuaderno de CEPE. Se abre en una nueva pestaña — necesitás tener acceso a NotebookLM con tu cuenta de Google.
+            El asistente accede solo a los documentos cargados en el cuaderno de ${p.nombre}. Se abre en una nueva pestaña — necesitás tener acceso a NotebookLM con tu cuenta de Google.
           </div>
         </div>
       </div>`;
   }
 
-  document.getElementById("detail-body").innerHTML=`
-    <div class="dpanel active" id="dp0">${g}</div>
-    <div class="dpanel" id="dp1">${o}</div>
-    <div class="dpanel" id="dp2">${m}</div>
-    <div class="dpanel" id="dp3">${pnl}</div>
-    ${hasMasterplan?`<div class="dpanel" id="dp4">${mp}</div>`:""}
-    ${hasChatIA?`<div class="dpanel" id="dp${hasMasterplan?5:4}">${chatIA}</div>`:""}`;
+  const detailPanels=[g,o];
+  if(hasMasterplan) detailPanels.push(mp);
+  if(hasDocsApprovals) detailPanels.push(docsApprovals);
+  if(hasChatIA) detailPanels.push(chatIA);
+
+  document.getElementById("detail-body").innerHTML=detailPanels.map((content,i)=>
+    `<div class="dpanel ${i===0?"active":""}" id="dp${i}">${content}</div>`
+  ).join("");
 
   document.getElementById("overlay").classList.add("open");
 }
@@ -3672,9 +3937,9 @@ function filterProjects(q){
 function applyProjFilters(q=""){
   q=q.toLowerCase();
   let list=PROJS.filter(p=>{
-    const avg=Math.round((p.avanceGestion+(p.avanceObra??p.avanceGestion))/2);
-    const matchFilter=projFilter==="all"||(projFilter==="urgente"&&p.urgente)||(projFilter==="proceso"&&avg<100&&!p.urgente)||(projFilter==="completo"&&avg===100);
+    const matchFilter=projFilter==="all"||(p.tags||[]).includes(projFilter);
     const matchQ=!q||p.nombre.toLowerCase().includes(q)||p.loc.toLowerCase().includes(q)||
+      (p.pii||[]).some(code=>code.toLowerCase().includes(q))||
       p.hitos.some(h=>(h.exp||"").toLowerCase().includes(q));
     return matchFilter&&matchQ;
   });
@@ -3757,9 +4022,8 @@ function showPage(id, btn, fromBottomNav=false){
   } else {
     document.querySelectorAll(".bnav-btn").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-    document.querySelectorAll(".ttab").forEach((t,i)=>{
-      const pages=["home","gestion","obra","postventa","estrategia","clientes"];
-      t.classList.toggle("active",pages[i]===id);
+    document.querySelectorAll(".ttab").forEach(t=>{
+      t.classList.toggle("active",t.dataset.page===id);
     });
   }
   window.scrollTo(0,0);
@@ -4344,6 +4608,96 @@ function exportSectionReport(pageId, reportTitle){
   window.addEventListener('afterprint',cleanup);
   setTimeout(()=>window.print(),120);
 }
+
+
+// ══════════════════════════════════════════════════════════════
+// FORO INTERNO
+// Pegá aquí la URL de implementación de Google Apps Script para
+// activar el modo compartido entre todos los dispositivos.
+// Ejemplo: https://script.google.com/macros/s/XXXXXXXX/exec
+// ══════════════════════════════════════════════════════════════
+const FORUM_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxffuhCAUXAsj8-m0yYpzGA2mlgE9wrjP0Qbni1cvEHQ7xrVp8zj6kObLJ4IfhIASVM/exec";
+const FORUM_LOCAL_STORAGE_KEY = "grupo_roma_foro_local_v1";
+
+function initForum(){
+  const remote=document.getElementById('forum-remote');
+  const local=document.getElementById('forum-local');
+  const frame=document.getElementById('forum-frame');
+  if(!remote || !local) return;
+  if(FORUM_WEBAPP_URL && /^https:\/\/script\.google\.com\//i.test(FORUM_WEBAPP_URL)){
+    remote.style.display='block';
+    local.style.display='none';
+    frame.src=FORUM_WEBAPP_URL;
+  }else{
+    remote.style.display='none';
+    local.style.display='grid';
+    renderLocalForumComments();
+  }
+  const box=document.getElementById('forum-message');
+  if(box && !box.dataset.bound){
+    box.addEventListener('input',()=>{
+      const c=document.getElementById('forum-counter');
+      if(c) c.textContent=`${box.value.length} / 1200`;
+    });
+    box.dataset.bound='1';
+  }
+}
+
+function getLocalForumComments(){
+  try{
+    const data=JSON.parse(localStorage.getItem(FORUM_LOCAL_STORAGE_KEY)||'[]');
+    return Array.isArray(data)?data:[];
+  }catch(e){return []}
+}
+
+function forumDateLabel(iso){
+  try{return new Date(iso).toLocaleString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});}catch(e){return ''}
+}
+
+function renderLocalForumComments(){
+  const list=document.getElementById('forum-list'); if(!list)return;
+  const rows=getLocalForumComments().slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  list.innerHTML='';
+  if(!rows.length){
+    const empty=document.createElement('div'); empty.className='forum-empty';
+    empty.textContent='Todavía no hay observaciones. Publicá el primer comentario del foro.';
+    list.appendChild(empty); return;
+  }
+  rows.forEach(row=>{
+    const card=document.createElement('article'); card.className='forum-comment';
+    const head=document.createElement('div'); head.className='forum-comment-head';
+    const name=document.createElement('div'); name.className='forum-comment-name'; name.textContent=row.name||'Sin nombre';
+    const date=document.createElement('div'); date.className='forum-comment-date'; date.textContent=forumDateLabel(row.date);
+    const msg=document.createElement('div'); msg.className='forum-comment-text'; msg.textContent=row.message||'';
+    head.append(name,date); card.append(head,msg); list.appendChild(card);
+  });
+}
+
+function setForumStatus(message,type=''){
+  const el=document.getElementById('forum-status'); if(!el)return;
+  el.textContent=message; el.className='forum-status'+(type?' '+type:'');
+}
+
+function publishLocalForumComment(){
+  const msg=document.getElementById('forum-message');
+  const name=document.getElementById('forum-name');
+  const button=document.getElementById('forum-submit');
+  const message=(msg?.value||'').trim();
+  const author=(name?.value||'').trim();
+  if(message.length<3){setForumStatus('Escribí un comentario antes de publicar.','error');msg?.focus();return;}
+  if(!author){setForumStatus('Dejá tu nombre para publicar el mensaje.','error');name?.focus();return;}
+  button.disabled=true;
+  const rows=getLocalForumComments();
+  rows.push({id:String(Date.now()),date:new Date().toISOString(),name:author.slice(0,70),message:message.slice(0,1200)});
+  localStorage.setItem(FORUM_LOCAL_STORAGE_KEY,JSON.stringify(rows.slice(-250)));
+  msg.value='';
+  const counter=document.getElementById('forum-counter'); if(counter)counter.textContent='0 / 1200';
+  setForumStatus('Comentario publicado en la vista previa de este dispositivo.','ok');
+  renderLocalForumComments();
+  button.disabled=false;
+}
+
+setTimeout(initForum,0);
 
 </script>
 </body>
